@@ -1,21 +1,133 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+
+// Helper to extract UTM parameters from URL search query on the client side
+const getUTMParams = () => {
+  if (typeof window === 'undefined') {
+    return { utmSource: '', utmMedium: '', utmCampaign: '', utmContent: '', utmTerm: '', pageUrl: '' };
+  }
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utmSource: params.get('utm_source') || '',
+    utmMedium: params.get('utm_medium') || '',
+    utmCampaign: params.get('utm_campaign') || '',
+    utmContent: params.get('utm_content') || '',
+    utmTerm: params.get('utm_term') || '',
+    pageUrl: window.location.href,
+  };
+};
+
+// Helper to generate a unique transaction/event ID for Meta Pixel/CAPI deduplication
+const generateEventId = (eventName: string) => {
+  return `${eventName}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+};
 
 export function LeadForm() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [started, setStarted] = useState(false);
+
+  const handleInputFocus = () => {
+    if (!started) {
+      console.log('lead_form_started');
+      setStarted(true);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    /* 
-      TODO: Form submission handler. 
-      Map form data and post it to endpoints configured in the environment variables:
-      - process.env.NEXT_PUBLIC_GHL_SOLAR_WEBHOOK_URL
-      - process.env.NEXT_PUBLIC_GHL_ROOFING_WEBHOOK_URL
-      - process.env.NEXT_PUBLIC_GHL_WATER_WEBHOOK_URL
-      - process.env.NEXT_PUBLIC_GHL_REFERRAL_WEBHOOK_URL
-      - process.env.NEXT_PUBLIC_GHL_CONTACT_WEBHOOK_URL
-    */
     console.log('lead_form_submit_click');
-    alert("Form submitted! (Placeholder action)");
+
+    const form = e.currentTarget;
+    const serviceInterest = (form.querySelector('#service-type') as HTMLSelectElement)?.value || '';
+    const firstName = (form.querySelector('#first-name') as HTMLInputElement)?.value || '';
+    const lastName = (form.querySelector('#last-name') as HTMLInputElement)?.value || '';
+    const email = (form.querySelector('#email') as HTMLInputElement)?.value || '';
+    const phone = (form.querySelector('#phone') as HTMLInputElement)?.value || '';
+    const postalCode = (form.querySelector('#zip') as HTMLInputElement)?.value || '';
+    const honeypot = (form.querySelector('#honeypot') as HTMLInputElement)?.value || '';
+
+    // Honeypot bot protection check
+    if (honeypot) {
+      console.warn('lead_form_bot_blocked_via_honeypot');
+      // Silently reset and show alert to deceive the bot
+      alert("Thank you! Your assessment request has been submitted.");
+      form.reset();
+      setStarted(false);
+      return;
+    }
+
+    // Check UTMs and Event IDs
+    const utms = getUTMParams();
+    const eventId = generateEventId('Lead');
+
+    const tags = ['newera_home_upgrade_advisor'];
+    if (serviceInterest.includes('Solar')) {
+      tags.push('newera_solar_lead');
+    } else if (serviceInterest.includes('Roofing')) {
+      tags.push('newera_roofing_lead');
+    } else if (serviceInterest.includes('Water')) {
+      tags.push('newera_water_lead');
+    }
+
+    const payload = {
+      firstName,
+      lastName,
+      phone,
+      email,
+      postalCode,
+      serviceInterest,
+      electricBillMonthly: 'N/A',
+      roofAge: 'N/A',
+      roofingNeed: 'N/A',
+      waterConcern: 'N/A',
+      recommendedNextStep: 'General Inquiry - Quick Form',
+      preferredContactMethod: 'Call',
+      bestContactTime: 'Anytime',
+      advisorSummary: `Homeowner ${firstName} ${lastName} submitted quick lead form for ${serviceInterest}. ZIP: ${postalCode}.`,
+      tags,
+      pageUrl: utms.pageUrl,
+      utmSource: utms.utmSource,
+      utmMedium: utms.utmMedium,
+      utmCampaign: utms.utmCampaign,
+      utmContent: utms.utmContent,
+      utmTerm: utms.utmTerm,
+      eventId: eventId,
+      timestamp: new Date().toISOString()
+    };
+
+    console.log('ghl_payload_prepared', payload);
+
+    // Call secure proxy endpoint
+    try {
+      const response = await fetch('https://newera-lead-proxy.up.railway.app/api/lead-submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      if (response.ok) {
+        console.log('lead_form_submitted', { eventId, status: 'success' });
+        // Trigger browser Meta Pixel Lead event ONLY after success response from the proxy
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead', {
+            content_category: 'Quick Contact Form',
+            currency: 'USD',
+            value: 50.00
+          }, { event_id: eventId });
+          console.log('pixel_browser_tracked', 'Lead', eventId);
+        }
+        alert("Thank you! Your assessment request has been submitted.");
+        form.reset();
+        setStarted(false);
+      } else {
+        console.warn('lead_submission_proxy_error', response.statusText);
+        alert("There was an issue submitting your request. Please try again or call us.");
+      }
+    } catch (err) {
+      console.error('lead_submission_failed', err);
+      alert("Submission failed. Please check your connection.");
+    }
   };
 
   return (
@@ -39,29 +151,40 @@ export function LeadForm() {
         <div className="grid grid-cols-2 gap-4">
           <div className="px-5 py-3 border border-[#E6EDF2] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#5EC8E5] focus-within:bg-white focus-within:shadow-sm group">
             <label htmlFor="first-name" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">First Name</label>
-            <input id="first-name" type="text" placeholder="John" required className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
+            <input id="first-name" type="text" placeholder="John" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
           </div>
           <div className="px-5 py-3 border border-[#E6EDF2] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#5EC8E5] focus-within:bg-white focus-within:shadow-sm group">
             <label htmlFor="last-name" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Last Name</label>
-            <input id="last-name" type="text" placeholder="Doe" required className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
+            <input id="last-name" type="text" placeholder="Doe" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
           </div>
         </div>
 
         <div className="px-5 py-3 border border-[#E6EDF2] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#5EC8E5] focus-within:bg-white focus-within:shadow-sm group">
           <label htmlFor="email" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Email Address</label>
-          <input id="email" type="email" placeholder="john@example.com" required className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
+          <input id="email" type="email" placeholder="john@example.com" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="px-5 py-3 border border-[#E6EDF2] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#5EC8E5] focus-within:bg-white focus-within:shadow-sm group">
             <label htmlFor="phone" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Phone</label>
-            <input id="phone" type="tel" placeholder="(555) 123-4567" required className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
+            <input id="phone" type="tel" placeholder="(555) 123-4567" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
           </div>
           <div className="px-5 py-3 border border-[#E6EDF2] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#5EC8E5] focus-within:bg-white focus-within:shadow-sm group">
             <label htmlFor="zip" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">ZIP Code</label>
-            <input id="zip" type="text" placeholder="33101" required className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
+            <input id="zip" type="text" placeholder="33101" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans" />
           </div>
         </div>
+        
+        {/* Honeypot field for bot protection */}
+        <input 
+          id="honeypot" 
+          name="honeypot" 
+          type="text" 
+          className="absolute opacity-0 pointer-events-none" 
+          tabIndex={-1} 
+          autoComplete="off" 
+          placeholder="Do not fill this field" 
+        />
         
         <button type="submit" className="w-full mt-6 bg-[#FF8A3D] text-white py-4 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg shadow-[#FF8A3D]/20 hover:bg-[#e0752f] hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px]">
           Get My Free Solar Assessment
@@ -73,3 +196,4 @@ export function LeadForm() {
     </div>
   );
 }
+

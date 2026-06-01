@@ -2,48 +2,63 @@
 
 import React, { useState } from 'react';
 
-// GHL Webhook Placeholders
-const GHL_WEBHOOKS = {
-  SOLAR: 'https://placeholder-ghl.com/webhook/solar',
-  ROOFING: 'https://placeholder-ghl.com/webhook/roofing',
-  WATER: 'https://placeholder-ghl.com/webhook/water',
-  REFERRAL: 'https://placeholder-ghl.com/webhook/referral',
-  CONTACT: 'https://placeholder-ghl.com/webhook/contact',
+// Helper to extract UTM parameters from URL search query on the client side
+const getUTMParams = () => {
+  if (typeof window === 'undefined') {
+    return { utmSource: '', utmMedium: '', utmCampaign: '', utmContent: '', utmTerm: '', pageUrl: '' };
+  }
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utmSource: params.get('utm_source') || '',
+    utmMedium: params.get('utm_medium') || '',
+    utmCampaign: params.get('utm_campaign') || '',
+    utmContent: params.get('utm_content') || '',
+    utmTerm: params.get('utm_term') || '',
+    pageUrl: window.location.href,
+  };
 };
 
-// Placeholder function for future Gemini integration
-const generateGeminiLeadSummary = (data: any) => {
-  console.log('lead_summary_generated', data);
-  // Rule-based recommendation for Phase 1
+// Helper to generate a unique transaction/event ID for Meta Pixel/CAPI deduplication
+const generateEventId = (eventName: string) => {
+  return `${eventName}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+};
+
+// Rule-based recommendation engine for GHL Lead Triage
+const generateAdvisorRecommendation = (data: any) => {
   let recommendation = "Home Upgrade Consultation";
   let ghlWorkflow = "contact_workflow";
+  const tags = ["newera_home_upgrade_advisor"];
 
   if (data.serviceInterest === 'Solar') {
     if (data.roofAge === '15+ years') {
       recommendation = "Solar Assessment + Roof Readiness Review";
+      tags.push("solar_roof_readiness_review", "newera_solar_lead");
     } else if (data.electricBill === '$250–$400' || data.electricBill === '$400+') {
-      recommendation = "Solar Consultation";
+      recommendation = "Priority Solar Consultation";
+      tags.push("newera_solar_lead", "high_intent_lead");
     } else {
       recommendation = "General Solar Assessment";
+      tags.push("newera_solar_lead");
     }
     ghlWorkflow = "solar_consultation_workflow";
-    console.log('solar_lead_qualified', data);
   } else if (data.serviceInterest === 'Roofing') {
-    recommendation = "Roofing Review";
+    recommendation = "Professional Roof Integrity Review";
+    tags.push("newera_roofing_lead");
     ghlWorkflow = "roofing_workflow";
-    console.log('roofing_lead_qualified', data);
   } else if (data.serviceInterest === 'Water Purification') {
-    recommendation = "Water Quality Consultation";
+    recommendation = "Bilingual Water Quality Test";
+    tags.push("newera_water_lead");
     ghlWorkflow = "water_consultation_workflow";
-    console.log('water_lead_qualified', data);
+  } else {
+    // Help Me Decide / Not Sure
+    tags.push("newera_general_inquiry");
   }
 
   return {
-    serviceInterest: data.serviceInterest || "Not Sure",
     recommendedNextStep: recommendation,
-    leadSummary: `Homeowner is interested in ${data.serviceInterest}. Bill: ${data.electricBill}, Roof Age: ${data.roofAge}. Name: ${data.name}, Route to ${ghlWorkflow}.`,
     ghlWorkflow: ghlWorkflow,
-    priority: "high" // Placeholder value
+    tags: tags,
+    advisorSummary: `Homeowner ${data.name} is interested in ${data.serviceInterest}. ZIP Code: ${data.zipCode}. homeowner status: ${data.homeowner}. Electric Bill: ${data.electricBill || 'N/A'}, Roof Age: ${data.roofAge || 'N/A'}, Roofing Need: ${data.roofingHelp || 'N/A'}, Water Concern: ${data.waterConcern || 'N/A'}. Preferred: ${data.preferredContact} during ${data.bestTime}.`
   };
 };
 
@@ -62,11 +77,13 @@ export function HomeUpgradeAdvisor() {
     name: '',
     phone: '',
     email: '',
+    honeypot: '',
   });
 
   const [result, setResult] = useState<any>(null);
 
   const startAdvisor = () => {
+    console.log('advisor_opened');
     console.log('advisor_started');
     setStep(1);
   };
@@ -74,7 +91,7 @@ export function HomeUpgradeAdvisor() {
   const handleSelect = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     
-    // Tracking hook
+    // Tracking hooks
     if (field === 'serviceInterest') {
       console.log('advisor_service_selected', value);
     }
@@ -105,20 +122,101 @@ export function HomeUpgradeAdvisor() {
     else if (step === 9) setStep(10);
   };
 
-  const submitForm = () => {
+  const submitForm = async () => {
     console.log('advisor_completed');
-    const summary = generateGeminiLeadSummary(formData);
-    setResult(summary);
+
+    // Honeypot bot protection check
+    if (formData.honeypot) {
+      console.warn('advisor_bot_blocked_via_honeypot');
+      // Silently show success screen to confuse the bot
+      setResult({
+        recommendedNextStep: "Home Upgrade Consultation",
+        tags: ["newera_home_upgrade_advisor"],
+        advisorSummary: "Bot submission caught."
+      });
+      setStep(11);
+      return;
+    }
     
-    console.log('ghl_payload_prepared', {
-      payload: summary,
-      webhookUrl: summary.ghlWorkflow.includes('solar') ? GHL_WEBHOOKS.SOLAR : 
-                  summary.ghlWorkflow.includes('roofing') ? GHL_WEBHOOKS.ROOFING : 
-                  summary.ghlWorkflow.includes('water') ? GHL_WEBHOOKS.WATER : GHL_WEBHOOKS.CONTACT
-    });
-    
+    // Compute recommendation and workflow tags first
+    const analysis = generateAdvisorRecommendation(formData);
+    setResult(analysis);
+
+    // Logging dynamic qualifications based on selected categories
+    if (formData.serviceInterest === 'Solar') {
+      console.log('solar_lead_qualified', formData);
+    } else if (formData.serviceInterest === 'Roofing') {
+      console.log('roofing_lead_qualified', formData);
+    } else if (formData.serviceInterest === 'Water Purification') {
+      console.log('water_lead_qualified', formData);
+    }
+
+    // Split First and Last Name
+    const nameParts = formData.name.trim().split(/\s+/);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+
+    const utms = getUTMParams();
+    const eventId = generateEventId('Lead');
+
+    const ghlPayload = {
+      firstName,
+      lastName,
+      phone: formData.phone,
+      email: formData.email,
+      postalCode: formData.zipCode,
+      serviceInterest: formData.serviceInterest,
+      electricBillMonthly: formData.electricBill || 'N/A',
+      roofAge: formData.roofAge || 'N/A',
+      roofingNeed: formData.roofingHelp || 'N/A',
+      waterConcern: formData.waterConcern || 'N/A',
+      recommendedNextStep: analysis.recommendedNextStep,
+      preferredContactMethod: formData.preferredContact,
+      bestContactTime: formData.bestTime,
+      advisorSummary: analysis.advisorSummary,
+      tags: analysis.tags,
+      pageUrl: utms.pageUrl,
+      utmSource: utms.utmSource,
+      utmMedium: utms.utmMedium,
+      utmCampaign: utms.utmCampaign,
+      utmContent: utms.utmContent,
+      utmTerm: utms.utmTerm,
+      eventId: eventId,
+      timestamp: new Date().toISOString()
+    };
+
+    console.log('ghl_payload_prepared', ghlPayload);
+
+    // Secure post to Railway proxy REST endpoint
+    try {
+      const response = await fetch('https://newera-lead-proxy.up.railway.app/api/lead-submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(ghlPayload)
+      });
+      if (response.ok) {
+        console.log('lead_form_submitted', { eventId, status: 'success' });
+        // Trigger browser Meta Pixel Lead event ONLY after success response from the proxy
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead', {
+            content_category: 'Home Upgrades',
+            currency: 'USD',
+            value: 50.00
+          }, { event_id: eventId });
+          console.log('pixel_browser_tracked', 'Lead', eventId);
+        }
+      } else {
+        console.warn('lead_submission_proxy_error', response.statusText);
+      }
+    } catch (err) {
+      console.error('lead_submission_failed', err);
+    }
+
     setStep(11);
   };
+
 
   const renderStepContent = () => {
     switch(step) {
@@ -275,6 +373,17 @@ export function HomeUpgradeAdvisor() {
               <input name="phone" value={formData.phone} onChange={handleInput} placeholder="Phone Number" className="p-4 rounded-xl border border-[#E6EDF2] focus:outline-none focus:border-[#5EC8E5] focus:ring-1 focus:ring-[#5EC8E5]" />
               <input name="email" value={formData.email} onChange={handleInput} placeholder="Email Address" className="p-4 rounded-xl border border-[#E6EDF2] focus:outline-none focus:border-[#5EC8E5] focus:ring-1 focus:ring-[#5EC8E5]" />
               
+              {/* Honeypot field for bot protection */}
+              <input 
+                name="honeypot" 
+                value={formData.honeypot} 
+                onChange={handleInput} 
+                className="absolute opacity-0 pointer-events-none" 
+                tabIndex={-1} 
+                autoComplete="off" 
+                placeholder="Do not fill this field" 
+              />
+              
               <button 
                 onClick={submitForm}
                 disabled={!formData.name || !formData.email || !formData.phone}
@@ -310,7 +419,7 @@ export function HomeUpgradeAdvisor() {
             <button 
               onClick={() => { setStep(0); setFormData({
                 serviceInterest: '', homeowner: '', zipCode: '', electricBill: '', roofAge: '',
-                roofingHelp: '', waterConcern: '', preferredContact: '', bestTime: '', name: '', phone: '', email: ''
+                roofingHelp: '', waterConcern: '', preferredContact: '', bestTime: '', name: '', phone: '', email: '', honeypot: ''
               }); setResult(null); }}
               className="text-[#123B5D] font-bold text-sm underline underline-offset-4 decoration-[#E6EDF2] hover:decoration-[#123B5D] transition-colors"
             >
