@@ -6,19 +6,19 @@ export function ProcessTimeline() {
       num: "01",
       title: "Free Assessment",
       desc: "We evaluate your home's solar potential and energy needs with zero pressure.",
-      icon: "🔍"
+      icon: "📋"
     },
     {
       num: "02",
       title: "Custom Design",
       desc: "Our engineers create a tailored solar plan optimized for your roof and usage.",
-      icon: "✏️"
+      icon: "📐"
     },
     {
       num: "03",
       title: "Permitting",
       desc: "We handle all local regulations, HOA approvals, and necessary paperwork.",
-      icon: "📋"
+      icon: "📄"
     },
     {
       num: "04",
