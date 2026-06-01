@@ -1,85 +1,70 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-export function Header({ onSelectService }: { onSelectService?: (service: string) => void }) {
+interface HeaderProps {
+  /** Only used on the homepage to pre-select a service in the Home Upgrade Advisor */
+  onSelectService?: (service: string) => void;
+}
+
+export function Header({ onSelectService }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   const handleMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    if (!isMobileMenuOpen) {
-      console.log('mobile_menu_open');
+    setIsMobileMenuOpen(prev => !prev);
+  };
+
+  const handleServiceClick = (service: string) => {
+    setIsMobileMenuOpen(false);
+    if (isHomePage && onSelectService) {
+      onSelectService(service);
+      setTimeout(() => {
+        document.getElementById('upgrade-advisor')?.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
     }
+    // If not on homepage, navigation is handled by the Link component
   };
 
   const scrollToLeadForm = (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log('header_free_assessment_click');
-    const formElement = document.getElementById('lead-form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsMobileMenuOpen(false);
-  };
-
-  const handleLinkClick = (e: React.MouseEvent, label: string) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-
-    if (label === 'Solar' || label === 'Roofing' || label === 'Water Purification') {
-      if (onSelectService) {
-        onSelectService(label);
-      }
-      const advisorElement = document.getElementById('upgrade-advisor');
-      if (advisorElement) {
-        advisorElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (label === 'Our Process') {
-      const processElement = document.getElementById('our-process');
-      if (processElement) {
-        processElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (label === 'Service Areas') {
-      const serviceAreasElement = document.getElementById('service-areas');
-      if (serviceAreasElement) {
-        serviceAreasElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (label === 'Reviews') {
-      const reviewsElement = document.getElementById('reviews');
-      if (reviewsElement) {
-        reviewsElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (label === 'Referral Program') {
-      const referralElement = document.getElementById('referral-program');
-      if (referralElement) {
-        referralElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (label === 'Contact') {
-      const formElement = document.getElementById('lead-form');
-      if (formElement) {
-        formElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (label === 'Home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isHomePage) {
+      document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/contact';
     }
   };
+
+  const serviceLinks = [
+    { label: 'Solar', href: '/solar', service: 'Solar' },
+    { label: 'Roofing', href: '/roofing', service: 'Roofing' },
+    { label: 'Water Purification', href: '/water-purification', service: 'Water Purification' },
+  ];
 
   const navLinks = [
-    { label: "Home", href: "#" },
-    { label: "Solar", href: "#" },
-    { label: "Roofing", href: "#" },
-    { label: "Water Purification", href: "#" },
-    { label: "Our Process", href: "#" },
-    { label: "Service Areas", href: "#" },
-    { label: "Reviews", href: "#" },
-    { label: "Referral Program", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: 'Home', href: '/' },
+    { label: 'Solar', href: '/solar' },
+    { label: 'Roofing', href: '/roofing' },
+    { label: 'Water Purification', href: '/water-purification' },
+    { label: 'Cost & Savings', href: '/cost-savings' },
+    { label: 'Our Process', href: '/process' },
+    { label: 'Service Areas', href: '/service-areas' },
+    { label: 'Reviews', href: '/reviews' },
+    { label: 'Referral Program', href: '/referral' },
+    { label: 'Contact', href: '/contact' },
   ];
+
+  const desktopLinks = navLinks.slice(0, 7);
 
   return (
     <>
-      <header className="w-full bg-white border-b border-[#E6EDF2] px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={(e) => handleLinkClick(e, 'Home')}>
+      <header className="w-full bg-white border-b border-[#E6EDF2] px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <div className="w-10 h-10 bg-[#FF8A3D] rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm">
             N
           </div>
@@ -87,35 +72,51 @@ export function Header({ onSelectService }: { onSelectService?: (service: string
             <span className="font-poppins font-bold text-lg leading-tight uppercase tracking-tight text-[#123B5D]">New Era</span>
             <span className="text-[10px] text-[#5EC8E5] font-semibold uppercase tracking-[0.2em] -mt-1 hidden sm:block">Solar Energy</span>
           </div>
-        </div>
-        
+        </Link>
+
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium text-[#5F6F75]">
-          {navLinks.slice(0, 8).map((link, idx) => (
-            <a 
-              key={idx} 
-              href={link.href} 
-              onClick={(e) => handleLinkClick(e, link.label)}
-              className="hover:text-[#FF8A3D] transition-colors pb-1"
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#5F6F75]">
+          {desktopLinks.map((link) => {
+            const isActive = pathname === link.href;
+            const svcLink = serviceLinks.find(s => s.href === link.href);
+            if (svcLink && isHomePage) {
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => handleServiceClick(svcLink.service)}
+                  className={`pb-1 transition-colors ${isActive ? 'text-[#FF8A3D] border-b-2 border-[#FF8A3D]' : 'hover:text-[#FF8A3D]'}`}
+                >
+                  {link.label}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`pb-1 transition-colors ${isActive ? 'text-[#FF8A3D] border-b-2 border-[#FF8A3D]' : 'hover:text-[#FF8A3D]'}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
-        
+
+        {/* Right Actions */}
         <div className="flex items-center gap-2 md:gap-4">
-          <button 
+          <button
             onClick={scrollToLeadForm}
             className="bg-[#123B5D] text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#1a4a75] transition-colors whitespace-nowrap"
           >
             Free Assessment
           </button>
-          
+
           {/* Mobile Menu Toggle */}
-          <button 
-            className="lg:hidden p-2 text-[#123B5D]" 
+          <button
+            className="lg:hidden p-2 text-[#123B5D]"
             onClick={handleMenuToggle}
             aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
               {isMobileMenuOpen ? (
@@ -128,26 +129,36 @@ export function Header({ onSelectService }: { onSelectService?: (service: string
         </div>
       </header>
 
-      {/* Mobile Navigation Dropdown */}
+      {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed top-[73px] left-0 right-0 bg-white border-b border-[#E6EDF2] z-40 shadow-lg p-4 flex flex-col gap-2 h-[calc(100vh-73px)] overflow-y-auto">
-          {navLinks.map((link, idx) => (
-            <a 
-              key={idx}
-              href={link.href}
-              className="text-lg font-poppins font-medium py-3 px-4 rounded-xl text-[#123B5D] hover:bg-[#F5F7FA]"
-              onClick={(e) => handleLinkClick(e, link.label)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <div className="mt-6 mb-4 px-4">
-            <button 
+        <div className="lg:hidden fixed top-[73px] left-0 right-0 bg-white border-b border-[#E6EDF2] z-40 shadow-lg p-4 flex flex-col gap-1 h-[calc(100vh-73px)] overflow-y-auto">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-lg font-poppins font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? 'bg-[#FFF0E5] text-[#FF8A3D]' : 'text-[#123B5D] hover:bg-[#F5F7FA]'}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <div className="mt-6 mb-4 px-4 flex flex-col gap-3">
+            <button
               onClick={scrollToLeadForm}
-              className="w-full bg-[#123B5D] text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-md"
+              className="w-full bg-[#123B5D] text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-md hover:bg-[#1a4a75] transition-colors"
             >
               Get a Free Assessment
             </button>
+            <Link
+              href="/referral"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full bg-[#FF8A3D] text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm text-center shadow-md hover:bg-[#ff7a21] transition-colors"
+            >
+              Refer a Homeowner — Earn $1,000
+            </Link>
           </div>
         </div>
       )}

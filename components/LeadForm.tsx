@@ -99,7 +99,7 @@ export function LeadForm() {
 
     // Call secure proxy endpoint
     try {
-      const response = await fetch('https://newera-lead-proxy.up.railway.app/api/lead-submit', {
+      const response = await fetch('/api/lead-submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
