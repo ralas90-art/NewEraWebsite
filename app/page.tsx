@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ServiceCard } from '../components/ServiceCard';
 import { Footer } from '../components/Footer';
 import { LeadForm } from '../components/LeadForm';
@@ -11,8 +11,11 @@ import { ProcessTimeline } from '../components/ProcessTimeline';
 import { TrustIndicators } from '../components/TrustIndicators';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { HomeUpgradeAdvisor } from '../components/HomeUpgradeAdvisor';
+import { ReferralProgram } from '../components/ReferralProgram';
 
 export default function Home() {
+  const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
+
   const scrollToLeadForm = (id: string, trackingEvent: string) => {
     console.log(trackingEvent);
     const formElement = document.getElementById(id);
@@ -21,9 +24,16 @@ export default function Home() {
     }
   };
 
+  const handleSelectService = (service: string) => {
+    setSelectedService(service);
+    setTimeout(() => {
+      document.getElementById('upgrade-advisor')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen w-full bg-[#F5F7FA] text-[#123B5D] flex flex-col selection:bg-[#FF8A3D] selection:text-white">
-      <Header />
+      <Header onSelectService={handleSelectService} />
 
       {/* Main Viewport Content */}
       <main className="flex-grow flex flex-col p-6 gap-6 max-w-6xl mx-auto w-full">
@@ -42,7 +52,6 @@ export default function Home() {
                 playsInline
                 poster="https://images.unsplash.com/photo-1509391366360-1e5e4acb5042?q=80&w=1200&auto=format&fit=crop"
               >
-                {/* Replace this placeholder URL with your actual uploaded video URL once hosted */}
                 <source src="https://videos.pexels.com/video-files/3201509/3201509-uhd_2560_1440_25fps.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -95,7 +104,9 @@ export default function Home() {
         <TrustIndicators />
 
         {/* Home Upgrade Advisor Section */}
-        <HomeUpgradeAdvisor />
+        <div id="upgrade-advisor" className="scroll-mt-20">
+          <HomeUpgradeAdvisor initialService={selectedService} onServiceClear={() => setSelectedService(undefined)} />
+        </div>
 
         {/* Bottom Service Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -105,7 +116,7 @@ export default function Home() {
             category="Primary Service"
             isPrimary={true}
             icon="☀️"
-            onClick={() => console.log('service_card_click')}
+            onClick={() => handleSelectService('Solar')}
             index={0}
           />
           <ServiceCard
@@ -113,7 +124,7 @@ export default function Home() {
             description="Protect your investment"
             category="Support Service"
             icon="🏠"
-            onClick={() => console.log('service_card_click')}
+            onClick={() => handleSelectService('Roofing')}
             index={1}
           />
           <ServiceCard
@@ -121,16 +132,18 @@ export default function Home() {
             description="Clean home comfort"
             category="Support Service"
             icon="💧"
-            onClick={() => console.log('service_card_click')}
+            onClick={() => handleSelectService('Water Purification')}
             index={2}
           />
         </div>
 
         {/* Process Timeline Section */}
-        <ProcessTimeline />
+        <div id="our-process" className="scroll-mt-20">
+          <ProcessTimeline />
+        </div>
 
-        {/* Placeholder Service Areas Section */}
-        <section className="mt-8 mb-4 border-t border-b border-[#E6EDF2] py-12">
+        {/* Service Areas Section */}
+        <section id="service-areas" className="mt-8 mb-4 border-t border-b border-[#E6EDF2] py-12 scroll-mt-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-1 block">Local Expertise</span>
@@ -149,7 +162,12 @@ export default function Home() {
         </section>
 
         {/* Reviews Section */}
-        <Reviews />
+        <div id="reviews" className="scroll-mt-20">
+          <Reviews />
+        </div>
+
+        {/* Referral Program Section */}
+        <ReferralProgram />
 
         {/* FAQ Section */}
         <FAQ />

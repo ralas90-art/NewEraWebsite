@@ -62,7 +62,13 @@ const generateAdvisorRecommendation = (data: any) => {
   };
 };
 
-export function HomeUpgradeAdvisor() {
+export function HomeUpgradeAdvisor({ 
+  initialService, 
+  onServiceClear 
+}: { 
+  initialService?: string; 
+  onServiceClear?: () => void; 
+}) {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     serviceInterest: '',
@@ -81,6 +87,13 @@ export function HomeUpgradeAdvisor() {
   });
 
   const [result, setResult] = useState<any>(null);
+
+  React.useEffect(() => {
+    if (initialService) {
+      setFormData(prev => ({ ...prev, serviceInterest: initialService }));
+      setStep(2);
+    }
+  }, [initialService]);
 
   const startAdvisor = () => {
     console.log('advisor_opened');
@@ -420,7 +433,7 @@ export function HomeUpgradeAdvisor() {
               onClick={() => { setStep(0); setFormData({
                 serviceInterest: '', homeowner: '', zipCode: '', electricBill: '', roofAge: '',
                 roofingHelp: '', waterConcern: '', preferredContact: '', bestTime: '', name: '', phone: '', email: '', honeypot: ''
-              }); setResult(null); }}
+              }); setResult(null); if (onServiceClear) onServiceClear(); }}
               className="text-[#123B5D] font-bold text-sm underline underline-offset-4 decoration-[#E6EDF2] hover:decoration-[#123B5D] transition-colors"
             >
               Start Over
