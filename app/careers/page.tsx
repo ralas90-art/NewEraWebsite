@@ -80,7 +80,7 @@ export default function CareersPage() {
     hiringOrganization: {
       '@type': 'Organization',
       name: 'New Era Solar Energy',
-      sameAs: 'https://newerasolar.placeholder.com',
+      sameAs: 'https://newerasolarenergy.com',
     },
     jobLocation: {
       '@type': 'Place',
@@ -109,8 +109,8 @@ export default function CareersPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://newerasolar.placeholder.com/careers' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://newerasolarenergy.com/careers' },
     ],
   };
 

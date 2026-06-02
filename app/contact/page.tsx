@@ -34,8 +34,8 @@ export default function ContactPage() {
     '@type': 'LocalBusiness',
     name: 'New Era Solar Energy',
     description: 'Residential solar, roofing, and water purification services across FL, MA, and CT.',
-    url: 'https://newerasolar.placeholder.com',
-    telephone: '+1-555-123-4567',
+    url: 'https://newerasolarenergy.com',
+    telephone: '+1-000-000-0000', // TODO: REPLACE_WITH_REAL_PHONE_NUMBER
     email: 'hello@newerasolarenergy.com',
     openingHours: 'Mo-Sa 08:00-19:00',
     areaServed: [
@@ -65,8 +65,8 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://newerasolar.placeholder.com/contact' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://newerasolarenergy.com/contact' },
     ],
   };
 
@@ -109,8 +109,8 @@ export default function ContactPage() {
                   <span className="text-2xl mt-0.5">📞</span>
                   <div>
                     <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">Phone</p>
-                    <a href="tel:+15551234567" className="text-[#123B5D] font-semibold font-sans hover:text-[#FF8A3D] transition-colors">
-                      (555) 123-4567
+                    <a href="tel:+10000000000" className="text-[#123B5D] font-semibold font-sans hover:text-[#FF8A3D] transition-colors">
+                      (000) 000-0000
                     </a>
                     <p className="text-xs text-[#5F6F75] font-sans">Placeholder — updated prior to launch</p>
                   </div>

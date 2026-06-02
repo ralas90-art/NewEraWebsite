@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Roofing Services | New Era Solar Energy',
     description:
       'Protect your home with professional roof inspections, repairs, and replacements. New Era Solar Energy provides roofing services to keep your home solar-ready.',
-    url: 'https://newerasolar.placeholder.com/roofing',
+    url: 'https://newerasolarenergy.com/roofing',
     siteName: 'New Era Solar Energy',
     locale: 'en_US',
     type: 'website',
@@ -47,7 +47,7 @@ export default function RoofingPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy',
-      url: 'https://newerasolar.placeholder.com',
+      url: 'https://newerasolarenergy.com',
       address: {
         '@type': 'PostalAddress',
         addressRegion: 'FL',
@@ -57,7 +57,7 @@ export default function RoofingPage() {
     areaServed: { '@type': 'State', name: 'Florida' },
     description:
       'Professional roof inspections, repair, replacement, storm damage assessment, and solar roof readiness evaluation for Florida homeowners.',
-    url: 'https://newerasolar.placeholder.com/roofing',
+    url: 'https://newerasolarenergy.com/roofing',
   };
 
   const faqSchema = {
@@ -77,8 +77,8 @@ export default function RoofingPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Roofing', item: 'https://newerasolar.placeholder.com/roofing' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Roofing', item: 'https://newerasolarenergy.com/roofing' },
     ],
   };
 

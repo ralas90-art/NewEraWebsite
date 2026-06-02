@@ -14,14 +14,14 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolar.placeholder.com/service-areas' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolarenergy.com/service-areas' },
       ],
     },
     {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy',
-      url: 'https://newerasolar.placeholder.com',
+      url: 'https://newerasolarenergy.com',
       areaServed: [
         { '@type': 'State', name: 'Florida' },
         { '@type': 'State', name: 'Massachusetts' },

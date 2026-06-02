@@ -15,15 +15,15 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolar.placeholder.com/service-areas' },
-        { '@type': 'ListItem', position: 3, name: 'Massachusetts', item: 'https://newerasolar.placeholder.com/service-areas/massachusetts' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolarenergy.com/service-areas' },
+        { '@type': 'ListItem', position: 3, name: 'Massachusetts', item: 'https://newerasolarenergy.com/service-areas/massachusetts' },
       ],
     },
     {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy — Massachusetts',
-      url: 'https://newerasolar.placeholder.com/service-areas/massachusetts',
+      url: 'https://newerasolarenergy.com/service-areas/massachusetts',
       areaServed: { '@type': 'State', name: 'Massachusetts' },
       description: 'Residential solar installation services across Massachusetts including the SMART program.',
       address: { '@type': 'PostalAddress', addressRegion: 'MA', addressCountry: 'US' },

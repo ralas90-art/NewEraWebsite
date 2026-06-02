@@ -106,8 +106,8 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-        { '@type': 'ListItem', position: 2, name: 'Our Process', item: 'https://newerasolar.placeholder.com/process' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+        { '@type': 'ListItem', position: 2, name: 'Our Process', item: 'https://newerasolarenergy.com/process' },
       ],
     },
     {

@@ -1,3 +1,4 @@
+import Analytics from '../components/Analytics';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'New Era Solar Energy | Florida\'s Solar Specialist',
     description: 'Make the switch to solar with confidence. Clear guidance, personalized assessments, and Florida-inspired support.',
-    url: 'https://newerasolar.placeholder.com',
+    url: 'https://newerasolarenergy.com', // TODO: REPLACE_WITH_PRODUCTION_DOMAIN
     siteName: 'New Era Solar Energy',
     locale: 'en_US',
     type: 'website',
@@ -45,8 +46,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     '@type': 'HomeAndConstructionBusiness',
     name: 'New Era Solar Energy',
     description: "Florida's Solar Specialist providing residential solar, roofing, and water purification.",
-    url: 'https://newerasolar.placeholder.com',
-    telephone: '+1-555-123-4567',
+    url: 'https://newerasolarenergy.com', // TODO: REPLACE_WITH_PRODUCTION_DOMAIN
+    telephone: '+1-000-000-0000', // TODO: REPLACE_WITH_REAL_PHONE_NUMBER
     address: {
       '@type': 'PostalAddress',
       addressRegion: 'FL',
@@ -64,6 +65,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
+        <Analytics />
         {children}
       </body>
     </html>

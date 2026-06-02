@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Home Water Purification | New Era Solar Energy',
     description:
       'Clean, filtered water for your entire home. New Era Solar Energy installs whole-house filtration systems, under-sink RO systems, and water quality testing.',
-    url: 'https://newerasolar.placeholder.com/water-purification',
+    url: 'https://newerasolarenergy.com/water-purification',
     siteName: 'New Era Solar Energy',
     locale: 'en_US',
     type: 'website',
@@ -47,7 +47,7 @@ export default function WaterPurificationPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy',
-      url: 'https://newerasolar.placeholder.com',
+      url: 'https://newerasolarenergy.com',
       address: {
         '@type': 'PostalAddress',
         addressRegion: 'FL',
@@ -57,7 +57,7 @@ export default function WaterPurificationPage() {
     areaServed: { '@type': 'State', name: 'Florida' },
     description:
       'Whole-house water filtration, under-sink reverse osmosis systems, and water quality testing for Florida homeowners.',
-    url: 'https://newerasolar.placeholder.com/water-purification',
+    url: 'https://newerasolarenergy.com/water-purification',
   };
 
   const faqSchema = {
@@ -77,8 +77,8 @@ export default function WaterPurificationPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Water Purification', item: 'https://newerasolar.placeholder.com/water-purification' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Water Purification', item: 'https://newerasolarenergy.com/water-purification' },
     ],
   };
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Solar Cost & Savings | New Era Solar Energy',
     description:
       'Understand solar financing options, potential energy savings, and what the federal tax credit changes mean for homeowners. Get a personalized savings estimate.',
-    url: 'https://newerasolar.placeholder.com/cost-savings',
+    url: 'https://newerasolarenergy.com/cost-savings',
     siteName: 'New Era Solar Energy',
     locale: 'en_US',
     type: 'website',
@@ -62,8 +62,8 @@ export default function CostSavingsPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Cost & Savings', item: 'https://newerasolar.placeholder.com/cost-savings' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Cost & Savings', item: 'https://newerasolarenergy.com/cost-savings' },
     ],
   };
 

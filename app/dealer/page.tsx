@@ -85,15 +85,15 @@ export default function DealerPage() {
     '@type': 'Organization',
     name: 'New Era Solar Energy',
     description: 'Residential solar, roofing, and water purification services across FL, MA, and CT.',
-    url: 'https://newerasolar.placeholder.com',
+    url: 'https://newerasolarenergy.com',
   };
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Become a Dealer', item: 'https://newerasolar.placeholder.com/dealer' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Become a Dealer', item: 'https://newerasolarenergy.com/dealer' },
     ],
   };
 

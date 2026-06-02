@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Residential Solar Energy in Florida | New Era Solar Energy',
     description:
       'Explore solar energy for your home with New Era Solar Energy. Get a free assessment, personalized system design, and clear guidance from Florida solar experts.',
-    url: 'https://newerasolar.placeholder.com/solar',
+    url: 'https://newerasolarenergy.com/solar',
     siteName: 'New Era Solar Energy',
     locale: 'en_US',
     type: 'website',
@@ -52,7 +52,7 @@ export default function SolarPage() {
     provider: {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy',
-      url: 'https://newerasolar.placeholder.com',
+      url: 'https://newerasolarenergy.com',
       address: {
         '@type': 'PostalAddress',
         addressRegion: 'FL',
@@ -62,7 +62,7 @@ export default function SolarPage() {
     areaServed: { '@type': 'State', name: 'Florida' },
     description:
       'Residential solar energy assessment, custom system design, installation, and activation for Florida homeowners.',
-    url: 'https://newerasolar.placeholder.com/solar',
+    url: 'https://newerasolarenergy.com/solar',
   };
 
   const faqSchema = {
@@ -82,8 +82,8 @@ export default function SolarPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Solar Energy', item: 'https://newerasolar.placeholder.com/solar' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Solar Energy', item: 'https://newerasolarenergy.com/solar' },
     ],
   };
 

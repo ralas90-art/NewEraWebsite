@@ -15,15 +15,15 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolar.placeholder.com/service-areas' },
-        { '@type': 'ListItem', position: 3, name: 'Connecticut', item: 'https://newerasolar.placeholder.com/service-areas/connecticut' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolarenergy.com/service-areas' },
+        { '@type': 'ListItem', position: 3, name: 'Connecticut', item: 'https://newerasolarenergy.com/service-areas/connecticut' },
       ],
     },
     {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy — Connecticut',
-      url: 'https://newerasolar.placeholder.com/service-areas/connecticut',
+      url: 'https://newerasolarenergy.com/service-areas/connecticut',
       areaServed: { '@type': 'State', name: 'Connecticut' },
       description: 'Residential solar installation, roofing, and water purification services across Connecticut.',
       address: { '@type': 'PostalAddress', addressRegion: 'CT', addressCountry: 'US' },

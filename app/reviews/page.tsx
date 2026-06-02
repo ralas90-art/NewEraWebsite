@@ -15,14 +15,14 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-        { '@type': 'ListItem', position: 2, name: 'Reviews', item: 'https://newerasolar.placeholder.com/reviews' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+        { '@type': 'ListItem', position: 2, name: 'Reviews', item: 'https://newerasolarenergy.com/reviews' },
       ],
     },
     {
       '@type': 'Organization',
       name: 'New Era Solar Energy',
-      url: 'https://newerasolar.placeholder.com',
+      url: 'https://newerasolarenergy.com',
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '5.0',

@@ -15,15 +15,15 @@ const jsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolar.placeholder.com/service-areas' },
-        { '@type': 'ListItem', position: 3, name: 'Florida', item: 'https://newerasolar.placeholder.com/service-areas/florida' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+        { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://newerasolarenergy.com/service-areas' },
+        { '@type': 'ListItem', position: 3, name: 'Florida', item: 'https://newerasolarenergy.com/service-areas/florida' },
       ],
     },
     {
       '@type': 'LocalBusiness',
       name: 'New Era Solar Energy — Florida',
-      url: 'https://newerasolar.placeholder.com/service-areas/florida',
+      url: 'https://newerasolarenergy.com/service-areas/florida',
       areaServed: { '@type': 'State', name: 'Florida' },
       description: 'Residential solar installation, roofing, and water purification services across Florida.',
       address: { '@type': 'PostalAddress', addressRegion: 'FL', addressCountry: 'US' },

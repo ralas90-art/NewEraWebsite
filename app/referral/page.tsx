@@ -73,8 +73,8 @@ export default function ReferralPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolar.placeholder.com' },
-      { '@type': 'ListItem', position: 2, name: 'Referral Program', item: 'https://newerasolar.placeholder.com/referral' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: 'Referral Program', item: 'https://newerasolarenergy.com/referral' },
     ],
   };
 
