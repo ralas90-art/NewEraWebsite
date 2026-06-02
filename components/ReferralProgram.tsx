@@ -3,10 +3,7 @@
 import React, { useState } from 'react';
 import { Gift, CheckCircle, Send } from 'lucide-react';
 
-// Helper to generate unique event ID
-const generateEventId = (eventName: string) => {
-  return `${eventName}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-};
+import { getUTMParams, generateEventId, getStagingAwareTags, submitLead, fireMetaPixelLead } from '@/lib/lead-submit';
 
 export function ReferralProgram() {
   const [formData, setFormData] = useState({
@@ -60,7 +57,7 @@ export function ReferralProgram() {
       preferredContactMethod: 'Call',
       bestContactTime: 'Anytime',
       advisorSummary: `Referral submitted by ${formData.referrerName} (Phone: ${formData.referrerPhone}, Email: ${formData.referrerEmail}). Friend details: ${formData.refereeName} (ZIP: ${formData.refereeZip}).`,
-      tags: ['newera_referral_lead', `referred_by_${formData.referrerName.replace(/[^a-zA-Z0-9]/g, '_')}`],
+      tags: getStagingAwareTags(['newera_referral_lead', `referred_by_${formData.referrerName.replace(/[^a-zA-Z0-9]/g, '_')}`]),
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
       utmSource: 'referral_program',
       utmMedium: 'website',
