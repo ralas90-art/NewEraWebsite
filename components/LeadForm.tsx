@@ -2,26 +2,7 @@
 
 import React, { useState } from 'react';
 
-// Helper to extract UTM parameters from URL search query on the client side
-const getUTMParams = () => {
-  if (typeof window === 'undefined') {
-    return { utmSource: '', utmMedium: '', utmCampaign: '', utmContent: '', utmTerm: '', pageUrl: '' };
-  }
-  const params = new URLSearchParams(window.location.search);
-  return {
-    utmSource: params.get('utm_source') || '',
-    utmMedium: params.get('utm_medium') || '',
-    utmCampaign: params.get('utm_campaign') || '',
-    utmContent: params.get('utm_content') || '',
-    utmTerm: params.get('utm_term') || '',
-    pageUrl: window.location.href,
-  };
-};
-
-// Helper to generate a unique transaction/event ID for Meta Pixel/CAPI deduplication
-const generateEventId = (eventName: string) => {
-  return `${eventName}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-};
+import { getUTMParams, generateEventId, getStagingAwareTags, submitLead, fireMetaPixelLead } from '@/lib/lead-submit';
 
 export function LeadForm() {
   const [started, setStarted] = useState(false);
@@ -84,7 +65,7 @@ export function LeadForm() {
       preferredContactMethod: 'Call',
       bestContactTime: 'Anytime',
       advisorSummary: `Homeowner ${firstName} ${lastName} submitted quick lead form for ${serviceInterest}. ZIP: ${postalCode}.`,
-      tags,
+      tags: getStagingAwareTags(tags),
       pageUrl: utms.pageUrl,
       utmSource: utms.utmSource,
       utmMedium: utms.utmMedium,
@@ -96,32 +77,14 @@ export function LeadForm() {
     };
 
     console.log('ghl_payload_prepared', payload);
-
-    // Call secure proxy endpoint
     try {
-      const response = await fetch('/api/lead-submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-      if (response.ok) {
-        console.log('lead_form_submitted', { eventId, status: 'success' });
-        // Trigger browser Meta Pixel Lead event ONLY after success response from the proxy
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead', {
-            content_category: 'Quick Contact Form',
-            currency: 'USD',
-            value: 50.00
-          }, { event_id: eventId });
-          console.log('pixel_browser_tracked', 'Lead', eventId);
-        }
+      const result = await submitLead(payload);
+      if (result.ok) {
+        fireMetaPixelLead(eventId, 'Quick Contact Form', 50.00);
         alert("Thank you! Your assessment request has been submitted.");
         form.reset();
         setStarted(false);
       } else {
-        console.warn('lead_submission_proxy_error', response.statusText);
         alert("There was an issue submitting your request. Please try again or call us.");
       }
     } catch (err) {
