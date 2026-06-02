@@ -7,6 +7,7 @@ export default function Analytics() {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+  const artemisToken = process.env.NEXT_PUBLIC_ARTEMIS_TOKEN;
 
   return (
     <>
@@ -106,6 +107,16 @@ export default function Analytics() {
               })(window, document, "clarity", "script", "${clarityId}");
             `,
           }}
+        />
+      )}
+    
+      {/* Artemis Solar Leads */}
+      {artemisToken && (
+        <Script
+          id="artemis-leads"
+          src="https://leads.artemis.solar/leads.js"
+          data-token={artemisToken}
+          strategy="lazyOnload"
         />
       )}
     </>
