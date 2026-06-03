@@ -106,23 +106,30 @@ export default function ContactPage() {
               <h2 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">Contact Information</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
+                  <span className="text-2xl mt-0.5">📍</span>
+                  <div>
+                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">Office Location</p>
+                    <p className="text-newera-dark-gray font-semibold font-sans">Orlando, FL 32804</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
                   <span className="text-2xl mt-0.5">📞</span>
                   <div>
                     <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">Phone</p>
-                    <a href="tel:+10000000000" className="text-newera-dark-gray font-semibold font-sans hover:text-[#ff5722] transition-colors">
-                      (000) 000-0000
+                    <a href="tel:+13213813192" className="text-newera-dark-gray font-semibold font-sans hover:text-[#ff5722] transition-colors">
+                      (321) 381-3192
                     </a>
-                    <p className="text-xs text-[#5F6F75] font-sans">Placeholder — updated prior to launch</p>
+                    <p className="text-xs text-[#5F6F75] font-sans">Orlando Headquarters</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="text-2xl mt-0.5">✉️</span>
                   <div>
                     <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">Email</p>
-                    <a href="mailto:hello@newerasolarenergy.com" className="text-newera-dark-gray font-semibold font-sans hover:text-[#ff5722] transition-colors">
-                      hello@newerasolarenergy.com
+                    <a href="mailto:info@newerasolarenergy.com" className="text-newera-dark-gray font-semibold font-sans hover:text-[#ff5722] transition-colors">
+                      info@newerasolarenergy.com
                     </a>
-                    <p className="text-xs text-[#5F6F75] font-sans">Placeholder — updated prior to launch</p>
+                    <p className="text-xs text-[#5F6F75] font-sans">Orlando Headquarters</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
