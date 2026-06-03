@@ -1,0 +1,15 @@
+{
+  "name": "newera-lead-proxy",
+  "version": "1.0.0",
+  "description": "Secure lead proxy for GoHighLevel and Meta CAPI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0"
+  }
+}
