@@ -101,8 +101,20 @@ export default function WaterPurificationPage() {
 
         {/* Hero Section */}
         <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a2a42] via-[#123B5D] to-[#1d5480] opacity-95 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#082fa3]/10 rounded-full translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+          {/* Background Video Layer */}
+          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <div className="absolute inset-0 bg-newera-dark-blue/70 z-10 pointer-events-none"></div>
+            <video 
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src="/videos/water-hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
           <div className="relative z-10 max-w-3xl">
             <span className="inline-block bg-[#082fa3]/20 border border-[#082fa3]/40 text-[#082fa3] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
               Water Purification — Florida

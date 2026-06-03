@@ -61,7 +61,7 @@ export default function Home() {
                 playsInline
                 poster="https://images.unsplash.com/photo-1509391366360-1e5e4acb5042?q=80&w=1200&auto=format&fit=crop"
               >
-                <source src="https://videos.pexels.com/video-files/3201509/3201509-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+                <source src="/videos/solar-hero.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

@@ -101,8 +101,20 @@ export default function RoofingPage() {
 
         {/* Hero Section */}
         <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0e2d48] via-[#123B5D] to-[#1a4a75] opacity-95 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#082fa3]/10 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          {/* Background Video Layer */}
+          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <div className="absolute inset-0 bg-newera-dark-blue/70 z-10 pointer-events-none"></div>
+            <video 
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src="/videos/roofing-hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
           <div className="relative z-10 max-w-3xl">
             <span className="inline-block bg-[#082fa3]/20 border border-[#082fa3]/40 text-[#082fa3] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
               Roofing Services — Florida
