@@ -38,7 +38,7 @@ export function FloatingCTA() {
     >
       <button 
         onClick={scrollToLeadForm}
-        className="w-full bg-[#FF8A3D] text-white py-4 rounded-full font-bold text-[13px] uppercase tracking-wider shadow-[0_8px_30px_rgb(255,138,61,0.3)] border border-[#ff7a21] hover:bg-[#e0752f] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+        className="w-full bg-[#ff5722] text-white py-4 rounded-full font-bold text-[13px] uppercase tracking-wider shadow-[0_8px_30px_rgb(255,138,61,0.3)] border border-[#e04a1b] hover:bg-[#e0752f] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
       >
         <span>Get a Free Solar Assessment</span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">

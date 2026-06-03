@@ -98,29 +98,29 @@ export default function DealerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-[#123B5D]">
+    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#5F6F75] font-sans flex items-center gap-2">
-        <Link href="/" className="hover:text-[#FF8A3D] transition-colors">Home</Link>
+        <Link href="/" className="hover:text-[#ff5722] transition-colors">Home</Link>
         <span>/</span>
-        <span className="text-[#123B5D] font-semibold">Become a Dealer</span>
+        <span className="text-newera-dark-gray font-semibold">Become a Dealer</span>
       </nav>
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="bg-[#123B5D] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+        <div className="bg-newera-dark-blue rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#1a4a75] via-[#123B5D] to-[#0d2d4a] pointer-events-none" />
           <div className="relative z-10">
-            <span className="inline-block bg-[#FF8A3D]/20 text-[#FF8A3D] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+            <span className="inline-block bg-[#ff5722]/20 text-[#ff5722] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
               Partner Program
             </span>
             <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
               Grow Your Business as a<br />
-              <span className="text-[#FF8A3D]">New Era Solar Partner</span>
+              <span className="text-[#ff5722]">New Era Solar Partner</span>
             </h1>
             <p className="text-white/80 text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto mb-10">
               Whether you&apos;re an independent solar dealer, an EPC contractor, or a territory development
@@ -128,7 +128,7 @@ export default function DealerPage() {
             </p>
             <a
               href="#dealer-form"
-              className="inline-block bg-[#FF8A3D] text-white px-10 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all shadow-lg shadow-[#FF8A3D]/25"
+              className="inline-block bg-[#ff5722] text-white px-10 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all shadow-lg shadow-[#ff5722]/25"
             >
               Apply to Partner →
             </a>
@@ -138,14 +138,14 @@ export default function DealerPage() {
 
       {/* Why Partner */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="font-poppins font-bold text-3xl text-[#123B5D] text-center mb-12">
+        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray text-center mb-12">
           Why Partner With New Era Solar Energy?
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {whyCards.map((card) => (
-            <div key={card.title} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div key={card.title} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="text-3xl mb-4">{card.icon}</div>
-              <h3 className="font-poppins font-bold text-lg text-[#123B5D] mb-3">{card.title}</h3>
+              <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">{card.title}</h3>
               <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{card.desc}</p>
             </div>
           ))}
@@ -154,14 +154,14 @@ export default function DealerPage() {
 
       {/* Partner Types */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="font-poppins font-bold text-3xl text-[#123B5D] text-center mb-12">
+        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray text-center mb-12">
           Who We Work With
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {partnerTypes.map((type) => (
-            <div key={type.title} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center">
+            <div key={type.title} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center">
               <div className="text-4xl mb-4">{type.icon}</div>
-              <h3 className="font-poppins font-bold text-lg text-[#123B5D] mb-3">{type.title}</h3>
+              <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">{type.title}</h3>
               <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{type.desc}</p>
             </div>
           ))}
@@ -175,13 +175,13 @@ export default function DealerPage() {
 
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <h2 className="font-poppins font-bold text-2xl text-[#123B5D] mb-8 text-center">
+        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-8 text-center">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqItems.map(({ q, a }) => (
-            <div key={q} className="bg-white border border-[#E6EDF2] rounded-2xl p-6 shadow-sm">
-              <h3 className="font-poppins font-semibold text-[#123B5D] text-base mb-2">{q}</h3>
+            <div key={q} className="bg-white border border-[#e5e5e5] rounded-2xl p-6 shadow-sm">
+              <h3 className="font-poppins font-semibold text-newera-dark-gray text-base mb-2">{q}</h3>
               <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{a}</p>
             </div>
           ))}

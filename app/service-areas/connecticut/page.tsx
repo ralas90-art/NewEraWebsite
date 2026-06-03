@@ -33,22 +33,22 @@ const jsonLd = {
 
 const BENEFITS = [
   {
-    icon: <TrendingUp className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <TrendingUp className="w-6 h-6 text-[#ff5722]" />,
     title: 'Among the Highest Electricity Rates in the US',
     desc: 'Connecticut consistently ranks among the states with the highest average residential electricity rates. Higher electricity costs typically strengthen the financial case for solar — more savings potential per kilowatt-hour your system produces.',
   },
   {
-    icon: <Leaf className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Leaf className="w-6 h-6 text-[#ff5722]" />,
     title: 'Net Metering Through Eversource and UI',
     desc: 'Net metering is available through Connecticut&apos;s major utilities — Eversource and United Illuminating (UI). Each utility has its own tariff structure and credit terms. We review your specific utility during your free assessment.',
   },
   {
-    icon: <CreditCard className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <CreditCard className="w-6 h-6 text-[#ff5722]" />,
     title: 'CT Green Bank Programs & Financing',
     desc: 'The Connecticut Green Bank offers financing options and programs designed to make clean energy more accessible. Terms, eligibility, and availability are subject to change — visit ctgreenbank.com for current program details.',
   },
   {
-    icon: <Cloud className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Cloud className="w-6 h-6 text-[#ff5722]" />,
     title: 'Year-Round Solar Potential',
     desc: 'Connecticut receives meaningful solar resource year-round, even accounting for seasonal weather. Modern solar systems are designed for New England conditions, and production estimates account for local climate patterns.',
   },
@@ -93,16 +93,16 @@ export default function ConnecticutPage() {
 
       <main className="min-h-screen bg-[#F5F7FA]">
         {/* Hero */}
-        <section className="bg-[#123B5D] text-white py-20 px-6">
+        <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#5EC8E5] mb-4 font-sans">
+            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <Link href="/service-areas" className="hover:underline">Service Areas</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Connecticut</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
               The Constitution State
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -114,7 +114,7 @@ export default function ConnecticutPage() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-flex items-center gap-2 justify-center"
+                className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 justify-center"
               >
                 Get My Free CT Assessment
                 <ArrowRight className="w-4 h-4" />
@@ -132,8 +132,8 @@ export default function ConnecticutPage() {
         {/* Why Connecticut Section */}
         <section className="max-w-6xl mx-auto px-6 py-16">
           <div className="text-center mb-12">
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-2 block">Solar Advantage</span>
-            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#123B5D]">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-2 block">Solar Advantage</span>
+            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
               Why Connecticut Homeowners Are Going Solar
             </h2>
             <p className="text-[#5F6F75] font-sans text-sm mt-3 max-w-2xl mx-auto">
@@ -143,22 +143,22 @@ export default function ConnecticutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {BENEFITS.map((b, i) => (
-              <div key={i} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-2xl bg-[#FF8A3D]/10 flex items-center justify-center mb-4">
+              <div key={i} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-2xl bg-[#ff5722]/10 flex items-center justify-center mb-4">
                   {b.icon}
                 </div>
-                <h3 className="font-poppins font-bold text-lg text-[#123B5D] mb-3">{b.title}</h3>
+                <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">{b.title}</h3>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
 
           {/* CT Program Disclaimer */}
-          <div className="mt-8 bg-[#F5F7FA] border border-[#E6EDF2] rounded-2xl p-5 flex gap-3">
-            <Info className="w-5 h-5 text-[#5EC8E5] shrink-0 mt-0.5" />
+          <div className="mt-8 bg-[#F5F7FA] border border-[#e5e5e5] rounded-2xl p-5 flex gap-3">
+            <Info className="w-5 h-5 text-[#082fa3] shrink-0 mt-0.5" />
             <p className="text-sm text-[#5F6F75] font-sans leading-relaxed">
-              <strong className="text-[#123B5D]">CT Program Notice:</strong> Net metering tariffs, Green Bank financing terms, and state incentive details are subject to change. Visit{' '}
-              <a href="https://www.ctgreenbank.com" target="_blank" rel="noopener noreferrer" className="text-[#FF8A3D] hover:underline">
+              <strong className="text-newera-dark-gray">CT Program Notice:</strong> Net metering tariffs, Green Bank financing terms, and state incentive details are subject to change. Visit{' '}
+              <a href="https://www.ctgreenbank.com" target="_blank" rel="noopener noreferrer" className="text-[#ff5722] hover:underline">
                 ctgreenbank.com
               </a>{' '}
               or your utility&apos;s website for current program details before making any purchasing decision.
@@ -167,21 +167,21 @@ export default function ConnecticutPage() {
         </section>
 
         {/* Cities */}
-        <section className="bg-white border-t border-[#E6EDF2] py-12 px-6">
+        <section className="bg-white border-t border-[#e5e5e5] py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-poppins font-bold text-xl text-[#123B5D] mb-6 flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-[#FF8A3D]" />
+            <h2 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-[#ff5722]" />
               Connecticut Cities We Serve
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {CITIES.map((city) => (
-                <div key={city} className="bg-[#F5F7FA] border border-[#E6EDF2] rounded-xl px-4 py-3 text-sm font-bold text-[#123B5D] font-poppins text-center">
+                <div key={city} className="bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl px-4 py-3 text-sm font-bold text-newera-dark-gray font-poppins text-center">
                   {city}
                 </div>
               ))}
             </div>
             <p className="text-xs text-[#5F6F75] font-sans mt-4 italic">
-              Don&apos;t see your city? <Link href="/contact" className="text-[#FF8A3D] hover:underline">Contact us</Link> — we likely serve your area.
+              Don&apos;t see your city? <Link href="/contact" className="text-[#ff5722] hover:underline">Contact us</Link> — we likely serve your area.
             </p>
           </div>
         </section>
@@ -197,7 +197,7 @@ export default function ConnecticutPage() {
         </section>
 
         {/* FAQ */}
-        <section className="bg-white border-t border-[#E6EDF2] py-4">
+        <section className="bg-white border-t border-[#e5e5e5] py-4">
           <div className="max-w-4xl mx-auto px-6">
             <FAQAccordion
               items={FAQS}
@@ -208,7 +208,7 @@ export default function ConnecticutPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#123B5D] py-16 px-6 text-center">
+        <section className="bg-newera-dark-blue py-16 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-poppins font-bold text-2xl md:text-3xl text-white mb-4">
               Ready to Go Solar in Connecticut?
@@ -218,7 +218,7 @@ export default function ConnecticutPage() {
             </p>
             <Link
               href="/contact"
-              className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-block"
+              className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-block"
             >
               Schedule My Free CT Assessment
             </Link>

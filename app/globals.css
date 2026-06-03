@@ -4,5 +4,10 @@
 @theme {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  
+  --color-newera-orange: #ff5722;
+  --color-newera-dark-gray: #4e5257;
+  --color-newera-light-gray: #e5e5e5;
+  --color-newera-blue: #082fa3;
+  --color-newera-dark-blue: #14324b;
 }
-

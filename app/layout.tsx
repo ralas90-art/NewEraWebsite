@@ -2,6 +2,8 @@ import Analytics from '../components/Analytics';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,7 +17,7 @@ const poppins = Poppins({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#123B5D',
+  themeColor: '#ff5722',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -23,10 +25,16 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'New Era Solar Energy | Florida\'s Solar Specialist',
+  icons: {
+    icon: '/logo-sun.png',
+    shortcut: '/logo-sun.png',
+    apple: '/logo-sun.png',
+  },
   description: 'Make the switch to solar with confidence. New Era Solar Energy provides clear guidance, personalized assessments, and premium support for residential solar, roofing, and water purification in Florida.',
   keywords: ['solar energy', 'Florida solar', 'residential solar panels', 'solar installation', 'roofing FL', 'home water purification'],
   openGraph: {
     title: 'New Era Solar Energy | Florida\'s Solar Specialist',
+  
     description: 'Make the switch to solar with confidence. Clear guidance, personalized assessments, and Florida-inspired support.',
     url: 'https://newerasolarenergy.com', // TODO: REPLACE_WITH_PRODUCTION_DOMAIN
     siteName: 'New Era Solar Energy',
@@ -64,9 +72,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+      <body className="font-sans antialiased bg-[#F5F7FA] text-newera-dark-gray flex flex-col min-h-screen" suppressHydrationWarning>
         <Analytics />
-        {children}
+        <Header />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

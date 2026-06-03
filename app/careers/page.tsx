@@ -115,25 +115,25 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-[#123B5D]">
+    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#5F6F75] font-sans flex items-center gap-2">
-        <Link href="/" className="hover:text-[#FF8A3D] transition-colors">Home</Link>
+        <Link href="/" className="hover:text-[#ff5722] transition-colors">Home</Link>
         <span>/</span>
-        <span className="text-[#123B5D] font-semibold">Careers</span>
+        <span className="text-newera-dark-gray font-semibold">Careers</span>
       </nav>
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 py-16 text-center">
-        <span className="inline-block bg-[#5EC8E5]/15 text-[#5EC8E5] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+        <span className="inline-block bg-[#082fa3]/15 text-[#082fa3] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
           Join the Team
         </span>
-        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-[#123B5D] leading-[1.1] mb-6">
+        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-newera-dark-gray leading-[1.1] mb-6">
           Build Your Career<br />
-          in <span className="text-[#FF8A3D]">Clean Energy</span>
+          in <span className="text-[#ff5722]">Clean Energy</span>
         </h1>
         <p className="text-[#5F6F75] text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto">
           New Era Solar Energy is growing fast across Florida, Massachusetts, and Connecticut. We are
@@ -144,21 +144,21 @@ export default function CareersPage() {
 
       {/* Open Positions */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="font-poppins font-bold text-3xl text-[#123B5D] mb-10">Open Positions</h2>
+        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray mb-10">Open Positions</h2>
         <div className="space-y-5">
           {jobs.map((job) => (
-            <div key={job.title} className="bg-white border border-[#E6EDF2] rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow">
+            <div key={job.title} className="bg-white border border-[#e5e5e5] rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                 <div className="flex-1">
-                  <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-2">{job.title}</h3>
+                  <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-2">{job.title}</h3>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-[#F5F7FA] border border-[#E6EDF2] text-[#5F6F75] text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-[#F5F7FA] border border-[#e5e5e5] text-[#5F6F75] text-xs font-semibold px-3 py-1 rounded-full">
                       📍 {job.location}
                     </span>
-                    <span className="bg-[#F5F7FA] border border-[#E6EDF2] text-[#5F6F75] text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-[#F5F7FA] border border-[#e5e5e5] text-[#5F6F75] text-xs font-semibold px-3 py-1 rounded-full">
                       🌎 {job.market}
                     </span>
-                    <span className="bg-[#FFE1C7]/40 text-[#FF8A3D] text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-[#ff572220]/40 text-[#ff5722] text-xs font-semibold px-3 py-1 rounded-full">
                       💼 {job.compensation}
                     </span>
                   </div>
@@ -166,7 +166,7 @@ export default function CareersPage() {
                 </div>
                 <a
                   href="#career-form"
-                  className="shrink-0 bg-[#123B5D] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#1a4a75] transition-colors text-center self-start"
+                  className="shrink-0 bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors text-center self-start"
                 >
                   Apply Now
                 </a>
@@ -178,12 +178,12 @@ export default function CareersPage() {
 
       {/* Application Form */}
       <section className="max-w-3xl mx-auto px-6 pb-4">
-        <h2 className="font-poppins font-bold text-3xl text-[#123B5D] mb-6 text-center">Apply Now</h2>
+        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray mb-6 text-center">Apply Now</h2>
         <CareerApplicationForm />
       </section>
 
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <div className="bg-[#5EC8E5]/10 border border-[#5EC8E5]/30 rounded-2xl p-5 text-sm text-[#123B5D] font-sans leading-relaxed">
+        <div className="bg-[#082fa3]/10 border border-[#082fa3]/30 rounded-2xl p-5 text-sm text-newera-dark-gray font-sans leading-relaxed">
           <strong>Note:</strong> We review applications weekly. No resume upload required in this phase
           — use the experience summary field to tell us about your background and what you bring to the team.
         </div>

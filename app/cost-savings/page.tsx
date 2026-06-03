@@ -68,32 +68,32 @@ export default function CostSavingsPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#F5F7FA] text-[#123B5D]">
+    <div className="min-h-screen w-full bg-[#F5F7FA] text-newera-dark-gray">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-6 pt-6 pb-2">
         <ol className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
-          <li><Link href="/" className="hover:text-[#FF8A3D] transition-colors">Home</Link></li>
-          <li className="text-[#E6EDF2]">/</li>
-          <li className="text-[#123B5D] font-semibold">Cost &amp; Savings</li>
+          <li><Link href="/" className="hover:text-[#ff5722] transition-colors">Home</Link></li>
+          <li className="text-[#e5e5e5]">/</li>
+          <li className="text-newera-dark-gray font-semibold">Cost &amp; Savings</li>
         </ol>
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 pb-20 flex flex-col gap-16">
 
         {/* Hero Section */}
-        <section className="relative rounded-3xl overflow-hidden bg-[#123B5D] px-8 md:px-14 py-16 md:py-24 mt-4">
+        <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
           <div className="absolute inset-0 bg-gradient-to-br from-[#123B5D] via-[#1a4a75] to-[#0a2a42] opacity-95 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF8A3D]/5 rounded-full -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff5722]/5 rounded-full -translate-y-1/3 translate-x-1/4 pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
-            <span className="inline-block bg-[#FF8A3D]/20 border border-[#FF8A3D]/40 text-[#FF8A3D] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
+            <span className="inline-block bg-[#ff5722]/20 border border-[#ff5722]/40 text-[#ff5722] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
               Financing &amp; Savings Education
             </span>
             <h1 className="font-poppins font-extrabold text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-6">
               Understanding the{' '}
-              <span className="text-[#FF8A3D]">Cost and Value</span>{' '}
+              <span className="text-[#ff5722]">Cost and Value</span>{' '}
               of Going Solar
             </h1>
             <p className="text-white/85 text-base md:text-lg leading-relaxed mb-10 max-w-2xl font-sans">
@@ -101,7 +101,7 @@ export default function CostSavingsPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)]"
+              className="inline-block bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)]"
             >
               Get a Personalized Savings Estimate
             </Link>
@@ -111,8 +111,8 @@ export default function CostSavingsPage() {
         {/* Financing Options */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-2">How Homeowners Pay</span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#123B5D]">Solar Financing Options Explained</h2>
+            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">How Homeowners Pay</span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">Solar Financing Options Explained</h2>
             <p className="text-[#5F6F75] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
               There is no single right way to finance solar. Each structure has different cost profiles, ownership implications, and long-term value — we help you compare them clearly.
             </p>
@@ -152,24 +152,24 @@ export default function CostSavingsPage() {
                 note: 'Note: You purchase power, not equipment. Check how this affects your home&apos;s resale.',
               },
             ].map((option) => (
-              <div key={option.title} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+              <div key={option.title} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
                 <div className="flex items-start justify-between gap-3">
                   <span className="text-4xl">{option.icon}</span>
-                  <span className="bg-[#FF8A3D]/10 border border-[#FF8A3D]/20 text-[#FF8A3D] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">{option.tag}</span>
+                  <span className="bg-[#ff5722]/10 border border-[#ff5722]/20 text-[#ff5722] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">{option.tag}</span>
                 </div>
-                <h3 className="font-poppins font-bold text-xl text-[#123B5D]">{option.title}</h3>
+                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray">{option.title}</h3>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{option.desc}</p>
                 <ul className="flex flex-col gap-2">
                   {option.pros.map((pro) => (
                     <li key={pro} className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
-                      <svg className="w-3.5 h-3.5 text-[#5EC8E5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5 text-[#082fa3] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                       {pro}
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-[#5F6F75] font-sans italic border-t border-[#E6EDF2] pt-3 mt-2">{option.note}</p>
+                <p className="text-[10px] text-[#5F6F75] font-sans italic border-t border-[#e5e5e5] pt-3 mt-2">{option.note}</p>
               </div>
             ))}
           </div>
@@ -186,11 +186,11 @@ export default function CostSavingsPage() {
         </p>
 
         {/* What Affects Savings */}
-        <section className="bg-white border border-[#E6EDF2] rounded-3xl p-8 md:p-12 shadow-sm">
+        <section className="bg-white border border-[#e5e5e5] rounded-3xl p-8 md:p-12 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             <div>
-              <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-3">Key Variables</span>
-              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#123B5D] mb-4">What Influences Solar Savings?</h2>
+              <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-3">Key Variables</span>
+              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray mb-4">What Influences Solar Savings?</h2>
               <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-6">
                 Solar savings are highly personalized. No two homes are identical, and any estimate without a real assessment is speculative. Here are the core factors our team evaluates:
               </p>
@@ -203,12 +203,12 @@ export default function CostSavingsPage() {
                   { label: 'Energy Consumption Profile', detail: 'How and when you use energy affects how much solar directly offsets your bill.' },
                   { label: 'Net Metering Policy', detail: 'Your utility&apos;s credit rate for exported power significantly affects your ROI.' },
                 ].map((item) => (
-                  <li key={item.label} className="flex items-start gap-3 bg-[#F5F7FA] border border-[#E6EDF2] rounded-xl p-4">
-                    <svg className="w-4 h-4 text-[#FF8A3D] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li key={item.label} className="flex items-start gap-3 bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl p-4">
+                    <svg className="w-4 h-4 text-[#ff5722] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     <div>
-                      <p className="font-poppins font-bold text-sm text-[#123B5D]">{item.label}</p>
+                      <p className="font-poppins font-bold text-sm text-newera-dark-gray">{item.label}</p>
                       <p className="text-[#5F6F75] font-sans text-xs mt-0.5 leading-relaxed">{item.detail}</p>
                     </div>
                   </li>
@@ -216,14 +216,14 @@ export default function CostSavingsPage() {
               </ul>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="bg-[#123B5D] rounded-2xl p-6 text-white">
+              <div className="bg-newera-dark-blue rounded-2xl p-6 text-white">
                 <h3 className="font-poppins font-bold text-lg mb-3">Why a Real Assessment Matters</h3>
                 <p className="text-white/80 font-sans text-sm leading-relaxed">
                   Online solar calculators use regional averages and cannot account for your specific roof, your utility plan, or your usage patterns. Our free in-home assessment provides a real analysis based on your actual data — so your savings projection is grounded in reality, not marketing math.
                 </p>
               </div>
-              <div className="bg-[#F5F7FA] border border-[#E6EDF2] rounded-2xl p-6">
-                <h3 className="font-poppins font-bold text-base text-[#123B5D] mb-2">What We Evaluate in Your Free Assessment</h3>
+              <div className="bg-[#F5F7FA] border border-[#e5e5e5] rounded-2xl p-6">
+                <h3 className="font-poppins font-bold text-base text-newera-dark-gray mb-2">What We Evaluate in Your Free Assessment</h3>
                 <ul className="flex flex-col gap-2 mt-3">
                   {[
                     'Your last 12 months of utility bills',
@@ -233,7 +233,7 @@ export default function CostSavingsPage() {
                     'Financing options matched to your profile',
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
-                      <svg className="w-3.5 h-3.5 text-[#5EC8E5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5 text-[#082fa3] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                       {item}
@@ -248,18 +248,18 @@ export default function CostSavingsPage() {
         {/* FAQ Section */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-2">Common Questions</span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#123B5D]">Solar Cost &amp; Savings — Frequently Asked Questions</h2>
+            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">Common Questions</span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">Solar Cost &amp; Savings — Frequently Asked Questions</h2>
           </div>
           <div className="flex flex-col gap-4 max-w-3xl mx-auto">
             {faqs.map((faq, idx) => (
               <details
                 key={idx}
-                className="bg-white border border-[#E6EDF2] rounded-2xl shadow-sm group"
+                className="bg-white border border-[#e5e5e5] rounded-2xl shadow-sm group"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-[#123B5D] text-sm md:text-base list-none select-none hover:text-[#FF8A3D] transition-colors">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-newera-dark-gray text-sm md:text-base list-none select-none hover:text-[#ff5722] transition-colors">
                   <span>{faq.question}</span>
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F5F7FA] border border-[#E6EDF2] flex items-center justify-center text-[#5EC8E5] group-open:rotate-45 transition-transform">
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F5F7FA] border border-[#e5e5e5] flex items-center justify-center text-[#082fa3] group-open:rotate-45 transition-transform">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16M4 12h16" />
                     </svg>
@@ -274,8 +274,8 @@ export default function CostSavingsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-[#123B5D] rounded-3xl px-8 md:px-16 py-14 text-center">
-          <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-4">Personalized Analysis</span>
+        <section className="bg-newera-dark-blue rounded-3xl px-8 md:px-16 py-14 text-center">
+          <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-4">Personalized Analysis</span>
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-white mb-4">
             Get Numbers That Actually Apply to Your Home
           </h2>
@@ -284,7 +284,7 @@ export default function CostSavingsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)]"
+            className="inline-block bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)]"
           >
             Get a Personalized Savings Estimate
           </Link>

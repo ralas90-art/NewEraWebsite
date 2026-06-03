@@ -199,13 +199,13 @@ export function HomeUpgradeAdvisor({
       case 0:
         return (
           <div className="text-center py-6">
-            <h3 className="font-poppins font-bold text-2xl text-[#123B5D] mb-4">New Era Home Upgrade Advisor</h3>
+            <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-4">New Era Home Upgrade Advisor</h3>
             <p className="text-[#5F6F75] font-sans text-sm mb-8 max-w-md mx-auto">
               Answer a few quick questions to find the most valuable upgrade paths for your home.
             </p>
             <button 
               onClick={startAdvisor}
-              className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#FF8A3D]/20 hover:bg-[#ff7a21] transition-transform active:scale-95"
+              className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] transition-transform active:scale-95"
             >
               Find the Right Service for My Home
             </button>
@@ -217,10 +217,10 @@ export function HomeUpgradeAdvisor({
       case 1:
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">What service are you interested in?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">What service are you interested in?</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {['Solar', 'Roofing', 'Water Purification', 'Not Sure / Help Me Decide'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('serviceInterest', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('serviceInterest', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -230,10 +230,10 @@ export function HomeUpgradeAdvisor({
       case 2:
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">Are you the homeowner?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">Are you the homeowner?</h3>
             <div className="flex flex-col gap-3">
               {['Yes', 'No', "I'm helping someone else"].map(opt => (
-                <button key={opt} onClick={() => handleSelect('homeowner', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('homeowner', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -243,19 +243,19 @@ export function HomeUpgradeAdvisor({
       case 3:
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">What is your ZIP code?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">What is your ZIP code?</h3>
             <div className="flex flex-col sm:flex-row gap-3">
               <input 
                 name="zipCode" 
                 value={formData.zipCode} 
                 onChange={handleInput} 
                 placeholder="e.g. 33101" 
-                className="flex-grow p-4 rounded-xl border border-[#E6EDF2] focus:outline-none focus:border-[#5EC8E5] focus:ring-1 focus:ring-[#5EC8E5]"
+                className="flex-grow p-4 rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] focus:ring-1 focus:ring-[#082fa3]"
               />
               <button 
                 onClick={() => formData.zipCode.length >= 5 && nextStep()}
                 disabled={formData.zipCode.length < 5}
-                className="bg-[#123B5D] text-white px-8 py-4 rounded-xl font-bold disabled:opacity-50"
+                className="bg-newera-dark-blue text-white px-8 py-4 rounded-xl font-bold disabled:opacity-50"
               >
                 Next
               </button>
@@ -265,10 +265,10 @@ export function HomeUpgradeAdvisor({
       case 4: // Solar Bill
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">What is your average monthly electric bill?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">What is your average monthly electric bill?</h3>
             <div className="flex flex-col gap-3">
               {['Under $150', '$150–$250', '$250–$400', '$400+'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('electricBill', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('electricBill', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -278,10 +278,10 @@ export function HomeUpgradeAdvisor({
       case 5: // Solar Roof Age
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">Do you know the age of your roof?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">Do you know the age of your roof?</h3>
             <div className="flex flex-col gap-3">
               {['Under 5 years', '5–10 years', '10–15 years', '15+ years', 'Not sure'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('roofAge', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('roofAge', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -291,10 +291,10 @@ export function HomeUpgradeAdvisor({
       case 6: // Roofing Help
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">What do you need help with?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">What do you need help with?</h3>
             <div className="flex flex-col gap-3">
               {['Inspection', 'Repair', 'Replacement', 'Solar-readiness review', 'Not sure'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('roofingHelp', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('roofingHelp', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -304,10 +304,10 @@ export function HomeUpgradeAdvisor({
       case 7: // Water Concern
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">What is your main concern?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">What is your main concern?</h3>
             <div className="flex flex-col gap-3">
               {['Taste', 'Odor', 'Hard water', 'Staining', 'General purification', 'Not sure'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('waterConcern', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('waterConcern', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -317,10 +317,10 @@ export function HomeUpgradeAdvisor({
       case 8: // Pref Contact Method
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">Preferred contact method:</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">Preferred contact method:</h3>
             <div className="flex flex-col gap-3">
               {['Call', 'Text', 'Email'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('preferredContact', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('preferredContact', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -330,10 +330,10 @@ export function HomeUpgradeAdvisor({
       case 9: // Best time to contact
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">Best time to contact:</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">Best time to contact:</h3>
             <div className="flex flex-col gap-3">
               {['Morning', 'Afternoon', 'Evening'].map(opt => (
-                <button key={opt} onClick={() => handleSelect('bestTime', opt)} className="border border-[#E6EDF2] p-4 rounded-xl text-left font-bold text-[#123B5D] hover:bg-[#F5F7FA] hover:border-[#5EC8E5] transition-colors">
+                <button key={opt} onClick={() => handleSelect('bestTime', opt)} className="border border-[#e5e5e5] p-4 rounded-xl text-left font-bold text-newera-dark-gray hover:bg-[#F5F7FA] hover:border-[#082fa3] transition-colors">
                   {opt}
                 </button>
               ))}
@@ -343,11 +343,11 @@ export function HomeUpgradeAdvisor({
       case 10: // Contact Info
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-            <h3 className="font-poppins font-bold text-xl text-[#123B5D] mb-6">Where should we send your results?</h3>
+            <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">Where should we send your results?</h3>
             <div className="flex flex-col gap-4">
-              <input name="name" value={formData.name} onChange={handleInput} placeholder="Full Name" className="p-4 rounded-xl border border-[#E6EDF2] focus:outline-none focus:border-[#5EC8E5] focus:ring-1 focus:ring-[#5EC8E5]" />
-              <input name="phone" value={formData.phone} onChange={handleInput} placeholder="Phone Number" className="p-4 rounded-xl border border-[#E6EDF2] focus:outline-none focus:border-[#5EC8E5] focus:ring-1 focus:ring-[#5EC8E5]" />
-              <input name="email" value={formData.email} onChange={handleInput} placeholder="Email Address" className="p-4 rounded-xl border border-[#E6EDF2] focus:outline-none focus:border-[#5EC8E5] focus:ring-1 focus:ring-[#5EC8E5]" />
+              <input name="name" value={formData.name} onChange={handleInput} placeholder="Full Name" className="p-4 rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] focus:ring-1 focus:ring-[#082fa3]" />
+              <input name="phone" value={formData.phone} onChange={handleInput} placeholder="Phone Number" className="p-4 rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] focus:ring-1 focus:ring-[#082fa3]" />
+              <input name="email" value={formData.email} onChange={handleInput} placeholder="Email Address" className="p-4 rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] focus:ring-1 focus:ring-[#082fa3]" />
               
               {/* Honeypot field for bot protection */}
               <input 
@@ -363,7 +363,7 @@ export function HomeUpgradeAdvisor({
               <button 
                 onClick={submitForm}
                 disabled={!formData.name || !formData.email || !formData.phone}
-                className="mt-2 bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold disabled:opacity-50 hover:bg-[#e0752f] transition-colors"
+                className="mt-2 bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold disabled:opacity-50 hover:bg-[#e0752f] transition-colors"
               >
                 Get My Recommendation
               </button>
@@ -373,19 +373,19 @@ export function HomeUpgradeAdvisor({
       case 11: // Results
         return (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-300 text-center py-6">
-            <div className="w-16 h-16 bg-[#F5F7FA] text-[#5EC8E5] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-[#F5F7FA] text-[#082fa3] rounded-full flex items-center justify-center mx-auto mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-8 h-8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h3 className="font-poppins font-bold text-2xl text-[#123B5D] mb-2">Thank You, {formData.name.split(' ')[0]}!</h3>
+            <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">Thank You, {formData.name.split(' ')[0]}!</h3>
             <p className="text-[#5F6F75] font-sans text-sm mb-6 max-w-sm mx-auto leading-relaxed">
               Based on your details, here is our preliminary recommendation:
             </p>
             
-            <div className="bg-[#FFE1C7]/20 border border-[#FFE1C7] p-6 rounded-2xl mb-8">
-              <span className="text-[10px] font-bold uppercase text-[#FF8A3D] tracking-widest mb-1 block">Recommended Action</span>
-              <h4 className="font-poppins font-bold text-xl text-[#123B5D]">{result?.recommendedNextStep}</h4>
+            <div className="bg-[#ff572220]/20 border border-[#ff572220] p-6 rounded-2xl mb-8">
+              <span className="text-[10px] font-bold uppercase text-[#ff5722] tracking-widest mb-1 block">Recommended Action</span>
+              <h4 className="font-poppins font-bold text-xl text-newera-dark-gray">{result?.recommendedNextStep}</h4>
             </div>
 
             <p className="text-[#5F6F75] font-sans text-sm mb-6">
@@ -397,7 +397,7 @@ export function HomeUpgradeAdvisor({
                 serviceInterest: '', homeowner: '', zipCode: '', electricBill: '', roofAge: '',
                 roofingHelp: '', waterConcern: '', preferredContact: '', bestTime: '', name: '', phone: '', email: '', honeypot: ''
               }); setResult(null); if (onServiceClear) onServiceClear(); }}
-              className="text-[#123B5D] font-bold text-sm underline underline-offset-4 decoration-[#E6EDF2] hover:decoration-[#123B5D] transition-colors"
+              className="text-newera-dark-gray font-bold text-sm underline underline-offset-4 decoration-[#e5e5e5] hover:decoration-[#123B5D] transition-colors"
             >
               Start Over
             </button>
@@ -407,12 +407,12 @@ export function HomeUpgradeAdvisor({
   };
 
   return (
-    <section className="bg-white border border-[#E6EDF2] rounded-3xl p-6 md:p-10 shadow-sm max-w-2xl mx-auto w-full my-8">
+    <section className="bg-white border border-[#e5e5e5] rounded-3xl p-6 md:p-10 shadow-sm max-w-2xl mx-auto w-full my-8">
       {step > 0 && step < 11 && (
         <div className="mb-8">
           <div className="h-1.5 w-full bg-[#F5F7FA] rounded-full overflow-hidden">
             <div 
-              className="h-full bg-[#5EC8E5] transition-all duration-500 rounded-full"
+              className="h-full bg-[#082fa3] transition-all duration-500 rounded-full"
               style={{ width: `${(step / 10) * 100}%` }}
             ></div>
           </div>

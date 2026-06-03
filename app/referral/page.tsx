@@ -79,25 +79,25 @@ export default function ReferralPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-[#123B5D]">
+    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#5F6F75] font-sans flex items-center gap-2">
-        <Link href="/" className="hover:text-[#FF8A3D] transition-colors">Home</Link>
+        <Link href="/" className="hover:text-[#ff5722] transition-colors">Home</Link>
         <span>/</span>
-        <span className="text-[#123B5D] font-semibold">Referral Program</span>
+        <span className="text-newera-dark-gray font-semibold">Referral Program</span>
       </nav>
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 py-16 text-center">
-        <span className="inline-block bg-[#FFE1C7]/50 text-[#FF8A3D] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+        <span className="inline-block bg-[#ff572220]/50 text-[#ff5722] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
           Referral Program
         </span>
-        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-[#123B5D] leading-[1.1] mb-6">
-          Get Paid <span className="text-[#FF8A3D]">$1,000</span><br />
+        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-newera-dark-gray leading-[1.1] mb-6">
+          Get Paid <span className="text-[#ff5722]">$1,000</span><br />
           for Every Solar Referral
         </h1>
         <p className="text-[#5F6F75] text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto mb-10">
@@ -107,13 +107,13 @@ export default function ReferralPage() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#referral-form"
-            className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all shadow-lg shadow-[#FF8A3D]/25"
+            className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all shadow-lg shadow-[#ff5722]/25"
           >
             Refer Someone Now
           </a>
           <Link
             href="/solar"
-            className="bg-[#123B5D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#1a4a75] transition-colors"
+            className="bg-newera-dark-blue text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors"
           >
             Learn About Going Solar
           </Link>
@@ -125,15 +125,15 @@ export default function ReferralPage() {
 
       {/* How It Works */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="font-poppins font-bold text-3xl text-[#123B5D] text-center mb-12">
+        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray text-center mb-12">
           How the Referral Program Works
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((step) => (
-            <div key={step.num} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center">
+            <div key={step.num} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center">
               <div className="text-4xl mb-4">{step.icon}</div>
-              <span className="text-[#5EC8E5] text-xs font-black uppercase tracking-widest">{step.num}</span>
-              <h3 className="font-poppins font-bold text-lg text-[#123B5D] mt-2 mb-3">{step.title}</h3>
+              <span className="text-[#082fa3] text-xs font-black uppercase tracking-widest">{step.num}</span>
+              <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mt-2 mb-3">{step.title}</h3>
               <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{step.desc}</p>
             </div>
           ))}
@@ -154,13 +154,13 @@ export default function ReferralPage() {
 
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <h2 className="font-poppins font-bold text-2xl text-[#123B5D] mb-8 text-center">
+        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-8 text-center">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqItems.map(({ q, a }) => (
-            <div key={q} className="bg-white border border-[#E6EDF2] rounded-2xl p-6 shadow-sm">
-              <h3 className="font-poppins font-semibold text-[#123B5D] text-base mb-2">{q}</h3>
+            <div key={q} className="bg-white border border-[#e5e5e5] rounded-2xl p-6 shadow-sm">
+              <h3 className="font-poppins font-semibold text-newera-dark-gray text-base mb-2">{q}</h3>
               <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{a}</p>
             </div>
           ))}

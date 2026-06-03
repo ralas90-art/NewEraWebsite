@@ -88,7 +88,7 @@ export default function SolarPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#F5F7FA] text-[#123B5D]">
+    <div className="min-h-screen w-full bg-[#F5F7FA] text-newera-dark-gray">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -96,24 +96,24 @@ export default function SolarPage() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-6 pt-6 pb-2">
         <ol className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
-          <li><Link href="/" className="hover:text-[#FF8A3D] transition-colors">Home</Link></li>
-          <li className="text-[#E6EDF2]">/</li>
-          <li className="text-[#123B5D] font-semibold">Solar Energy</li>
+          <li><Link href="/" className="hover:text-[#ff5722] transition-colors">Home</Link></li>
+          <li className="text-[#e5e5e5]">/</li>
+          <li className="text-newera-dark-gray font-semibold">Solar Energy</li>
         </ol>
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 pb-20 flex flex-col gap-16">
 
         {/* Hero Section */}
-        <section className="relative rounded-3xl overflow-hidden bg-[#123B5D] px-8 md:px-14 py-16 md:py-24 mt-4">
+        <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
           <div className="absolute inset-0 bg-gradient-to-br from-[#123B5D] via-[#1a4a75] to-[#0e2d48] opacity-95 pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
-            <span className="inline-block bg-[#FF8A3D]/20 border border-[#FF8A3D]/40 text-[#FF8A3D] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
+            <span className="inline-block bg-[#ff5722]/20 border border-[#ff5722]/40 text-[#ff5722] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
               Residential Solar — Florida
             </span>
             <h1 className="font-poppins font-extrabold text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-6">
               Residential Solar Energy —{' '}
-              <span className="text-[#FF8A3D]">Built for Your Home, Your Roof, Your Budget</span>
+              <span className="text-[#ff5722]">Built for Your Home, Your Roof, Your Budget</span>
             </h1>
             <p className="text-white/85 text-base md:text-lg leading-relaxed mb-10 max-w-2xl font-sans">
               Going solar is one of the most important decisions a homeowner can make. New Era Solar Energy guides you through every step — from your first site assessment to the day your system goes live — with zero pressure and full transparency.
@@ -121,7 +121,7 @@ export default function SolarPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)] text-center"
+                className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)] text-center"
               >
                 Get a Free Solar Assessment
               </Link>
@@ -138,8 +138,8 @@ export default function SolarPage() {
         {/* How Solar Works */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-2">The Process</span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#123B5D]">How Solar Energy Works for Your Home</h2>
+            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">The Process</span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">How Solar Energy Works for Your Home</h2>
             <p className="text-[#5F6F75] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
               We simplify every phase so you always know where you stand and what comes next.
             </p>
@@ -165,12 +165,12 @@ export default function SolarPage() {
                 desc: 'Our certified installers complete the job efficiently, handle permitting, and walk you through system activation so you understand exactly how to monitor your output.',
               },
             ].map((item) => (
-              <div key={item.step} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+              <div key={item.step} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-3xl">{item.icon}</span>
-                  <span className="text-[11px] font-bold text-[#5EC8E5] uppercase tracking-widest">Step {item.step}</span>
+                  <span className="text-[11px] font-bold text-[#082fa3] uppercase tracking-widest">Step {item.step}</span>
                 </div>
-                <h3 className="font-poppins font-bold text-xl text-[#123B5D]">{item.title}</h3>
+                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray">{item.title}</h3>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -178,10 +178,10 @@ export default function SolarPage() {
         </section>
 
         {/* Benefits */}
-        <section className="bg-white border border-[#E6EDF2] rounded-3xl p-8 md:p-12 shadow-sm">
+        <section className="bg-white border border-[#e5e5e5] rounded-3xl p-8 md:p-12 shadow-sm">
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-2">Key Advantages</span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#123B5D]">Why Homeowners Choose Solar</h2>
+            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">Key Advantages</span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">Why Homeowners Choose Solar</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -206,9 +206,9 @@ export default function SolarPage() {
                 desc: 'Every kilowatt-hour of solar power displaces grid electricity generated from fossil fuels — a tangible, lasting contribution to cleaner air.',
               },
             ].map((b) => (
-              <div key={b.title} className="flex flex-col gap-3 p-6 bg-[#F5F7FA] rounded-2xl border border-[#E6EDF2]">
+              <div key={b.title} className="flex flex-col gap-3 p-6 bg-[#F5F7FA] rounded-2xl border border-[#e5e5e5]">
                 <span className="text-3xl">{b.icon}</span>
-                <h3 className="font-poppins font-bold text-lg text-[#123B5D]">{b.title}</h3>
+                <h3 className="font-poppins font-bold text-lg text-newera-dark-gray">{b.title}</h3>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -218,8 +218,8 @@ export default function SolarPage() {
         {/* Solar Readiness Checklist */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-2">Self-Assessment</span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#123B5D]">Is Your Home Ready for Solar?</h2>
+            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">Self-Assessment</span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">Is Your Home Ready for Solar?</h2>
             <p className="text-[#5F6F75] font-sans mt-4 max-w-xl mx-auto text-base leading-relaxed">
               Most Florida homes are strong candidates. These factors help us size and design your system for maximum performance.
             </p>
@@ -231,14 +231,14 @@ export default function SolarPage() {
               { check: 'South- or west-facing roof sections available', detail: 'Optimal panel orientation maximizes energy production. We map your roof during our site visit.' },
               { check: 'Monthly electric bills over $100', detail: 'Higher utility costs typically mean faster payback on a solar investment. We run real numbers for your situation.' },
             ].map((item) => (
-              <div key={item.check} className="bg-white border border-[#E6EDF2] rounded-2xl p-6 flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-8 h-8 rounded-full bg-[#FF8A3D]/10 border border-[#FF8A3D]/30 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-[#FF8A3D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={item.check} className="bg-white border border-[#e5e5e5] rounded-2xl p-6 flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-8 h-8 rounded-full bg-[#ff5722]/10 border border-[#ff5722]/30 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-[#ff5722]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-poppins font-bold text-[#123B5D] text-sm mb-1">{item.check}</p>
+                  <p className="font-poppins font-bold text-newera-dark-gray text-sm mb-1">{item.check}</p>
                   <p className="text-[#5F6F75] font-sans text-xs leading-relaxed">{item.detail}</p>
                 </div>
               </div>
@@ -254,18 +254,18 @@ export default function SolarPage() {
         {/* FAQ Section */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-2">Common Questions</span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#123B5D]">Solar Energy — Frequently Asked Questions</h2>
+            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">Common Questions</span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">Solar Energy — Frequently Asked Questions</h2>
           </div>
           <div className="flex flex-col gap-4 max-w-3xl mx-auto">
             {faqs.map((faq, idx) => (
               <details
                 key={idx}
-                className="bg-white border border-[#E6EDF2] rounded-2xl shadow-sm group"
+                className="bg-white border border-[#e5e5e5] rounded-2xl shadow-sm group"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-[#123B5D] text-sm md:text-base list-none select-none hover:text-[#FF8A3D] transition-colors">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-newera-dark-gray text-sm md:text-base list-none select-none hover:text-[#ff5722] transition-colors">
                   <span>{faq.question}</span>
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F5F7FA] border border-[#E6EDF2] flex items-center justify-center text-[#5EC8E5] group-open:rotate-45 transition-transform">
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F5F7FA] border border-[#e5e5e5] flex items-center justify-center text-[#082fa3] group-open:rotate-45 transition-transform">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16M4 12h16" />
                     </svg>
@@ -280,15 +280,15 @@ export default function SolarPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-[#123B5D] rounded-3xl px-8 md:px-16 py-14 text-center">
-          <span className="text-[11px] font-bold uppercase text-[#5EC8E5] tracking-widest block mb-4">Take the First Step</span>
+        <section className="bg-newera-dark-blue rounded-3xl px-8 md:px-16 py-14 text-center">
+          <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-4">Take the First Step</span>
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-white mb-4">Ready to Start?</h2>
           <p className="text-white/80 font-sans text-base max-w-xl mx-auto mb-8 leading-relaxed">
             A free, no-pressure solar assessment is the best way to understand what solar can actually do for your home. Schedule yours today.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)]"
+            className="inline-block bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all shadow-[0_8px_30px_rgb(255,138,61,0.3)]"
           >
             Get a Free Solar Assessment
           </Link>

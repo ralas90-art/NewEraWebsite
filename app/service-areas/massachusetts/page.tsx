@@ -33,22 +33,22 @@ const jsonLd = {
 
 const BENEFITS = [
   {
-    icon: <Award className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Award className="w-6 h-6 text-[#ff5722]" />,
     title: 'Top-Ranked US Solar Market',
     desc: 'Massachusetts is consistently ranked among the leading US states for solar adoption and policy strength. Supportive legislation, utility cooperation, and state-level programs have made MA a model solar market.',
   },
   {
-    icon: <Zap className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Zap className="w-6 h-6 text-[#ff5722]" />,
     title: 'SMART Program Incentive Payments',
     desc: 'The Solar Massachusetts Renewable Target (SMART) program provides per-kilowatt-hour compensation for solar generation. Program capacity blocks and compensation rates change — consult current DOER guidance or visit mass.gov/smart for current details.',
   },
   {
-    icon: <DollarSign className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <DollarSign className="w-6 h-6 text-[#ff5722]" />,
     title: 'Net Metering Available',
     desc: 'Massachusetts net metering allows homeowners to receive bill credits for excess solar energy exported to the grid. Policies and compensation structures vary by utility and customer class.',
   },
   {
-    icon: <Snowflake className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Snowflake className="w-6 h-6 text-[#ff5722]" />,
     title: 'Snow-Load Rated Panel Systems',
     desc: 'We spec and install solar systems designed to handle Massachusetts snow and ice loads. Seasonal variation is factored into your production estimates during your free assessment.',
   },
@@ -93,16 +93,16 @@ export default function MassachusettsPage() {
 
       <main className="min-h-screen bg-[#F5F7FA]">
         {/* Hero */}
-        <section className="bg-[#123B5D] text-white py-20 px-6">
+        <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#5EC8E5] mb-4 font-sans">
+            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <Link href="/service-areas" className="hover:underline">Service Areas</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Massachusetts</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
               The Bay State
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -114,7 +114,7 @@ export default function MassachusettsPage() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-flex items-center gap-2 justify-center"
+                className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 justify-center"
               >
                 Get My Free MA Assessment
                 <ArrowRight className="w-4 h-4" />
@@ -132,8 +132,8 @@ export default function MassachusettsPage() {
         {/* Why Massachusetts Section */}
         <section className="max-w-6xl mx-auto px-6 py-16">
           <div className="text-center mb-12">
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-2 block">Solar Advantage</span>
-            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#123B5D]">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-2 block">Solar Advantage</span>
+            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
               Massachusetts Is a Leading Solar State
             </h2>
             <p className="text-[#5F6F75] font-sans text-sm mt-3 max-w-2xl mx-auto">
@@ -143,22 +143,22 @@ export default function MassachusettsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {BENEFITS.map((b, i) => (
-              <div key={i} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-2xl bg-[#FF8A3D]/10 flex items-center justify-center mb-4">
+              <div key={i} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-2xl bg-[#ff5722]/10 flex items-center justify-center mb-4">
                   {b.icon}
                 </div>
-                <h3 className="font-poppins font-bold text-lg text-[#123B5D] mb-3">{b.title}</h3>
+                <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">{b.title}</h3>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
 
           {/* SMART Program Disclaimer */}
-          <div className="mt-8 bg-[#F5F7FA] border border-[#E6EDF2] rounded-2xl p-5 flex gap-3">
-            <Info className="w-5 h-5 text-[#5EC8E5] shrink-0 mt-0.5" />
+          <div className="mt-8 bg-[#F5F7FA] border border-[#e5e5e5] rounded-2xl p-5 flex gap-3">
+            <Info className="w-5 h-5 text-[#082fa3] shrink-0 mt-0.5" />
             <p className="text-sm text-[#5F6F75] font-sans leading-relaxed">
-              <strong className="text-[#123B5D]">SMART Program Notice:</strong> SMART program eligibility, compensation rates, and availability are subject to change. Contact your utility or visit{' '}
-              <a href="https://www.mass.gov/solar-smart" target="_blank" rel="noopener noreferrer" className="text-[#FF8A3D] hover:underline">
+              <strong className="text-newera-dark-gray">SMART Program Notice:</strong> SMART program eligibility, compensation rates, and availability are subject to change. Contact your utility or visit{' '}
+              <a href="https://www.mass.gov/solar-smart" target="_blank" rel="noopener noreferrer" className="text-[#ff5722] hover:underline">
                 mass.gov/smart
               </a>{' '}
               for current program details before making any purchasing decision.
@@ -167,21 +167,21 @@ export default function MassachusettsPage() {
         </section>
 
         {/* Cities */}
-        <section className="bg-white border-t border-[#E6EDF2] py-12 px-6">
+        <section className="bg-white border-t border-[#e5e5e5] py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-poppins font-bold text-xl text-[#123B5D] mb-6 flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-[#FF8A3D]" />
+            <h2 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-[#ff5722]" />
               Massachusetts Cities We Serve
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {CITIES.map((city) => (
-                <div key={city} className="bg-[#F5F7FA] border border-[#E6EDF2] rounded-xl px-4 py-3 text-sm font-bold text-[#123B5D] font-poppins text-center">
+                <div key={city} className="bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl px-4 py-3 text-sm font-bold text-newera-dark-gray font-poppins text-center">
                   {city}
                 </div>
               ))}
             </div>
             <p className="text-xs text-[#5F6F75] font-sans mt-4 italic">
-              Don&apos;t see your city? <Link href="/contact" className="text-[#FF8A3D] hover:underline">Contact us</Link> — we likely serve your area.
+              Don&apos;t see your city? <Link href="/contact" className="text-[#ff5722] hover:underline">Contact us</Link> — we likely serve your area.
             </p>
           </div>
         </section>
@@ -197,7 +197,7 @@ export default function MassachusettsPage() {
         </section>
 
         {/* FAQ */}
-        <section className="bg-white border-t border-[#E6EDF2] py-4">
+        <section className="bg-white border-t border-[#e5e5e5] py-4">
           <div className="max-w-4xl mx-auto px-6">
             <FAQAccordion
               items={FAQS}
@@ -208,7 +208,7 @@ export default function MassachusettsPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#123B5D] py-16 px-6 text-center">
+        <section className="bg-newera-dark-blue py-16 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-poppins font-bold text-2xl md:text-3xl text-white mb-4">
               Ready to Go Solar in Massachusetts?
@@ -218,7 +218,7 @@ export default function MassachusettsPage() {
             </p>
             <Link
               href="/contact"
-              className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-block"
+              className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-block"
             >
               Schedule My Free MA Assessment
             </Link>

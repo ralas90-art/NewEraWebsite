@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     num: '01',
-    icon: <Lightbulb className="w-7 h-7 text-[#FF8A3D]" />,
+    icon: <Lightbulb className="w-7 h-7 text-[#ff5722]" />,
     title: 'Free Home Assessment',
     description:
       'We review your home, roof condition, energy bills, and long-term goals. There is zero pressure and no obligation. Our goal is to understand your situation so we can recommend the right system — or tell you honestly if solar isn&apos;t the best fit.',
@@ -25,7 +25,7 @@ const STEPS = [
   },
   {
     num: '02',
-    icon: <ClipboardList className="w-7 h-7 text-[#FF8A3D]" />,
+    icon: <ClipboardList className="w-7 h-7 text-[#ff5722]" />,
     title: 'Custom System Design',
     description:
       'Our licensed engineers design a solar system sized precisely for your actual energy usage and roof specifications. No cookie-cutter packages — every system is purpose-built for your home.',
@@ -38,7 +38,7 @@ const STEPS = [
   },
   {
     num: '03',
-    icon: <FileText className="w-7 h-7 text-[#FF8A3D]" />,
+    icon: <FileText className="w-7 h-7 text-[#ff5722]" />,
     title: 'Permits & Approvals',
     description:
       'Navigating permits, HOA applications, and utility interconnection paperwork is one of the most time-consuming parts of going solar. We handle all of it on your behalf — so you don&apos;t have to chase down a single form.',
@@ -51,7 +51,7 @@ const STEPS = [
   },
   {
     num: '04',
-    icon: <Hammer className="w-7 h-7 text-[#FF8A3D]" />,
+    icon: <Hammer className="w-7 h-7 text-[#ff5722]" />,
     title: 'Professional Installation',
     description:
       'Our experienced installation teams work efficiently and cleanly. Most residential solar projects are completed in 1 to 3 days. We protect your property, keep the worksite tidy, and walk you through the completed system before we leave.',
@@ -64,7 +64,7 @@ const STEPS = [
   },
   {
     num: '05',
-    icon: <CheckCircle className="w-7 h-7 text-[#FF8A3D]" />,
+    icon: <CheckCircle className="w-7 h-7 text-[#ff5722]" />,
     title: 'Activation & Monitoring',
     description:
       'After the utility inspection and final approval, your solar system is activated. We walk you through how to monitor your system&apos;s production, review your equipment warranties, and make sure you feel confident about your new investment.',
@@ -134,14 +134,14 @@ export default function ProcessPage() {
 
       <main className="min-h-screen bg-[#F5F7FA]">
         {/* Hero */}
-        <section className="bg-[#123B5D] text-white py-20 px-6">
+        <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#5EC8E5] mb-4 font-sans">
+            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Our Process</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
               Simple &amp; Transparent
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -159,18 +159,18 @@ export default function ProcessPage() {
             {STEPS.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6 md:gap-8"
+                className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6 md:gap-8"
               >
                 {/* Step Number + Icon */}
                 <div className="flex md:flex-col items-center md:items-center gap-4 md:gap-3 md:w-24 shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F5F7FA] border border-[#E6EDF2] flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F5F7FA] border border-[#e5e5e5] flex items-center justify-center">
                     {step.icon}
                   </div>
-                  <span className="font-poppins font-black text-3xl text-[#E6EDF2] md:text-4xl">{step.num}</span>
+                  <span className="font-poppins font-black text-3xl text-[#e5e5e5] md:text-4xl">{step.num}</span>
                 </div>
                 {/* Content */}
                 <div className="flex-1">
-                  <h2 className="font-poppins font-bold text-xl md:text-2xl text-[#123B5D] mb-3">
+                  <h2 className="font-poppins font-bold text-xl md:text-2xl text-newera-dark-gray mb-3">
                     {step.title}
                   </h2>
                   <p className="text-[#5F6F75] font-sans text-sm md:text-base leading-relaxed mb-4">
@@ -179,7 +179,7 @@ export default function ProcessPage() {
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {step.details.map((d, di) => (
                       <li key={di} className="flex items-center gap-2 text-sm text-[#5F6F75] font-sans">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A3D] shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ff5722] shrink-0" />
                         {d}
                       </li>
                     ))}
@@ -194,12 +194,12 @@ export default function ProcessPage() {
           </div>
 
           {/* Timeline progress bar */}
-          <div className="mt-12 bg-white border border-[#E6EDF2] rounded-3xl p-6 shadow-sm">
-            <h3 className="font-poppins font-bold text-[#123B5D] text-lg mb-4 text-center">Typical Timeline Overview</h3>
+          <div className="mt-12 bg-white border border-[#e5e5e5] rounded-3xl p-6 shadow-sm">
+            <h3 className="font-poppins font-bold text-newera-dark-gray text-lg mb-4 text-center">Typical Timeline Overview</h3>
             <div className="flex flex-col sm:flex-row items-stretch gap-2">
               {['Week 1–2: Assessment & Design', 'Week 2–6: Permits & Approvals', 'Week 6–8: Installation', 'Week 8–10: Activation'].map((label, i) => (
                 <div key={i} className="flex-1 bg-[#F5F7FA] rounded-xl px-4 py-3 text-center">
-                  <span className="text-xs font-bold text-[#123B5D] font-poppins block">{label}</span>
+                  <span className="text-xs font-bold text-newera-dark-gray font-poppins block">{label}</span>
                 </div>
               ))}
             </div>
@@ -210,7 +210,7 @@ export default function ProcessPage() {
         </section>
 
         {/* FAQ */}
-        <section className="bg-white py-4 border-t border-[#E6EDF2]">
+        <section className="bg-white py-4 border-t border-[#e5e5e5]">
           <div className="max-w-4xl mx-auto px-6">
             <FAQAccordion
               items={FAQS}
@@ -221,7 +221,7 @@ export default function ProcessPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#123B5D] py-16 px-6 text-center">
+        <section className="bg-newera-dark-blue py-16 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-poppins font-bold text-2xl md:text-3xl text-white mb-4">
               Ready to Start Your Solar Journey?
@@ -231,7 +231,7 @@ export default function ProcessPage() {
             </p>
             <Link
               href="/contact"
-              className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-block"
+              className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-block"
             >
               Schedule Your Free Assessment
             </Link>

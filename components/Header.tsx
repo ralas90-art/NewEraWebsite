@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
@@ -20,13 +21,18 @@ export function Header({ onSelectService }: HeaderProps) {
 
   const handleServiceClick = (service: string) => {
     setIsMobileMenuOpen(false);
-    if (isHomePage && onSelectService) {
-      onSelectService(service);
-      setTimeout(() => {
-        document.getElementById('upgrade-advisor')?.scrollIntoView({ behavior: 'smooth' });
-      }, 80);
+    if (isHomePage) {
+      if (onSelectService) {
+        onSelectService(service);
+      } else {
+        // Fallback global event for layout-rendered Header
+        const selectEvent = new CustomEvent('select-service', { detail: service });
+        window.dispatchEvent(selectEvent);
+        setTimeout(() => {
+          document.getElementById('upgrade-advisor')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     }
-    // If not on homepage, navigation is handled by the Link component
   };
 
   const scrollToLeadForm = (e: React.MouseEvent) => {
@@ -62,16 +68,17 @@ export function Header({ onSelectService }: HeaderProps) {
 
   return (
     <>
-      <header className="w-full bg-white border-b border-[#E6EDF2] px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+      <header className="w-full bg-white border-b border-[#e5e5e5] px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-50 shadow-sm">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-10 h-10 bg-[#FF8A3D] rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm">
-            N
-          </div>
-          <div className="flex flex-col text-left">
-            <span className="font-poppins font-bold text-lg leading-tight uppercase tracking-tight text-[#123B5D]">New Era</span>
-            <span className="text-[10px] text-[#5EC8E5] font-semibold uppercase tracking-[0.2em] -mt-1 hidden sm:block">Solar Energy</span>
-          </div>
+        <Link href="/" className="flex items-center shrink-0">
+          <Image 
+            src={pathname === '/roofing' ? '/logo-roofing.jpg' : '/logo.png'} 
+            alt={pathname === '/roofing' ? 'New Era Roofing Services' : 'New Era Solar Energy'} 
+            width={180} 
+            height={44} 
+            className="h-11 w-auto object-contain" 
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -84,7 +91,7 @@ export function Header({ onSelectService }: HeaderProps) {
                 <button
                   key={link.href}
                   onClick={() => handleServiceClick(svcLink.service)}
-                  className={`pb-1 transition-colors ${isActive ? 'text-[#FF8A3D] border-b-2 border-[#FF8A3D]' : 'hover:text-[#FF8A3D]'}`}
+                  className={`pb-1 transition-colors ${isActive ? 'text-[#ff5722] border-b-2 border-[#ff5722]' : 'hover:text-[#ff5722]'}`}
                 >
                   {link.label}
                 </button>
@@ -94,7 +101,7 @@ export function Header({ onSelectService }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`pb-1 transition-colors ${isActive ? 'text-[#FF8A3D] border-b-2 border-[#FF8A3D]' : 'hover:text-[#FF8A3D]'}`}
+                className={`pb-1 transition-colors ${isActive ? 'text-[#ff5722] border-b-2 border-[#ff5722]' : 'hover:text-[#ff5722]'}`}
               >
                 {link.label}
               </Link>
@@ -106,14 +113,14 @@ export function Header({ onSelectService }: HeaderProps) {
         <div className="flex items-center gap-2 md:gap-4">
           <button
             onClick={scrollToLeadForm}
-            className="bg-[#123B5D] text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-[#1a4a75] transition-colors whitespace-nowrap"
+            className="bg-newera-dark-blue text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-newera-dark-blue/90 transition-colors whitespace-nowrap"
           >
             Free Assessment
           </button>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-[#123B5D]"
+            className="lg:hidden p-2 text-newera-dark-gray"
             onClick={handleMenuToggle}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -131,7 +138,7 @@ export function Header({ onSelectService }: HeaderProps) {
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed top-[73px] left-0 right-0 bg-white border-b border-[#E6EDF2] z-40 shadow-lg p-4 flex flex-col gap-1 h-[calc(100vh-73px)] overflow-y-auto">
+        <div className="lg:hidden fixed top-[73px] left-0 right-0 bg-white border-b border-[#e5e5e5] z-40 shadow-lg p-4 flex flex-col gap-1 h-[calc(100vh-73px)] overflow-y-auto">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -139,7 +146,7 @@ export function Header({ onSelectService }: HeaderProps) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-lg font-poppins font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? 'bg-[#FFF0E5] text-[#FF8A3D]' : 'text-[#123B5D] hover:bg-[#F5F7FA]'}`}
+                className={`text-lg font-poppins font-medium py-3 px-4 rounded-xl transition-colors ${isActive ? 'bg-[#ff572210] text-[#ff5722]' : 'text-newera-dark-gray hover:bg-[#F5F7FA]'}`}
               >
                 {link.label}
               </Link>
@@ -148,14 +155,14 @@ export function Header({ onSelectService }: HeaderProps) {
           <div className="mt-6 mb-4 px-4 flex flex-col gap-3">
             <button
               onClick={scrollToLeadForm}
-              className="w-full bg-[#123B5D] text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-md hover:bg-[#1a4a75] transition-colors"
+              className="w-full bg-newera-dark-blue text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-md hover:bg-newera-dark-blue/90 transition-colors"
             >
               Get a Free Assessment
             </button>
             <Link
               href="/referral"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full bg-[#FF8A3D] text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm text-center shadow-md hover:bg-[#ff7a21] transition-colors"
+              className="w-full bg-[#ff5722] text-white px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm text-center shadow-md hover:bg-[#e04a1b] transition-colors"
             >
               Refer a Homeowner — Earn $1,000
             </Link>

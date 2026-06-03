@@ -81,20 +81,20 @@ export function ReferralForm() {
     }
   };
 
-  const wrap  = 'px-5 py-3 border border-[#E6EDF2] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#5EC8E5] focus-within:bg-white focus-within:shadow-sm';
+  const wrap  = 'px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
   const lbl   = 'block text-[10px] font-bold text-[#5F6F75] uppercase mb-1 font-sans';
-  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-[#123B5D] placeholder:text-[#5F6F75]/40 outline-none font-sans';
+  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans';
 
   if (formState === 'success') {
     return (
-      <div className="bg-white border border-[#E6EDF2] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
+      <div className="bg-white border border-[#e5e5e5] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
         <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
           <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <div>
-          <h3 className="font-poppins font-bold text-2xl text-[#123B5D] mb-2">Referral Submitted!</h3>
+          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">Referral Submitted!</h3>
           <p className="text-[#5F6F75] font-sans text-base leading-relaxed max-w-sm">
             We will contact your friend shortly to schedule their free solar assessment.
             Thank you for spreading the word!
@@ -109,12 +109,12 @@ export function ReferralForm() {
   }
 
   return (
-    <div id="referral-form" className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm">
+    <div id="referral-form" className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm">
       <div className="mb-8">
-        <span className="text-[#FF8A3D] text-[10px] font-black uppercase bg-[#FFE1C7]/30 px-3 py-1 rounded-full">
+        <span className="text-[#ff5722] text-[10px] font-black uppercase bg-[#ff572220]/30 px-3 py-1 rounded-full">
           Submit a Referral
         </span>
-        <h2 className="font-poppins font-bold text-2xl text-[#123B5D] mt-3 mb-2">Refer a Homeowner</h2>
+        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mt-3 mb-2">Refer a Homeowner</h2>
         <p className="text-[#5F6F75] text-sm font-sans">
           Fill out both sections below and we&apos;ll take it from there.
         </p>
@@ -127,8 +127,8 @@ export function ReferralForm() {
 
         {/* Section 1 */}
         <div>
-          <p className="font-poppins font-semibold text-[#123B5D] text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-[#FF8A3D] text-white text-xs font-bold flex items-center justify-center">1</span>
+          <p className="font-poppins font-semibold text-newera-dark-gray text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-[#ff5722] text-white text-xs font-bold flex items-center justify-center">1</span>
             Your Information
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -147,12 +147,12 @@ export function ReferralForm() {
           </div>
         </div>
 
-        <div className="border-t border-[#E6EDF2]" />
+        <div className="border-t border-[#e5e5e5]" />
 
         {/* Section 2 */}
         <div>
-          <p className="font-poppins font-semibold text-[#123B5D] text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-[#5EC8E5] text-white text-xs font-bold flex items-center justify-center">2</span>
+          <p className="font-poppins font-semibold text-newera-dark-gray text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-[#082fa3] text-white text-xs font-bold flex items-center justify-center">2</span>
             Your Friend&apos;s Information
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -180,7 +180,7 @@ export function ReferralForm() {
         )}
 
         <button type="submit" disabled={formState === 'submitting'}
-          className="w-full bg-[#FF8A3D] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#FF8A3D]/20 hover:bg-[#ff7a21] hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed">
+          className="w-full bg-[#ff5722] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed">
           {formState === 'submitting' ? 'Submitting Referral...' : 'Submit Referral →'}
         </button>
 

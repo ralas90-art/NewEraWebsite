@@ -74,14 +74,14 @@ export default function ServiceAreasPage() {
 
       <main className="min-h-screen bg-[#F5F7FA]">
         {/* Hero */}
-        <section className="bg-[#123B5D] text-white py-20 px-6">
+        <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#5EC8E5] mb-4 font-sans">
+            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Service Areas</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
               Where We Work
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -99,15 +99,15 @@ export default function ServiceAreasPage() {
             {STATES.map((state) => (
               <div
                 key={state.slug}
-                className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col"
               >
                 <div className="text-4xl mb-4">{state.flag}</div>
                 <div className="inline-flex mb-3">
-                  <span className="bg-[#5EC8E5]/10 text-[#5EC8E5] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                  <span className="bg-[#082fa3]/10 text-[#082fa3] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                     {state.highlight}
                   </span>
                 </div>
-                <h2 className="font-poppins font-bold text-2xl text-[#123B5D] mb-2">
+                <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
                   Solar in {state.name}
                 </h2>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-6 flex-grow">
@@ -115,7 +115,7 @@ export default function ServiceAreasPage() {
                 </p>
                 <Link
                   href={`/service-areas/${state.slug}`}
-                  className="bg-[#123B5D] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#1a4a75] transition-colors inline-flex items-center gap-2 justify-center"
+                  className="bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors inline-flex items-center gap-2 justify-center"
                 >
                   Explore {state.name} Solar
                   <ArrowRight className="w-4 h-4" />
@@ -126,13 +126,13 @@ export default function ServiceAreasPage() {
         </section>
 
         {/* Cities Section */}
-        <section className="bg-white border-t border-[#E6EDF2] py-16 px-6">
+        <section className="bg-white border-t border-[#e5e5e5] py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-2 block">
+              <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-2 block">
                 Local Coverage
               </span>
-              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#123B5D]">
+              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
                 Cities and Communities We Serve
               </h2>
               <p className="text-[#5F6F75] font-sans text-sm mt-3 max-w-xl mx-auto">
@@ -143,14 +143,14 @@ export default function ServiceAreasPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {STATES.map((state) => (
                 <div key={state.slug}>
-                  <h3 className="font-poppins font-bold text-lg text-[#123B5D] mb-4 flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#FF8A3D]" />
+                  <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-4 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#ff5722]" />
                     {state.name}
                   </h3>
                   <ul className="space-y-2">
                     {state.cities.map((city) => (
                       <li key={city} className="flex items-center gap-2 text-sm text-[#5F6F75] font-sans">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5EC8E5] shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#082fa3] shrink-0" />
                         {city}
                       </li>
                     ))}
@@ -165,7 +165,7 @@ export default function ServiceAreasPage() {
               </p>
               <Link
                 href="/contact"
-                className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-flex items-center gap-2"
+                className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2"
               >
                 Contact Us to Check Your Area
                 <ArrowRight className="w-4 h-4" />

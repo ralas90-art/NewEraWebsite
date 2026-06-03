@@ -33,22 +33,22 @@ const jsonLd = {
 
 const BENEFITS = [
   {
-    icon: <Sun className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Sun className="w-6 h-6 text-[#ff5722]" />,
     title: '230+ Sunny Days Per Year',
     desc: 'Florida consistently ranks among the highest solar resource states in the country. More sunlight means more clean energy production from your system. (Source: National Renewable Energy Lab — regional average; actual output depends on your specific location and roof conditions.)',
   },
   {
-    icon: <DollarSign className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <DollarSign className="w-6 h-6 text-[#ff5722]" />,
     title: 'Net Metering Policy Available',
     desc: 'Florida utilities offer net metering programs that allow homeowners to receive credits for excess solar energy sent to the grid. Policies and credit rates vary by utility provider — we help you understand how your specific utility handles solar credits.',
   },
   {
-    icon: <Shield className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Shield className="w-6 h-6 text-[#ff5722]" />,
     title: 'No State Income Tax on Solar Savings',
     desc: 'Florida does not impose a state income tax, which means the financial benefits of your solar system stay in your pocket. This is one factor that can improve the economics of solar for Florida homeowners.',
   },
   {
-    icon: <Wind className="w-6 h-6 text-[#FF8A3D]" />,
+    icon: <Wind className="w-6 h-6 text-[#ff5722]" />,
     title: 'Hurricane-Resistant Mounting Available',
     desc: 'Modern solar panel systems are engineered to meet Florida&apos;s stringent wind load requirements. We discuss wind ratings, mounting methods, and manufacturer certifications during your free assessment.',
   },
@@ -93,16 +93,16 @@ export default function FloridaPage() {
 
       <main className="min-h-screen bg-[#F5F7FA]">
         {/* Hero */}
-        <section className="bg-[#123B5D] text-white py-20 px-6">
+        <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#5EC8E5] mb-4 font-sans">
+            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <Link href="/service-areas" className="hover:underline">Service Areas</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Florida</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
               The Sunshine State
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -114,7 +114,7 @@ export default function FloridaPage() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-flex items-center gap-2 justify-center"
+                className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 justify-center"
               >
                 Get My Free Florida Assessment
                 <ArrowRight className="w-4 h-4" />
@@ -132,8 +132,8 @@ export default function FloridaPage() {
         {/* Why Florida Section */}
         <section className="max-w-6xl mx-auto px-6 py-16">
           <div className="text-center mb-12">
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-2 block">Solar Advantage</span>
-            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#123B5D]">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-2 block">Solar Advantage</span>
+            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
               Why Florida Is Ideal for Residential Solar
             </h2>
             <p className="text-[#5F6F75] font-sans text-sm mt-3 max-w-2xl mx-auto">
@@ -143,11 +143,11 @@ export default function FloridaPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {BENEFITS.map((b, i) => (
-              <div key={i} className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-2xl bg-[#FF8A3D]/10 flex items-center justify-center mb-4">
+              <div key={i} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-2xl bg-[#ff5722]/10 flex items-center justify-center mb-4">
                   {b.icon}
                 </div>
-                <h3 className="font-poppins font-bold text-lg text-[#123B5D] mb-3">{b.title}</h3>
+                <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">{b.title}</h3>
                 <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -155,21 +155,21 @@ export default function FloridaPage() {
         </section>
 
         {/* Cities */}
-        <section className="bg-white border-t border-[#E6EDF2] py-12 px-6">
+        <section className="bg-white border-t border-[#e5e5e5] py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-poppins font-bold text-xl text-[#123B5D] mb-6 flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-[#FF8A3D]" />
+            <h2 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-[#ff5722]" />
               Florida Cities We Serve
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {CITIES.map((city) => (
-                <div key={city} className="bg-[#F5F7FA] border border-[#E6EDF2] rounded-xl px-4 py-3 text-sm font-bold text-[#123B5D] font-poppins text-center">
+                <div key={city} className="bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl px-4 py-3 text-sm font-bold text-newera-dark-gray font-poppins text-center">
                   {city}
                 </div>
               ))}
             </div>
             <p className="text-xs text-[#5F6F75] font-sans mt-4 italic">
-              Don&apos;t see your city? <Link href="/contact" className="text-[#FF8A3D] hover:underline">Contact us</Link> — we likely serve your area.
+              Don&apos;t see your city? <Link href="/contact" className="text-[#ff5722] hover:underline">Contact us</Link> — we likely serve your area.
             </p>
           </div>
         </section>
@@ -185,7 +185,7 @@ export default function FloridaPage() {
         </section>
 
         {/* FAQ */}
-        <section className="bg-white border-t border-[#E6EDF2] py-4">
+        <section className="bg-white border-t border-[#e5e5e5] py-4">
           <div className="max-w-4xl mx-auto px-6">
             <FAQAccordion
               items={FAQS}
@@ -196,7 +196,7 @@ export default function FloridaPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-[#123B5D] py-16 px-6 text-center">
+        <section className="bg-newera-dark-blue py-16 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-poppins font-bold text-2xl md:text-3xl text-white mb-4">
               Ready to Go Solar in Florida?
@@ -206,7 +206,7 @@ export default function FloridaPage() {
             </p>
             <Link
               href="/contact"
-              className="bg-[#FF8A3D] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-block"
+              className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-block"
             >
               Schedule My Free Florida Assessment
             </Link>

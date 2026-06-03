@@ -20,7 +20,7 @@ function StarRow() {
   return (
     <div className="flex gap-0.5 mb-3">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-[#FF8A3D] text-[#FF8A3D]" />
+        <Star key={i} className="w-4 h-4 fill-[#ff5722] text-[#ff5722]" />
       ))}
     </div>
   );
@@ -28,7 +28,7 @@ function StarRow() {
 
 function PlaceholderCard({ state }: { state: StateFilter }) {
   return (
-    <div className="bg-white border border-[#E6EDF2] rounded-3xl p-6 md:p-8 flex flex-col shadow-sm">
+    <div className="bg-white border border-[#e5e5e5] rounded-3xl p-6 md:p-8 flex flex-col shadow-sm">
       {/* Amber warning badge */}
       <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 mb-4">
         <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
@@ -40,8 +40,8 @@ function PlaceholderCard({ state }: { state: StateFilter }) {
       <p className="text-[#5F6F75] text-sm leading-relaxed mb-6 flex-grow italic font-sans">
         This review space is reserved for a verified Google review. Actual customer testimonials will be displayed here after verification.
       </p>
-      <div className="border-t border-[#E6EDF2] pt-4 mt-auto">
-        <span className="font-bold text-[#123B5D] text-sm block font-poppins">Homeowner — {state}</span>
+      <div className="border-t border-[#e5e5e5] pt-4 mt-auto">
+        <span className="font-bold text-newera-dark-gray text-sm block font-poppins">Homeowner — {state}</span>
         <span className="text-xs text-[#5F6F75] uppercase tracking-wider font-bold block mt-1">
           {state} Resident
         </span>
@@ -67,8 +67,8 @@ export function ReviewTabs() {
             onClick={() => setActiveTab(tab)}
             className={`px-5 py-2.5 rounded-xl font-poppins font-bold text-sm transition-all ${
               activeTab === tab
-                ? 'bg-[#123B5D] text-white shadow-sm'
-                : 'bg-white border border-[#E6EDF2] text-[#5F6F75] hover:border-[#123B5D] hover:text-[#123B5D]'
+                ? 'bg-newera-dark-blue text-white shadow-sm'
+                : 'bg-white border border-[#e5e5e5] text-[#5F6F75] hover:border-newera-dark-gray hover:text-newera-dark-gray'
             }`}
           >
             {tab}
@@ -84,8 +84,8 @@ export function ReviewTabs() {
       </div>
 
       {/* Disclosure note */}
-      <div className="mt-8 bg-[#F5F7FA] border border-[#E6EDF2] rounded-2xl p-5 text-sm text-[#5F6F75] font-sans leading-relaxed">
-        <strong className="text-[#123B5D]">Editorial Note:</strong> Real customer reviews from Google will replace these placeholders prior to launch. We do not publish or fabricate unverified testimonials.
+      <div className="mt-8 bg-[#F5F7FA] border border-[#e5e5e5] rounded-2xl p-5 text-sm text-[#5F6F75] font-sans leading-relaxed">
+        <strong className="text-newera-dark-gray">Editorial Note:</strong> Real customer reviews from Google will replace these placeholders prior to launch. We do not publish or fabricate unverified testimonials.
       </div>
     </div>
   );

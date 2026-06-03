@@ -45,14 +45,14 @@ export default function ReviewsPage() {
 
       <main className="min-h-screen bg-[#F5F7FA]">
         {/* Hero */}
-        <section className="bg-[#123B5D] text-white py-20 px-6">
+        <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#5EC8E5] mb-4 font-sans">
+            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Reviews</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#5EC8E5] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
               Homeowner Experiences
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -73,8 +73,8 @@ export default function ReviewsPage() {
         <section className="max-w-6xl mx-auto px-6 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Share your experience */}
-            <div className="bg-white border border-[#E6EDF2] rounded-3xl p-8 shadow-sm flex flex-col gap-4">
-              <h2 className="font-poppins font-bold text-xl text-[#123B5D]">Share Your Experience</h2>
+            <div className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm flex flex-col gap-4">
+              <h2 className="font-poppins font-bold text-xl text-newera-dark-gray">Share Your Experience</h2>
               <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">
                 Already a New Era Solar customer? We&apos;d love to hear how your solar journey went. Leave us a review on Google to help other homeowners make confident decisions.
               </p>
@@ -82,7 +82,7 @@ export default function ReviewsPage() {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#FF8A3D] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-flex items-center gap-2 self-start"
+                className="bg-[#ff5722] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 self-start"
               >
                 Leave a Google Review
                 <ExternalLink className="w-4 h-4" />
@@ -90,14 +90,14 @@ export default function ReviewsPage() {
             </div>
 
             {/* Start your journey */}
-            <div className="bg-[#123B5D] rounded-3xl p-8 flex flex-col gap-4">
+            <div className="bg-newera-dark-blue rounded-3xl p-8 flex flex-col gap-4">
               <h2 className="font-poppins font-bold text-xl text-white">Ready to Start Your Own Solar Journey?</h2>
               <p className="text-white/80 font-sans text-sm leading-relaxed">
                 Join homeowners across Florida, Massachusetts, and Connecticut who are taking control of their energy costs with residential solar.
               </p>
               <Link
                 href="/contact"
-                className="bg-[#FF8A3D] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#ff7a21] transition-all inline-flex items-center gap-2 self-start"
+                className="bg-[#ff5722] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 self-start"
               >
                 Get My Free Assessment
                 <ArrowRight className="w-4 h-4" />
