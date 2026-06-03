@@ -27,10 +27,10 @@ export function Footer() {
             <p className="text-sm text-white/70 font-sans leading-relaxed mb-4 max-w-xs">
               Premium residential solar, roofing, and water purification services across Florida, Massachusetts, and Connecticut.
             </p>
-            <div className="flex gap-3">
-              <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">f</a>
-              <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">in</a>
-              <a href="#" aria-label="YouTube" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">▶</a>
+<div className="flex gap-3">
+              <a href="https://www.facebook.com/profile.php?id=61556855015821" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">fb</a>
+              <a href="https://www.instagram.com/newera.solar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">ig</a>
+              <a href="https://www.linkedin.com/company/newerasolar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">in</a>
             </div>
           </div>
 
@@ -108,8 +108,8 @@ export function Footer() {
             © {currentYear} New Era Solar Energy. All rights reserved.
           </span>
           <div className="flex gap-4 md:gap-6">
-            <a href="#" className="text-xs text-white/50 font-sans hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-white/50 font-sans hover:text-white transition-colors">Terms of Service</a>
+            <a href="/contact" className="text-xs text-white/50 font-sans hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/contact" className="text-xs text-white/50 font-sans hover:text-white transition-colors">Terms of Service</a>
             <a href="/dealer" className="text-xs text-white/50 font-sans hover:text-white transition-colors">For Solar Professionals</a>
           </div>
         </div>

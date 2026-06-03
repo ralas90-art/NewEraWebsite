@@ -55,7 +55,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     name: 'New Era Solar Energy',
     description: "Florida's Solar Specialist providing residential solar, roofing, and water purification.",
     url: 'https://newerasolarenergy.com', // TODO: REPLACE_WITH_PRODUCTION_DOMAIN
-    telephone: '+1-000-000-0000', // TODO: REPLACE_WITH_REAL_PHONE_NUMBER
+    telephone: '+1-321-381-3192',
     address: {
       '@type': 'PostalAddress',
       addressRegion: 'FL',

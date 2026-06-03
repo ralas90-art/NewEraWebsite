@@ -35,8 +35,8 @@ export default function ContactPage() {
     name: 'New Era Solar Energy',
     description: 'Residential solar, roofing, and water purification services across FL, MA, and CT.',
     url: 'https://newerasolarenergy.com',
-    telephone: '+1-000-000-0000', // TODO: REPLACE_WITH_REAL_PHONE_NUMBER
-    email: 'hello@newerasolarenergy.com',
+    telephone: '+1-321-381-3192',
+    email: 'info@newerasolarenergy.com',
     openingHours: 'Mo-Sa 08:00-19:00',
     areaServed: [
       { '@type': 'State', name: 'Florida' },
