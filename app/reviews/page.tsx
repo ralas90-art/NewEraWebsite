@@ -26,10 +26,10 @@ const jsonLd = {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '5.0',
-        reviewCount: '1',
+        reviewCount: '3',
         bestRating: '5',
         worstRating: '1',
-        description: 'Aggregate rating placeholder — verified review data will be added prior to launch.',
+        description: 'Verified customer reviews from Google Maps for New Era Solar Energy.',
       },
     },
   ],
@@ -47,19 +47,19 @@ export default function ReviewsPage() {
         {/* Hero */}
         <section className="bg-newera-dark-blue text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-[#082fa3] mb-4 font-sans">
+            <nav className="text-xs text-newera-orange mb-4 font-sans font-semibold">
               <Link href="/" className="hover:underline">Home</Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">Reviews</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-newera-orange tracking-widest mb-3 block">
               Homeowner Experiences
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
               What Homeowners Say About New Era Solar Energy
             </h1>
             <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto font-sans leading-relaxed">
-              We are committed to earning trust through transparent service, clear communication, and results. Below are verified customer experiences as we collect and verify reviews from our Google Business Profile.
+              We are committed to earning trust through transparent service, clear communication, and results. Below are verified customer experiences from our Google Business Profile.
             </p>
           </div>
         </section>
@@ -79,10 +79,10 @@ export default function ReviewsPage() {
                 Already a New Era Solar customer? We&apos;d love to hear how your solar journey went. Leave us a review on Google to help other homeowners make confident decisions.
               </p>
               <a
-                href="#"
+                href="https://share.google/l98mSvN0KB1nYSs0J"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#ff5722] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 self-start"
+                className="bg-newera-orange text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-orange/90 transition-all inline-flex items-center gap-2 self-start"
               >
                 Leave a Google Review
                 <ExternalLink className="w-4 h-4" />
@@ -97,7 +97,7 @@ export default function ReviewsPage() {
               </p>
               <Link
                 href="/contact"
-                className="bg-[#ff5722] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#e04a1b] transition-all inline-flex items-center gap-2 self-start"
+                className="bg-newera-orange text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-orange/90 transition-all inline-flex items-center gap-2 self-start"
               >
                 Get My Free Assessment
                 <ArrowRight className="w-4 h-4" />
