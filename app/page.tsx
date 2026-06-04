@@ -62,20 +62,19 @@ export default function Home() {
                 poster="https://images.unsplash.com/photo-1509391366360-1e5e4acb5042?q=80&w=1200&auto=format&fit=crop"
               >
                 <source src="/videos/solar-hero.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
               </video>
             </div>
             
             {/* Content Container */}
             <div className="relative z-20 flex flex-col items-start w-full">
-              <span className="bg-white/10 backdrop-blur-md border border-white/20 text-[#ff5722] px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest mb-4 w-fit">
-                Florida&apos;s Solar Specialist
+              <span className="bg-white/10 backdrop-blur-md border border-white/20 text-[#ff5722] px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest mb-4 w-fit font-sans">
+                {"Florida's Solar Specialist"}
               </span>
-              <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 text-white drop-shadow-md">
-                Make the Switch to <br/><span className="text-[#ff5722] drop-shadow-none">Solar</span> With Confidence
+              <h1 className="font-poppins font-extrabold text-3xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 text-white drop-shadow-md">
+                Explore <span className="text-[#ff5722] drop-shadow-none">$0 Down</span> Solar Options and See Your Savings Before You Commit
               </h1>
-              <p className="text-white/90 text-base md:text-lg leading-relaxed mb-8 max-w-lg drop-shadow-sm font-medium">
-                New Era Solar Energy helps homeowners explore residential solar with clear guidance, personalized assessments, and Florida-inspired support.
+              <p className="text-white/90 text-base md:text-lg leading-relaxed mb-8 max-w-lg drop-shadow-sm font-medium font-sans">
+                New Era Solar Energy helps homeowners compare solar options, estimate savings, and make a confident decision with no-pressure guidance in English or Spanish.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <button 
@@ -95,9 +94,9 @@ export default function Home() {
               {/* Trust Badges */}
               <div className="mt-8 pt-6 border-t border-white/20 w-full text-left">
                 <p className="text-[12px] md:text-sm font-bold text-white/80 uppercase tracking-widest flex flex-wrap items-center gap-x-2 gap-y-2">
-                  Clear solar guidance. <span className="hidden sm:inline w-[3px] h-[3px] bg-[#ff5722] rounded-full"></span> 
-                  No-pressure consultations. <span className="hidden sm:inline w-[3px] h-[3px] bg-[#ff5722] rounded-full"></span> 
-                  Fast follow-up.
+                  Free Assessments. <span className="hidden sm:inline w-[3px] h-[3px] bg-[#ff5722] rounded-full"></span> 
+                  Zero Sales Pressure. <span className="hidden sm:inline w-[3px] h-[3px] bg-[#ff5722] rounded-full"></span> 
+                  Same-Day Response.
                 </p>
               </div>
             </div>
@@ -158,7 +157,7 @@ export default function Home() {
               <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-1 block">Local Expertise</span>
               <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">Service Areas</h2>
               <p className="text-[#5F6F75] text-sm mt-2 max-w-xl font-sans">
-                We primarily serve Florida homeowners with premium solar and home upgrade solutions. 
+                We serve homeowners across Florida, Massachusetts, and Connecticut, with Florida as our primary market.
               </p>
             </div>
             <div className="flex gap-3 flex-wrap justify-center md:justify-end">

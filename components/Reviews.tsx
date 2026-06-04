@@ -15,13 +15,6 @@ const VERIFIED_REVIEWS = [
     text: 'Rudy did a great job to explain where New Era was going to provide me with more power at less cost from their panels compared to a competitor. I have 30 panels on my roof installed previously in 2017. They will be incorporated to supply more solar power to my home. I felt no pressure to complete the deal with Rudy.',
     location: 'Florida Resident',
     tag: 'Solar Integration',
-  },
-  {
-    name: 'Tereca Dwinell',
-    rating: 5,
-    text: 'Great experience with Ruben and Boris who installed 2 ceiling fans in my home. Communication was clear and prompt setting up the job. On the scheduled day, I was given a text update about the arrival time, as well as a follow up at completion. Everything was very courteous and professional. Plan on using them again for my next home project. Highly recommend!',
-    location: 'Florida Resident',
-    tag: 'Electrical Services',
   }
 ];
 
@@ -54,7 +47,7 @@ export function Reviews() {
               ))}
             </div>
             <p className="text-[#5F6F75] text-sm leading-relaxed mb-6 flex-grow italic font-sans">
-              "{review.text}"
+              &ldquo;{review.text}&rdquo;
             </p>
             <div className="border-t border-[#e5e5e5] pt-5 mt-auto flex items-center justify-between">
               <div>

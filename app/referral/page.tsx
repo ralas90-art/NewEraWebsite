@@ -24,7 +24,7 @@ const faqItems = [
   },
   {
     q: 'When do I get paid?',
-    a: 'Referral rewards are paid within 30 days of the referred homeowner&apos;s system activation. See program terms and conditions for full details.',
+    a: "Referral rewards are paid within 30 days of the referred homeowner's system activation. See program terms and conditions for full details.",
   },
 ];
 
@@ -33,7 +33,7 @@ const steps = [
     num: '01',
     icon: '📋',
     title: 'Submit a Referral',
-    desc: 'Fill out the simple form below with your contact info and your friend&apos;s details. Takes under 2 minutes.',
+    desc: "Fill out the simple form below with your contact info and your friend's details. Takes under 2 minutes.",
   },
   {
     num: '02',

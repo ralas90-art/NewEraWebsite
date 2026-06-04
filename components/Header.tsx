@@ -38,8 +38,9 @@ export function Header({ onSelectService }: HeaderProps) {
   const scrollToLeadForm = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    if (isHomePage) {
-      document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
+    const leadForm = document.getElementById('lead-form');
+    if (leadForm) {
+      leadForm.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.location.href = '/contact';
     }
@@ -111,11 +112,41 @@ export function Header({ onSelectService }: HeaderProps) {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 md:gap-4">
+          {/* Click to Call (Desktop) */}
+          <a
+            href="tel:+13213813192"
+            className="hidden sm:flex items-center gap-1.5 text-xs md:text-sm font-bold text-newera-dark-gray hover:text-[#ff5722] transition-colors mr-1 font-sans"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[#ff5722]">
+              <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5h-1.15a13.5 13.5 0 01-13.07-13.07V3.5z" clipRule="evenodd" />
+            </svg>
+            (321) 381-3192
+          </a>
+
+          {/* Click to Call (Mobile Icon) */}
+          <a
+            href="tel:+13213813192"
+            className="sm:hidden p-2 text-newera-dark-gray hover:text-[#ff5722]"
+            aria-label="Call New Era Solar Energy"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-[#ff5722]">
+              <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5h-1.15a13.5 13.5 0 01-13.07-13.07V3.5z" clipRule="evenodd" />
+            </svg>
+          </a>
+
           <button
             onClick={scrollToLeadForm}
             className="bg-newera-dark-blue text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-newera-dark-blue/90 transition-colors whitespace-nowrap"
           >
             Free Assessment
+          </button>
+
+          {/* Language Toggle (Desktop) */}
+          <button
+            onClick={scrollToLeadForm}
+            className="text-xs font-bold text-[#5F6F75] hover:text-[#ff5722] transition-colors border-l border-[#e5e5e5] pl-3 ml-2 hidden sm:block uppercase tracking-wider font-poppins outline-none"
+          >
+            Hablamos Español
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -166,6 +197,21 @@ export function Header({ onSelectService }: HeaderProps) {
             >
               Refer a Homeowner — Earn $1,000
             </Link>
+            <a
+              href="tel:+13213813192"
+              className="w-full bg-[#F5F7FA] text-newera-dark-gray border border-[#e5e5e5] px-5 py-4 rounded-xl font-bold uppercase tracking-wider text-sm text-center shadow-sm hover:bg-white hover:text-[#ff5722] transition-colors flex items-center justify-center gap-2 font-sans"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[#ff5722]">
+                <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5h-1.15a13.5 13.5 0 01-13.07-13.07V3.5z" clipRule="evenodd" />
+              </svg>
+              Call Us: (321) 381-3192
+            </a>
+            <button
+              onClick={scrollToLeadForm}
+              className="w-full border border-dashed border-[#e5e5e5] text-[#5F6F75] hover:text-[#ff5722] px-5 py-3 rounded-xl font-bold uppercase tracking-wider text-xs text-center hover:bg-[#F5F7FA] transition-colors flex items-center justify-center gap-1.5 font-poppins outline-none"
+            >
+              🌐 Hablamos Español
+            </button>
           </div>
         </div>
       )}

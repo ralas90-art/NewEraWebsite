@@ -71,6 +71,7 @@ export function HomeUpgradeAdvisor({
 
   React.useEffect(() => {
     if (initialService) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData(prev => ({ ...prev, serviceInterest: initialService }));
       setStep(2);
     }
@@ -207,7 +208,7 @@ export function HomeUpgradeAdvisor({
               onClick={startAdvisor}
               className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] transition-transform active:scale-95"
             >
-              Find the Right Service for My Home
+              Answer 3 Quick Questions
             </button>
             <p className="text-[10px] text-[#A0AEB8] mt-4 uppercase tracking-widest px-4 max-w-xs mx-auto text-center leading-tight">
               This tool helps us point you in the right direction. Final recommendations depend on your home, location, utility details, and consultation results.

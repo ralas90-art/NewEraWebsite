@@ -2,10 +2,10 @@ import React from 'react';
 
 export function TrustIndicators() {
   const indicators = [
-    { name: "Free Solar Assessment", abbr: "FREE", desc: "Personalized Analysis" },
-    { name: "No-Pressure Consultation", abbr: "CLEAR", desc: "Honest Guidance" },
-    { name: "Bilingual Support", abbr: "ESP/ENG", desc: "Spanish & English" },
-    { name: "Fast Response Team", abbr: "FAST", desc: "Florida-Based Support" }
+    { name: "Free Assessment", abbr: "FREE", desc: "Know Your Savings Before You Commit" },
+    { name: "Zero Sales Pressure", abbr: "ZERO", desc: "We Educate, You Decide" },
+    { name: "Hablamos Español", abbr: "ES/EN", desc: "Atención en tu idioma" },
+    { name: "Same-Day Response", abbr: "LOCAL", desc: "Local Support Team" }
   ];
 
   return (

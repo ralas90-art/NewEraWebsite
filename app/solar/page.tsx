@@ -115,9 +115,9 @@ export default function SolarPage() {
               muted 
               loop 
               playsInline
+              poster="https://images.unsplash.com/photo-1509391366360-1e5e4acb5042?q=80&w=1200&auto=format&fit=crop"
             >
               <source src="/videos/solar-hero.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
           </div>
           <div className="relative z-10 max-w-3xl">
@@ -261,7 +261,7 @@ export default function SolarPage() {
 
         {/* IRS Tax Credit Disclaimer */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 font-sans leading-relaxed mt-4">
-          <strong>Federal Solar Tax Credit Notice:</strong> Federal solar tax credit rules have changed. For qualifying residential clean energy property installed from 2022 through December 31, 2025, the credit was generally 30%. Under current IRS guidance, the credit is not available for property placed in service after December 31, 2025. Homeowners should consult a qualified tax professional to confirm eligibility.
+          <strong>Federal Solar Tax Credit Notice:</strong> Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional.
         </div>
 
         {/* FAQ Section */}

@@ -27,6 +27,15 @@ export function Footer() {
             <p className="text-sm text-white/70 font-sans leading-relaxed mb-4 max-w-xs">
               Premium residential solar, roofing, and water purification services across Florida, Massachusetts, and Connecticut.
             </p>
+            <div className="flex flex-col gap-2.5 mb-4 text-xs font-sans text-white/70">
+              <a href="tel:+13213813192" className="flex items-center gap-2 hover:text-[#ff5722] transition-colors w-fit">
+                <span>📞</span> (321) 381-3192
+              </a>
+              <div className="flex items-start gap-2">
+                <span>📍</span>
+                <span>Business address pending client confirmation</span>
+              </div>
+            </div>
 <div className="flex gap-3">
               <a href="https://www.facebook.com/profile.php?id=61556855015821" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">fb</a>
               <a href="https://www.instagram.com/newera.solar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold hover:bg-[#ff5722] hover:text-white transition-colors">ig</a>

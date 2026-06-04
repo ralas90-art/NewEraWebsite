@@ -110,9 +110,9 @@ export default function RoofingPage() {
               muted 
               loop 
               playsInline
+              poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
             >
               <source src="/videos/roofing-hero.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
           </div>
           <div className="relative z-10 max-w-3xl">

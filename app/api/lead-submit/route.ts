@@ -7,10 +7,11 @@ import { NextRequest, NextResponse } from 'next/server';
  * being exposed in the client-side bundle.
  */
 export async function POST(req: NextRequest) {
-  const railwayProxyUrl = process.env.LEAD_PROXY_URL;
+  // Supports env-based GHL Webhook directly or falls back to the Railway lead proxy
+  const targetWebhookUrl = process.env.GHL_WEBHOOK_URL || process.env.NEXT_PUBLIC_GHL_WEBHOOK_URL || process.env.LEAD_PROXY_URL;
 
-  if (!railwayProxyUrl) {
-    console.error('[Lead Proxy] LEAD_PROXY_URL environment variable is not set.');
+  if (!targetWebhookUrl) {
+    console.error('[Lead Proxy] Neither GHL_WEBHOOK_URL, NEXT_PUBLIC_GHL_WEBHOOK_URL, nor LEAD_PROXY_URL environment variable is set.');
     return NextResponse.json(
       { status: 'error', message: 'Lead submission service is unavailable. Please try again later.' },
       { status: 503 }
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const upstreamResponse = await fetch(railwayProxyUrl, {
+    const upstreamResponse = await fetch(targetWebhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(data, { status: upstreamResponse.status });
   } catch (err) {
-    console.error('[Lead Proxy] Failed to reach Railway proxy:', err);
+    console.error('[Lead Proxy] Failed to forward lead payload upstream:', err);
     return NextResponse.json(
       { status: 'error', message: 'Submission failed. Please try calling us directly.' },
       { status: 502 }

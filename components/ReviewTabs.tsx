@@ -23,14 +23,6 @@ const VERIFIED_REVIEWS = [
     location: 'Florida Resident',
     state: 'Florida' as StateFilter,
     tag: 'Solar Integration',
-  },
-  {
-    name: 'Tereca Dwinell',
-    rating: 5,
-    text: 'Great experience with Ruben and Boris who installed 2 ceiling fans in my home. Communication was clear and prompt setting up the job. On the scheduled day, I was given a text update about the arrival time, as well as a follow up at completion. Everything was very courteous and professional. Plan on using them again for my next home project. Highly recommend!',
-    location: 'Florida Resident',
-    state: 'Florida' as StateFilter,
-    tag: 'Electrical Services',
   }
 ];
 
@@ -77,7 +69,7 @@ export function ReviewTabs() {
             <div key={idx} className="bg-white border border-[#e5e5e5] rounded-3xl p-6 md:p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
               <StarRow />
               <p className="text-[#5F6F75] text-sm leading-relaxed mb-6 flex-grow italic font-sans">
-                "{review.text}"
+                &ldquo;{review.text}&rdquo;
               </p>
               <div className="border-t border-[#e5e5e5] pt-4 mt-auto flex items-center justify-between">
                 <div>
@@ -101,7 +93,7 @@ export function ReviewTabs() {
             Expanding Our Local Reviews in {activeTab}
           </h3>
           <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-6">
-            We are actively installing residential solar energy systems and conducting electrical upgrades in {activeTab}. If you're a homeowner in the area who has worked with us, we'd love to hear your feedback!
+            We are actively installing residential solar energy systems and conducting electrical upgrades in {activeTab}. If you&apos;re a homeowner in the area who has worked with us, we&apos;d love to hear your feedback!
           </p>
           <a
             href="https://share.google/l98mSvN0KB1nYSs0J"

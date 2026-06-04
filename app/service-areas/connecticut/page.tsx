@@ -79,7 +79,7 @@ const FAQS = [
   {
     question: 'Can I still get the federal solar tax credit in Connecticut?',
     answer:
-      'Federal tax credit rules have changed for systems placed in service after December 31, 2025. Consult a qualified tax professional for current eligibility guidance specific to your situation. Do not rely on tax credit projections without independent professional tax advice.',
+      'Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional. Do not rely on tax credit projections without independent professional tax advice.',
   },
 ];
 
@@ -189,7 +189,7 @@ export default function ConnecticutPage() {
         {/* Disclaimers */}
         <section className="max-w-4xl mx-auto px-6 py-8">
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 font-sans leading-relaxed mt-4">
-            <strong>Federal Solar Tax Credit Notice:</strong> Federal solar tax credit rules have changed. For qualifying residential clean energy property installed from 2022 through December 31, 2025, the credit was generally 30%. Under current IRS guidance, the credit is not available for property placed in service after December 31, 2025. Homeowners should consult a qualified tax professional to confirm eligibility.
+            <strong>Federal Solar Tax Credit Notice:</strong> Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional.
           </div>
           <p className="text-xs text-[#5F6F75] font-sans leading-relaxed mt-2 italic">
             * Savings estimates, return on investment timelines, and financing rates are based on regional averages and typical equipment performance. Actual results vary by homeowner, roof condition, utility rate plan, system size, local policies, credit profile, and other factors. A personalized site assessment and utility analysis is required before any final savings projection.

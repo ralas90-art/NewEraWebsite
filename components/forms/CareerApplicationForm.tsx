@@ -163,7 +163,7 @@ export function CareerApplicationForm() {
         <div className={wrap}>
           <label htmlFor="notes" className={lbl}>Additional Notes (optional)</label>
           <textarea id="notes" name="notes" rows={2}
-            placeholder="Anything else you&apos;d like us to know..."
+            placeholder="Anything else you'd like us to know..."
             className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans resize-none" />
         </div>
 

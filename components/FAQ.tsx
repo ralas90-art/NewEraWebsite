@@ -38,20 +38,36 @@ function FAQItem({ question, answer }: FAQItemProps) {
 export function FAQ() {
   const faqs = [
     {
-      question: "How long does a typical solar installation take?",
-      answer: "A standard residential solar installation typically takes 1 to 3 days to complete the physical work. However, the entire process—including site assessment, permitting, and final utility interconnection—usually takes between 4 to 8 weeks depending on local regulations and HOA approvals."
+      question: "How much does residential solar cost?",
+      answer: "The cost of a residential solar system varies depending on your roof size, energy usage, shading, and utility rates. A personalized solar savings assessment is required to determine the exact system size and pricing for your home, allowing you to estimate your payback timeline before making a commitment."
     },
     {
-      question: "Will installing solar panels damage my roof?",
-      answer: "No, a professional solar installation will not damage your roof. In fact, panels can protect the portion of the roof they cover from weather and sun damage. If your roof is older and requires replacement soon, we offer comprehensive roofing services to coordinate both upgrades seamlessly."
+      question: "Are there $0 down solar options?",
+      answer: "Yes. Many homeowners qualify for $0 down solar financing options, including solar loans, leases, or Power Purchase Agreements (PPAs) that allow you to pay for your system over time. Eligibility depends on credit profile, local utility compatibility, and program terms."
     },
     {
-      question: "What maintenance is required for a solar energy system?",
-      answer: "Solar panel systems require very little maintenance. Since there are no moving parts, the primary upkeep is simply keeping them clean from significant dirt or debris. Rainfall usually handles the cleaning in Florida, but an annual professional cleaning and inspection is recommended to ensure maximum efficiency."
+      question: "How does the federal solar tax credit work?",
+      answer: "Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional."
     },
     {
-      question: "Do solar panels still work during a power outage or at night?",
-      answer: "Standard grid-tied solar panels do not provide power during a grid outage for safety reasons, and they do not generate power at night. However, if you pair your solar system with a battery backup solution, you can store excess daytime energy to power your home during the night or when the grid goes down."
+      question: "What happens to my solar panels if I sell my home?",
+      answer: "Solar panels can be transferred to the new homeowner. Studies consistently show that homes with fully owned solar systems sell faster and at a premium. If your system is financed or leased, the remaining balance can typically be transferred to the buyer or paid off through home sale proceeds."
+    },
+    {
+      question: "Will my Homeowners Association (HOA) allow solar panels?",
+      answer: "In Florida, the Florida Solar Rights Act (and similar laws in Massachusetts and Connecticut) protects your right to install solar panels on your property. While HOAs can request minor modifications to design or location, they cannot prevent you from installing a system or render it significantly less efficient."
+    },
+    {
+      question: "How does net metering work?",
+      answer: "Net metering is a billing mechanism that credits you for excess electricity your panels send back to the power grid. During the day when your system generates more energy than your home consumes, the meter runs backward, and you earn utility credits to offset energy pulled from the grid at night."
+    },
+    {
+      question: "How long does the solar process take from start to finish?",
+      answer: "While the physical installation of panels on your roof typically takes just 1 to 3 days, the entire process from design to activation takes about 4 to 8 weeks. This timeline includes structural engineering reviews, local permitting, HOA design approvals, and utility interconnection inspections."
+    },
+    {
+      question: "Do solar panels work during a grid outage?",
+      answer: "For safety reasons, standard grid-tied solar systems automatically shut off during a utility grid outage to prevent back-feeding electricity into lines where technicians are working. To power your home during an outage, you must pair your solar system with a compatible battery backup solution."
     }
   ];
 

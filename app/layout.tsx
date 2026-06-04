@@ -24,27 +24,35 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'New Era Solar Energy | Florida\'s Solar Specialist',
+  title: "New Era Solar Energy | Florida's Solar Specialist",
   icons: {
     icon: '/logo-sun.png',
     shortcut: '/logo-sun.png',
     apple: '/logo-sun.png',
   },
-  description: 'Make the switch to solar with confidence. New Era Solar Energy provides clear guidance, personalized assessments, and premium support for residential solar, roofing, and water purification in Florida.',
-  keywords: ['solar energy', 'Florida solar', 'residential solar panels', 'solar installation', 'roofing FL', 'home water purification'],
+  description: 'Make the switch to solar with confidence. New Era Solar Energy provides clear savings assessments, zero-pressure guidance, and premium support for residential solar, roofing, and water purification in Florida, Massachusetts, and Connecticut.',
+  keywords: ['solar energy', 'Florida solar', 'residential solar panels', 'solar installation', 'roofing FL', 'home water purification', 'Massachusetts solar', 'Connecticut solar'],
   openGraph: {
-    title: 'New Era Solar Energy | Florida\'s Solar Specialist',
-  
-    description: 'Make the switch to solar with confidence. Clear guidance, personalized assessments, and Florida-inspired support.',
-    url: 'https://newerasolarenergy.com', // TODO: REPLACE_WITH_PRODUCTION_DOMAIN
+    title: "New Era Solar Energy | Florida's Solar Specialist",
+    description: 'Make the switch to solar with confidence. Compare solar options, estimate savings, and make a confident decision with bilingual no-pressure guidance.',
+    url: 'https://newerasolarenergy.com',
     siteName: 'New Era Solar Energy',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://newerasolarenergy.com/logo-sun.png',
+        width: 512,
+        height: 512,
+        alt: 'New Era Solar Energy Logo',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'New Era Solar Energy',
-    description: 'Florida\'s trusted solar provider.',
+    description: "Florida's trusted solar and home upgrades provider.",
+    images: ['https://newerasolarenergy.com/logo-sun.png'],
   },
 };
 

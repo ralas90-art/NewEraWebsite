@@ -19,13 +19,11 @@ export function LeadForm() {
     console.log('lead_form_submit_click');
 
     const form = e.currentTarget;
-    const serviceInterest = (form.querySelector('#service-type') as HTMLSelectElement)?.value || '';
-    const firstName = (form.querySelector('#first-name') as HTMLInputElement)?.value || '';
-    const lastName = (form.querySelector('#last-name') as HTMLInputElement)?.value || '';
-    const email = (form.querySelector('#email') as HTMLInputElement)?.value || '';
+    const fullName = (form.querySelector('#full-name') as HTMLInputElement)?.value || '';
     const phone = (form.querySelector('#phone') as HTMLInputElement)?.value || '';
     const postalCode = (form.querySelector('#zip') as HTMLInputElement)?.value || '';
     const honeypot = (form.querySelector('#honeypot') as HTMLInputElement)?.value || '';
+    const serviceInterest = 'Residential Solar';
 
     // Honeypot bot protection check
     if (honeypot) {
@@ -37,18 +35,17 @@ export function LeadForm() {
       return;
     }
 
+    // Split Full Name into First and Last Names
+    const nameParts = fullName.trim().split(/\s+/);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+    const email = ''; // Email made optional/omitted for reduced hero form friction
+
     // Check UTMs and Event IDs
     const utms = getUTMParams();
     const eventId = generateEventId('Lead');
 
-    const tags = ['newera_home_upgrade_advisor'];
-    if (serviceInterest.includes('Solar')) {
-      tags.push('newera_solar_lead');
-    } else if (serviceInterest.includes('Roofing')) {
-      tags.push('newera_roofing_lead');
-    } else if (serviceInterest.includes('Water')) {
-      tags.push('newera_water_lead');
-    }
+    const tags = ['newera_home_upgrade_advisor', 'newera_solar_lead'];
 
     const payload = {
       firstName,
@@ -61,10 +58,10 @@ export function LeadForm() {
       roofAge: 'N/A',
       roofingNeed: 'N/A',
       waterConcern: 'N/A',
-      recommendedNextStep: 'General Inquiry - Quick Form',
+      recommendedNextStep: 'General Solar Assessment - Hero Form',
       preferredContactMethod: 'Call',
       bestContactTime: 'Anytime',
-      advisorSummary: `Homeowner ${firstName} ${lastName} submitted quick lead form for ${serviceInterest}. ZIP: ${postalCode}.`,
+      advisorSummary: `Homeowner ${firstName} ${lastName} submitted quick 3-field hero form for ${serviceInterest}. ZIP: ${postalCode}.`,
       tags: getStagingAwareTags(tags),
       pageUrl: utms.pageUrl,
       utmSource: utms.utmSource,
@@ -103,39 +100,18 @@ export function LeadForm() {
       
       <form onSubmit={handleSubmit} className="space-y-5 flex-grow flex flex-col">
         <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
-          <label htmlFor="service-type" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Service of Interest</label>
-          <select id="service-type" className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base font-medium p-0 text-newera-dark-gray outline-none">
-            <option>Residential Solar</option>
-            <option>Roofing Services</option>
-            <option>Water Purification</option>
-          </select>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-4">
-          <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
-            <label htmlFor="first-name" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">First Name</label>
-            <input id="first-name" type="text" placeholder="John" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
-          </div>
-          <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
-            <label htmlFor="last-name" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Last Name</label>
-            <input id="last-name" type="text" placeholder="Doe" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
-          </div>
+          <label htmlFor="full-name" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Full Name</label>
+          <input id="full-name" type="text" placeholder="John Doe" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
         </div>
 
         <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
-          <label htmlFor="email" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Email Address</label>
-          <input id="email" type="email" placeholder="john@example.com" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
+          <label htmlFor="phone" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Phone Number</label>
+          <input id="phone" type="tel" placeholder="(555) 123-4567" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
-            <label htmlFor="phone" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">Phone</label>
-            <input id="phone" type="tel" placeholder="(555) 123-4567" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
-          </div>
-          <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
-            <label htmlFor="zip" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">ZIP Code</label>
-            <input id="zip" type="text" placeholder="33101" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
-          </div>
+        <div className="px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm group">
+          <label htmlFor="zip" className="block text-[10px] font-bold text-[#5F6F75] uppercase mb-1">ZIP Code</label>
+          <input id="zip" type="text" inputMode="numeric" pattern="[0-9]{5}" placeholder="33101" required onFocus={handleInputFocus} className="w-full bg-transparent border-none focus:ring-0 text-sm md:text-base p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans" />
         </div>
         
         {/* Honeypot field for bot protection */}
@@ -152,6 +128,9 @@ export function LeadForm() {
         <button type="submit" className="w-full mt-6 bg-[#ff5722] text-white py-4 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e0752f] hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px]">
           Get My Free Solar Assessment
         </button>
+        <p className="text-center text-[11px] text-[#ff5722] font-semibold font-sans mt-2">
+          Limited free assessment slots available this month in your area.
+        </p>
         <p className="text-center text-xs text-[#5F6F75] mt-4 font-sans max-w-[280px] mx-auto opacity-80 leading-relaxed">
           Your information is secure. No spam — just clear answers from our team.
         </p>

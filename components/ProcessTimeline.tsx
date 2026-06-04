@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 export function ProcessTimeline() {
@@ -71,6 +73,24 @@ export function ProcessTimeline() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Timeline Reassurance & CTA Section */}
+        <div className="mt-16 text-center max-w-2xl mx-auto flex flex-col items-center gap-6 animate-in fade-in duration-300">
+          <p className="text-sm text-[#5F6F75] font-sans leading-relaxed">
+            Most homeowners complete the full solar process in about <strong>4–8 weeks</strong>, depending on permitting, utility approval, and inspection timelines.
+          </p>
+          <button
+            onClick={() => {
+              const leadForm = document.getElementById('lead-form');
+              if (leadForm) {
+                leadForm.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] hover:scale-105 transition-all"
+          >
+            Start My Free Assessment
+          </button>
         </div>
       </div>
     </section>

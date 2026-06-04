@@ -110,9 +110,9 @@ export default function WaterPurificationPage() {
               muted 
               loop 
               playsInline
+              poster="https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=1200&auto=format&fit=crop"
             >
               <source src="/videos/water-hero.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
           </div>
           <div className="relative z-10 max-w-3xl">

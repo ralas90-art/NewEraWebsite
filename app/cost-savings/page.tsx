@@ -30,7 +30,7 @@ const faqs = [
   {
     question: 'Are there still tax credits for solar in 2026?',
     answer:
-      'Federal tax credit rules have changed. Under current IRS guidance, the residential clean energy credit is not available for property placed in service after December 31, 2025. Consult a qualified tax professional for current eligibility guidance. See our tax credit notice on this page.',
+      'Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional. See our tax credit notice on this page.',
   },
   {
     question: 'How long until solar pays for itself?',
@@ -177,7 +177,7 @@ export default function CostSavingsPage() {
 
         {/* IRS Tax Credit Disclaimer */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 font-sans leading-relaxed">
-          <strong>Federal Solar Tax Credit Notice:</strong> Federal solar tax credit rules have changed. For qualifying residential clean energy property installed from 2022 through December 31, 2025, the credit was generally 30%. Under current IRS guidance, the credit is not available for property placed in service after December 31, 2025. Homeowners should consult a qualified tax professional to confirm eligibility.
+          <strong>Federal Solar Tax Credit Notice:</strong> Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional.
         </div>
 
         {/* Savings Disclaimer */}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Link from 'next/link';
 import {
   submitLead,
   getUTMParams,
@@ -185,8 +186,10 @@ export function ReferralForm() {
         </button>
 
         <p className="text-[10px] text-[#5F6F75] font-sans leading-relaxed">
-          * Referral reward paid within 30 days after referred homeowner&apos;s solar system is fully
-          installed and utility-activated. Subject to program terms and conditions.
+          * Referral rewards are subject to eligibility, installation completion, and program terms. Referral reward paid within 30 days after referred homeowner&apos;s solar system is fully installed and utility-activated.{' '}
+          <Link href="/referral-terms" className="text-[#ff5722] hover:underline font-bold font-poppins">
+            See Referral Terms
+          </Link>
         </p>
       </form>
     </div>

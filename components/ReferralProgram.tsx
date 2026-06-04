@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Gift, CheckCircle, Send } from 'lucide-react';
 
 import { getUTMParams, generateEventId, getStagingAwareTags, submitLead, fireMetaPixelLead } from '@/lib/lead-submit';
@@ -121,7 +122,7 @@ export function ReferralProgram() {
 
             <div className="space-y-4">
               {[
-                { title: 'Submit Referral', desc: 'Fill out the form with your details and your friend&apos;s details.' },
+                { title: 'Submit Referral', desc: "Fill out the form with your details and your friend's details." },
                 { title: 'We Consult', desc: 'Our team reaches out for a zero-pressure solar assessment.' },
                 { title: 'Get Paid $1,000', desc: 'When their solar system is installed, you get paid!' }
               ].map((step, idx) => (
@@ -138,11 +139,22 @@ export function ReferralProgram() {
             </div>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/15 flex items-center gap-3 relative z-10">
-            <Gift className="w-6 h-6 text-[#ff5722]" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#082fa3]">
-              No referral limit — earn as much as you share
-            </span>
+          <div className="mt-8 pt-6 border-t border-white/15 flex flex-col gap-3 relative z-10">
+            <div className="flex items-center gap-3">
+              <Gift className="w-6 h-6 text-[#ff5722]" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">
+                No referral limit — earn as much as you share
+              </span>
+            </div>
+            <p className="text-[10px] text-white/60 font-sans leading-relaxed mt-1">
+              Referral rewards are subject to eligibility, installation completion, and program terms.
+            </p>
+            <Link 
+              href="/referral-terms" 
+              className="text-[10px] text-[#ff5722] hover:underline font-bold uppercase tracking-wider w-fit font-poppins"
+            >
+              See Referral Terms
+            </Link>
           </div>
         </div>
 
@@ -222,7 +234,7 @@ export function ReferralProgram() {
                   <input 
                     type="text" 
                     name="refereeName" 
-                    placeholder="Friend&apos;s Name" 
+                    placeholder="Friend's Name" 
                     required 
                     value={formData.refereeName}
                     onChange={handleInput}
@@ -231,7 +243,9 @@ export function ReferralProgram() {
                   <input 
                     type="text" 
                     name="refereeZip" 
-                    placeholder="Friend&apos;s ZIP Code" 
+                    inputMode="numeric" 
+                    pattern="[0-9]{5}"
+                    placeholder="Friend's ZIP Code" 
                     required 
                     value={formData.refereeZip}
                     onChange={handleInput}
@@ -242,7 +256,7 @@ export function ReferralProgram() {
                   <input 
                     type="tel" 
                     name="refereePhone" 
-                    placeholder="Friend&apos;s Phone" 
+                    placeholder="Friend's Phone" 
                     required 
                     value={formData.refereePhone}
                     onChange={handleInput}
@@ -251,8 +265,7 @@ export function ReferralProgram() {
                   <input 
                     type="email" 
                     name="refereeEmail" 
-                    placeholder="Friend&apos;s Email" 
-                    required 
+                    placeholder="Friend's Email (Optional)" 
                     value={formData.refereeEmail}
                     onChange={handleInput}
                     className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
