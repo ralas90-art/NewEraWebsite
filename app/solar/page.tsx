@@ -106,7 +106,20 @@ export default function SolarPage() {
 
         {/* Hero Section */}
         <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#123B5D] via-[#1a4a75] to-[#0e2d48] opacity-95 pointer-events-none" />
+          {/* Background Video Layer */}
+          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <div className="absolute inset-0 bg-newera-dark-blue/70 z-10 pointer-events-none"></div>
+            <video 
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src="/videos/solar-hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
           <div className="relative z-10 max-w-3xl">
             <span className="inline-block bg-[#ff5722]/20 border border-[#ff5722]/40 text-[#ff5722] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
               Residential Solar — Florida
