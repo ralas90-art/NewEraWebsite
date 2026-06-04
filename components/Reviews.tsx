@@ -1,30 +1,61 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 
-const VERIFIED_REVIEWS = [
-  {
-    name: 'Christian Casco',
-    rating: 5,
-    text: 'Highly Recommend New Era Solar! 🌟 We had our 26 solar panels installed by New Era Solar this week at our home on Ashville Lane, and we couldn’t be happier with the entire experience! From start to finish, the process was super fast, professional, and hassle-free. What impressed us the most was the unbeatable pricing—they came in almost $20,000 cheaper than any other solar company we looked at! Plus, there was absolutely no pressure to buy.',
-    location: 'Florida Resident',
-    tag: 'Solar Installation',
-  },
-  {
-    name: 'Jack Tunstill',
-    rating: 5,
-    text: 'Rudy did a great job to explain where New Era was going to provide me with more power at less cost from their panels compared to a competitor. I have 30 panels on my roof installed previously in 2017. They will be incorporated to supply more solar power to my home. I felt no pressure to complete the deal with Rudy.',
-    location: 'Florida Resident',
-    tag: 'Solar Integration',
-  }
-];
+interface ReviewsProps {
+  locale?: 'en' | 'es';
+}
 
-export function Reviews() {
+const VERIFIED_REVIEWS = {
+  en: [
+    {
+      name: 'Christian Casco',
+      rating: 5,
+      text: 'Highly Recommend New Era Solar! 🌟 We had our 26 solar panels installed by New Era Solar this week at our home on Ashville Lane, and we couldn’t be happier with the entire experience! From start to finish, the process was super fast, professional, and hassle-free. What impressed us the most was the unbeatable pricing—they came in almost $20,000 cheaper than any other solar company we looked at! Plus, there was absolutely no pressure to buy.',
+      location: 'Florida Resident',
+      tag: 'Solar Installation',
+    },
+    {
+      name: 'Jack Tunstill',
+      rating: 5,
+      text: 'Rudy did a great job to explain where New Era was going to provide me with more power at less cost from their panels compared to a competitor. I have 30 panels on my roof installed previously in 2017. They will be incorporated to supply more solar power to my home. I felt no pressure to complete the deal with Rudy.',
+      location: 'Florida Resident',
+      tag: 'Solar Integration',
+    }
+  ],
+  es: [
+    {
+      name: 'Christian Casco',
+      rating: 5,
+      text: '¡Recomiendo ampliamente a New Era Solar! 🌟 ¡Instalaron nuestros 26 paneles solares esta semana en nuestra casa en Ashville Lane y no podríamos estar más felices con toda la experiencia! De principio a fin, el proceso fue súper rápido, profesional y sin complicaciones. Lo que más nos impresionó fue el precio inmejorable: ¡fueron casi $20,000 más baratos que cualquier otra empresa de energía solar que vimos! Además, no hubo absolutamente ninguna presión para comprar.',
+      location: 'Residente de Florida',
+      tag: 'Instalación Solar',
+    },
+    {
+      name: 'Jack Tunstill',
+      rating: 5,
+      text: 'Rudy hizo un gran trabajo explicando que New Era me proporcionaría más energía a un menor costo con sus paneles en comparación con un competidor. Tengo 30 paneles en mi techo instalados anteriormente en 2017. Se incorporarán para suministrar más energía solar a mi hogar. No sentí ninguna presión para completar el trato con Rudy.',
+      location: 'Residente de Florida',
+      tag: 'Integración Solar',
+    }
+  ]
+};
+
+export function Reviews({ locale = 'en' }: ReviewsProps) {
+  const isSpanish = locale === 'es';
+  const reviews = isSpanish ? VERIFIED_REVIEWS.es : VERIFIED_REVIEWS.en;
+
   return (
     <section className="mt-8 mb-6">
       <div className="flex flex-col md:flex-row items-baseline justify-between mb-8 gap-4">
         <div>
-          <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">What Homeowners Say</h2>
-          <p className="text-[#5F6F75] text-sm mt-2 font-sans">Verified customer experiences from Google Reviews.</p>
+          <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
+            {isSpanish ? "Lo Que Dicen los Propietarios" : "What Homeowners Say"}
+          </h2>
+          <p className="text-[#5F6F75] text-sm mt-2 font-sans">
+            {isSpanish 
+              ? "Experiencias de clientes verificadas de Google Reviews." 
+              : "Verified customer experiences from Google Reviews."}
+          </p>
         </div>
         <div className="flex items-center gap-2 bg-[#ff572215] border border-[#ff572230] px-4 py-2 rounded-2xl">
           <div className="flex gap-0.5">
@@ -33,13 +64,13 @@ export function Reviews() {
             ))}
           </div>
           <span className="text-xs font-bold text-newera-dark-gray font-poppins">
-            5.0 Rating on Google
+            {isSpanish ? "Calificación de 5.0 en Google" : "5.0 Rating on Google"}
           </span>
         </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {VERIFIED_REVIEWS.map((review, idx) => (
+        {reviews.map((review, idx) => (
           <div key={idx} className="bg-white border border-[#e5e5e5] rounded-3xl p-6 md:p-8 flex flex-col shadow-sm hover:shadow-md transition-all">
             <div className="flex gap-0.5 mb-4">
               {[...Array(review.rating)].map((_, i) => (

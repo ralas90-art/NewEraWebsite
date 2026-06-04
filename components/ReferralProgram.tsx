@@ -2,11 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Gift, CheckCircle, Send } from 'lucide-react';
-
 import { getUTMParams, generateEventId, getStagingAwareTags, submitLead, fireMetaPixelLead } from '@/lib/lead-submit';
 
 export function ReferralProgram() {
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+
   const [formData, setFormData] = useState({
     referrerName: '',
     referrerPhone: '',
@@ -54,10 +57,12 @@ export function ReferralProgram() {
       roofAge: 'N/A',
       roofingNeed: 'N/A',
       waterConcern: 'N/A',
-      recommendedNextStep: 'Referral Submission - Referral Program',
+      recommendedNextStep: isSpanish ? 'Referral Submission - Referral Program (ES)' : 'Referral Submission - Referral Program',
       preferredContactMethod: 'Call',
       bestContactTime: 'Anytime',
-      advisorSummary: `Referral submitted by ${formData.referrerName} (Phone: ${formData.referrerPhone}, Email: ${formData.referrerEmail}). Friend details: ${formData.refereeName} (ZIP: ${formData.refereeZip}).`,
+      advisorSummary: isSpanish
+        ? `Referido enviado por ${formData.referrerName} (Tel: ${formData.referrerPhone}, Email: ${formData.referrerEmail}). Recomendado: ${formData.refereeName} (ZIP: ${formData.refereeZip}).`
+        : `Referral submitted by ${formData.referrerName} (Phone: ${formData.referrerPhone}, Email: ${formData.referrerEmail}). Friend details: ${formData.refereeName} (ZIP: ${formData.refereeZip}).`,
       tags: getStagingAwareTags(['newera_referral_lead', `referred_by_${formData.referrerName.replace(/[^a-zA-Z0-9]/g, '_')}`]),
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
       utmSource: 'referral_program',
@@ -66,7 +71,9 @@ export function ReferralProgram() {
       utmContent: '',
       utmTerm: '',
       eventId: eventId,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      language: isSpanish ? 'es' : 'en',
+      sourcePage: pathname
     };
 
     try {
@@ -80,7 +87,6 @@ export function ReferralProgram() {
 
       if (response.ok) {
         console.log('referral_submitted', { eventId, referrer: formData.referrerName });
-        // Optional client-side Meta Pixel tracking
         if (typeof window !== 'undefined' && (window as any).fbq) {
           (window as any).fbq('track', 'Referral', {
             content_category: 'Referral Program',
@@ -91,15 +97,29 @@ export function ReferralProgram() {
         setIsSubmitted(true);
       } else {
         console.warn('referral_proxy_error', response.statusText);
-        alert('There was a submission issue. Please try again or contact support.');
+        alert(isSpanish ? 'Hubo un problema con el envío. Por favor intente de nuevo o contacte a soporte.' : 'There was a submission issue. Please try again or contact support.');
       }
     } catch (err) {
       console.error('referral_failed', err);
-      alert('Network failure. Please check your internet connection and try again.');
+      alert(isSpanish ? 'Fallo de red. Por favor verifique su conexión e intente de nuevo.' : 'Network failure. Please check your internet connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const stepsEn = [
+    { title: 'Submit Referral', desc: "Fill out the form with your details and your friend's details." },
+    { title: 'We Consult', desc: 'Our team reaches out for a zero-pressure solar assessment.' },
+    { title: 'Get Paid $1,000', desc: 'When their solar system is installed, you get paid!' }
+  ];
+
+  const stepsEs = [
+    { title: 'Enviar Referido', desc: "Completa el formulario con tus datos y los de tu recomendado." },
+    { title: 'Nosotros Asesoramos', desc: 'Nuestro equipo se pondrá en contacto para una evaluación solar sin presión.' },
+    { title: 'Recibe tu Pago de $1,000', desc: '¡Cuando se complete la instalación de su sistema solar, recibirás tu dinero!' }
+  ];
+
+  const steps = isSpanish ? stepsEs : stepsEn;
 
   return (
     <section id="referral-program" className="mt-8 mb-8 border border-[#e5e5e5] rounded-[32px] overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
@@ -110,22 +130,26 @@ export function ReferralProgram() {
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#082fa3]/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="relative z-10">
-            <span className="bg-white/10 border border-white/20 text-[#ff5722] px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 w-fit block">
-              New Era Rewards
+            <span className="bg-white/10 border border-white/20 text-[#ff5722] px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 w-fit block font-poppins">
+              {isSpanish ? 'Recompensas New Era' : 'New Era Rewards'}
             </span>
             <h2 className="font-poppins font-bold text-3xl md:text-4xl leading-tight mb-4">
-              Get Rewarded for Sharing Clean Energy
+              {isSpanish ? 'Gana hasta $1,000 por Referir a un Dueño de Casa' : 'Get Rewarded for Sharing Clean Energy'}
             </h2>
             <p className="text-white/80 text-sm leading-relaxed mb-8 max-w-sm font-sans">
-              For every friend, family member, or neighbor you refer who switches to solar with New Era, we&apos;ll send you a <strong className="text-[#ff5722] font-bold">$1,000 reward</strong>.
+              {isSpanish ? (
+                <>
+                  Por cada amigo, familiar o vecino que refieras y se cambie a energía solar con New Era, te enviaremos una <strong className="text-[#ff5722] font-bold">recompensa de $1,000</strong>.
+                </>
+              ) : (
+                <>
+                  For every friend, family member, or neighbor you refer who switches to solar with New Era, we&apos;ll send you a <strong className="text-[#ff5722] font-bold">$1,000 reward</strong>.
+                </>
+              )}
             </p>
 
             <div className="space-y-4">
-              {[
-                { title: 'Submit Referral', desc: "Fill out the form with your details and your friend's details." },
-                { title: 'We Consult', desc: 'Our team reaches out for a zero-pressure solar assessment.' },
-                { title: 'Get Paid $1,000', desc: 'When their solar system is installed, you get paid!' }
-              ].map((step, idx) => (
+              {steps.map((step, idx) => (
                 <div key={idx} className="flex gap-4">
                   <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-xs shrink-0 text-[#ff5722]">
                     {idx + 1}
@@ -142,18 +166,20 @@ export function ReferralProgram() {
           <div className="mt-8 pt-6 border-t border-white/15 flex flex-col gap-3 relative z-10">
             <div className="flex items-center gap-3">
               <Gift className="w-6 h-6 text-[#ff5722]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">
-                No referral limit — earn as much as you share
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/80 font-poppins">
+                {isSpanish ? 'Sin límite de referidos — gana tanto como compartas' : 'No referral limit — earn as much as you share'}
               </span>
             </div>
             <p className="text-[10px] text-white/60 font-sans leading-relaxed mt-1">
-              Referral rewards are subject to eligibility, installation completion, and program terms.
+              {isSpanish 
+                ? 'Las recompensas de referidos están sujetas a la elegibilidad, la finalización de la instalación y los términos del programa.'
+                : 'Referral rewards are subject to eligibility, installation completion, and program terms.'}
             </p>
             <Link 
-              href="/referral-terms" 
+              href={isSpanish ? '/es/referral-terms' : '/referral-terms'} 
               className="text-[10px] text-[#ff5722] hover:underline font-bold uppercase tracking-wider w-fit font-poppins"
             >
-              See Referral Terms
+              {isSpanish ? 'Ver Términos de Referido' : 'See Referral Terms'}
             </Link>
           </div>
         </div>
@@ -163,9 +189,13 @@ export function ReferralProgram() {
           {isSubmitted ? (
             <div className="text-center py-12 flex flex-col items-center justify-center animate-in fade-in duration-300">
               <CheckCircle className="w-16 h-16 text-[#082fa3] mb-4" />
-              <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">Referral Submitted!</h3>
+              <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+                {isSpanish ? '¡Referido Enviado!' : 'Referral Submitted!'}
+              </h3>
               <p className="text-sm text-[#5F6F75] font-sans max-w-sm mb-6">
-                Thank you for sharing the New Era vision. We will reach out to your friend shortly, and keep you updated on the reward status.
+                {isSpanish 
+                  ? 'Gracias por compartir la visión de New Era. Nos pondremos en contacto con su amigo pronto y le mantendremos informado sobre el estado de su recompensa.'
+                  : 'Thank you for sharing the New Era vision. We will reach out to your friend shortly, and keep you updated on the reward status.'}
               </p>
               <button 
                 onClick={() => {
@@ -181,94 +211,102 @@ export function ReferralProgram() {
                     honeypot: '',
                   });
                 }}
-                className="bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-newera-dark-blue/90 transition-colors"
+                className="bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-newera-dark-blue/90 transition-colors cursor-pointer"
               >
-                Submit Another Referral
+                {isSpanish ? 'Enviar Otro Referido' : 'Submit Another Referral'}
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div>
-                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-1">Referral Form</h3>
-                <p className="text-xs text-[#5F6F75] font-sans">Submit details below. We handle the rest.</p>
+                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-1">
+                  {isSpanish ? 'Formulario de Referidos' : 'Referral Form'}
+                </h3>
+                <p className="text-xs text-[#5F6F75] font-sans">
+                  {isSpanish ? 'Envíe los detalles a continuación. Nosotros nos encargamos del resto.' : 'Submit details below. We handle the rest.'}
+                </p>
               </div>
 
               {/* Referrer Details */}
               <div className="flex flex-col gap-3">
-                <span className="text-[10px] font-bold uppercase text-[#ff5722] tracking-widest">Your Information (Referrer)</span>
+                <span className="text-[10px] font-bold uppercase text-[#ff5722] tracking-widest font-poppins">
+                  {isSpanish ? 'Su Información (Referente)' : 'Your Information (Referrer)'}
+                </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <input 
                     type="text" 
                     name="referrerName" 
-                    placeholder="Your Name" 
+                    placeholder={isSpanish ? 'Su Nombre' : 'Your Name'} 
                     required 
                     value={formData.referrerName}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                   <input 
                     type="tel" 
                     name="referrerPhone" 
-                    placeholder="Your Phone" 
+                    placeholder={isSpanish ? 'Su Teléfono' : 'Your Phone'} 
                     required 
                     value={formData.referrerPhone}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                   <input 
                     type="email" 
                     name="referrerEmail" 
-                    placeholder="Your Email" 
+                    placeholder={isSpanish ? 'Su Email' : 'Your Email'} 
                     required 
                     value={formData.referrerEmail}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                 </div>
               </div>
 
               {/* Referee Details */}
               <div className="flex flex-col gap-3">
-                <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest">Friend&apos;s Information (Referee)</span>
+                <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest font-poppins">
+                  {isSpanish ? 'Información del Recomendado (Referido)' : "Friend's Information (Referee)"}
+                </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input 
                     type="text" 
                     name="refereeName" 
-                    placeholder="Friend's Name" 
+                    placeholder={isSpanish ? 'Nombre del Amigo' : "Friend's Name"} 
                     required 
                     value={formData.refereeName}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                   <input 
                     type="text" 
                     name="refereeZip" 
                     inputMode="numeric" 
                     pattern="[0-9]{5}"
-                    placeholder="Friend's ZIP Code" 
+                    placeholder={isSpanish ? 'Código Postal del Amigo' : "Friend's ZIP Code"} 
                     required 
                     value={formData.refereeZip}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input 
                     type="tel" 
                     name="refereePhone" 
-                    placeholder="Friend's Phone" 
+                    placeholder={isSpanish ? 'Teléfono del Amigo' : "Friend's Phone"} 
                     required 
                     value={formData.refereePhone}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                   <input 
                     type="email" 
                     name="refereeEmail" 
-                    placeholder="Friend's Email (Optional)" 
+                    placeholder={isSpanish ? 'Email del Amigo (Opcional)' : "Friend's Email (Optional)"} 
                     value={formData.refereeEmail}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray" 
+                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
                   />
                 </div>
               </div>
@@ -287,9 +325,9 @@ export function ReferralProgram() {
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full mt-2 bg-[#ff5722] text-white py-4 rounded-xl font-bold uppercase tracking-wider text-xs shadow-lg shadow-[#ff5722]/20 hover:bg-[#e0752f] transition-all flex items-center justify-center gap-2 hover:translate-y-[-1px] active:translate-y-[1px] disabled:opacity-50"
+                className="w-full mt-2 bg-[#ff5722] text-white py-4 rounded-xl font-bold uppercase tracking-wider text-xs shadow-lg shadow-[#ff5722]/20 hover:bg-[#e0752f] transition-all flex items-center justify-center gap-2 hover:translate-y-[-1px] active:translate-y-[1px] disabled:opacity-50 cursor-pointer font-sans"
               >
-                <span>Submit Referral Details</span>
+                <span>{isSpanish ? 'Enviar Detalles del Referido' : 'Submit Referral Details'}</span>
                 <Send className="w-3.5 h-3.5" />
               </button>
             </form>

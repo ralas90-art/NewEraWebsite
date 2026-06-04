@@ -20,6 +20,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/dealer',
     '/careers',
+    '/es',
+    '/es/solar',
+    '/es/roofing',
+    '/es/water-purification',
+    '/es/cost-savings',
+    '/es/process',
+    '/es/service-areas',
+    '/es/service-areas/florida',
+    '/es/service-areas/massachusetts',
+    '/es/service-areas/connecticut',
+    '/es/reviews',
+    '/es/referral',
+    '/es/referral-terms',
+    '/es/contact',
+    '/es/dealer',
+    '/es/careers',
   ];
 
   return routes.map((route) => ({

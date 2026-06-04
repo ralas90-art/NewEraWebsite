@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { ServiceCard } from '../components/ServiceCard';
-
 import { LeadForm } from '../components/LeadForm';
-
 import { Reviews } from '../components/Reviews';
 import { FAQ } from '../components/FAQ';
 import { ProcessTimeline } from '../components/ProcessTimeline';
@@ -12,9 +11,13 @@ import { TrustIndicators } from '../components/TrustIndicators';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { HomeUpgradeAdvisor } from '../components/HomeUpgradeAdvisor';
 import { ReferralProgram } from '../components/ReferralProgram';
+import { homeTranslations } from '@/lib/i18n/content';
 
 export default function Home() {
   const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+  const t = isSpanish ? homeTranslations.es : homeTranslations.en;
 
   useEffect(() => {
     const handleSelect = (e: Event) => {
@@ -42,8 +45,6 @@ export default function Home() {
 
   return (
     <div className="w-full selection:bg-[#ff5722] selection:text-white">
-      
-
       {/* Main Viewport Content */}
       <main className="flex-grow flex flex-col p-6 gap-6 max-w-6xl mx-auto w-full">
         
@@ -68,35 +69,37 @@ export default function Home() {
             {/* Content Container */}
             <div className="relative z-20 flex flex-col items-start w-full">
               <span className="bg-white/10 backdrop-blur-md border border-white/20 text-[#ff5722] px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest mb-4 w-fit font-sans">
-                {"Florida's Solar Specialist"}
+                {t.heroTag}
               </span>
               <h1 className="font-poppins font-extrabold text-3xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 text-white drop-shadow-md">
-                Explore <span className="text-[#ff5722] drop-shadow-none">$0 Down</span> Solar Options and See Your Savings Before You Commit
+                {isSpanish ? (
+                  <>Explora Opciones Solares con <span className="text-[#ff5722] drop-shadow-none">$0 Inicial</span> y Conoce tus Ahorros Antes de Decidir</>
+                ) : (
+                  <>Explore <span className="text-[#ff5722] drop-shadow-none">$0 Down</span> Solar Options and See Your Savings Before You Commit</>
+                )}
               </h1>
               <p className="text-white/90 text-base md:text-lg leading-relaxed mb-8 max-w-lg drop-shadow-sm font-medium font-sans">
-                New Era Solar Energy helps homeowners compare solar options, estimate savings, and make a confident decision with no-pressure guidance in English or Spanish.
+                {t.heroSubheadline}
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <button 
-                  onClick={() => scrollToLeadForm('lead-form', 'hero_solar_assessment_click')}
-                  className="w-full sm:w-auto bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-[0_8px_30px_rgb(255,138,61,0.3)] hover:bg-[#e04a1b] hover:scale-105 active:scale-95 transition-all"
+                  onClick={() => scrollToLeadForm('lead-form', isSpanish ? 'hero_solar_assessment_click_es' : 'hero_solar_assessment_click')}
+                  className="w-full sm:w-auto bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-[0_8px_30px_rgb(255,138,61,0.3)] hover:bg-[#e04a1b] hover:scale-105 active:scale-95 transition-all cursor-pointer font-sans"
                 >
-                  Get a Free Solar Assessment
+                  {t.ctaAssessment}
                 </button>
                 <button 
-                  onClick={() => scrollToLeadForm('lead-form', 'estimate_savings_click')}
-                  className="w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-sm hover:bg-white/20 transition-colors"
+                  onClick={() => scrollToLeadForm('lead-form', isSpanish ? 'estimate_savings_click_es' : 'estimate_savings_click')}
+                  className="w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-sm hover:bg-white/20 transition-colors cursor-pointer font-sans"
                 >
-                  Estimate My Savings
+                  {t.ctaSavings}
                 </button>
               </div>
 
               {/* Trust Badges */}
               <div className="mt-8 pt-6 border-t border-white/20 w-full text-left">
-                <p className="text-[12px] md:text-sm font-bold text-white/80 uppercase tracking-widest flex flex-wrap items-center gap-x-2 gap-y-2">
-                  Free Assessments. <span className="hidden sm:inline w-[3px] h-[3px] bg-[#ff5722] rounded-full"></span> 
-                  Zero Sales Pressure. <span className="hidden sm:inline w-[3px] h-[3px] bg-[#ff5722] rounded-full"></span> 
-                  Same-Day Response.
+                <p className="text-[12px] md:text-sm font-bold text-white/80 uppercase tracking-widest flex flex-wrap items-center gap-x-2 gap-y-2 font-sans">
+                  {t.trustLine}
                 </p>
               </div>
             </div>
@@ -119,26 +122,26 @@ export default function Home() {
         {/* Bottom Service Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <ServiceCard
-            title="Residential Solar"
-            description="Personalized Assessments"
-            category="Primary Service"
+            title={t.solarTitle}
+            description={t.solarDesc}
+            category={t.solarCategory}
             isPrimary={true}
             icon="☀️"
             onClick={() => handleSelectService('Solar')}
             index={0}
           />
           <ServiceCard
-            title="Roofing Review"
-            description="Protect your investment"
-            category="Support Service"
+            title={t.roofTitle}
+            description={t.roofDesc}
+            category={t.roofCategory}
             icon="🏠"
             onClick={() => handleSelectService('Roofing')}
             index={1}
           />
           <ServiceCard
-            title="Water Filtration"
-            description="Clean home comfort"
-            category="Support Service"
+            title={t.waterTitle}
+            description={t.waterDesc}
+            category={t.waterCategory}
             icon="💧"
             onClick={() => handleSelectService('Water Purification')}
             index={2}
@@ -154,10 +157,10 @@ export default function Home() {
         <section id="service-areas" className="mt-8 mb-4 border-t border-b border-[#e5e5e5] py-12 scroll-mt-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-1 block">Local Expertise</span>
-              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">Service Areas</h2>
+              <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-1 block">{t.expertiseTag}</span>
+              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">{t.expertiseTitle}</h2>
               <p className="text-[#5F6F75] text-sm mt-2 max-w-xl font-sans">
-                We serve homeowners across Florida, Massachusetts, and Connecticut, with Florida as our primary market.
+                {t.expertiseDesc}
               </p>
             </div>
             <div className="flex gap-3 flex-wrap justify-center md:justify-end">
@@ -182,7 +185,6 @@ export default function Home() {
 
       </main>
 
-      
       <FloatingCTA />
     </div>
   );

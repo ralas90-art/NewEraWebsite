@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   submitLead,
   getUTMParams,
@@ -18,7 +19,7 @@ const US_STATES = [
   'VA','WA','WV','WI','WY',
 ];
 
-const VOLUME_OPTIONS = [
+const VOLUME_OPTIONS_EN = [
   'Under $500K/year',
   '$500K – $1M/year',
   '$1M – $5M/year',
@@ -27,10 +28,23 @@ const VOLUME_OPTIONS = [
   'Prefer not to say',
 ];
 
+const VOLUME_OPTIONS_ES = [
+  'Menos de $500K/año',
+  '$500K – $1M/año',
+  '$1M – $5M/año',
+  '$5M – $10M/año',
+  '$10M+/año',
+  'Prefiero no decirlo',
+];
+
 export function DealerApplicationForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [formState, setFormState] = useState<FormState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+
+  const volumeOptions = isSpanish ? VOLUME_OPTIONS_ES : VOLUME_OPTIONS_EN;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,8 +73,10 @@ export function DealerApplicationForm() {
       stateTerritory:   (data.get('stateTerritory') as string).trim(),
       annualSalesVolume:(data.get('annualSalesVolume') as string).trim(),
       currentPartners:  (data.get('currentPartners') as string).trim(),
-      advisorSummary:   `Dealer application from ${contactName} at ${(data.get('businessName') as string).trim()}. State: ${(data.get('stateTerritory') as string).trim()}. Volume: ${(data.get('annualSalesVolume') as string).trim()}.`,
-      tags:             getStagingAwareTags(['newera_dealer_partner']),
+      advisorSummary:   isSpanish
+        ? `Solicitud de socio comercial de ${contactName} de ${(data.get('businessName') as string).trim()}. Estado: ${(data.get('stateTerritory') as string).trim()}. Volumen: ${(data.get('annualSalesVolume') as string).trim()}.`
+        : `Dealer application from ${contactName} at ${(data.get('businessName') as string).trim()}. State: ${(data.get('stateTerritory') as string).trim()}. Volume: ${(data.get('annualSalesVolume') as string).trim()}.`,
+      tags:             getStagingAwareTags(['newera_dealer_partner', isSpanish ? 'newera_dealer_partner_es' : 'newera_dealer_partner_en']),
       pageUrl:          utms.pageUrl,
       utmSource:        utms.utmSource,
       utmMedium:        utms.utmMedium,
@@ -69,6 +85,8 @@ export function DealerApplicationForm() {
       utmTerm:          utms.utmTerm,
       eventId,
       timestamp:        new Date().toISOString(),
+      language:         isSpanish ? 'es' : 'en',
+      sourcePage:       pathname
     };
 
     try {
@@ -79,11 +97,11 @@ export function DealerApplicationForm() {
         formRef.current?.reset();
       } else {
         setFormState('error');
-        setErrorMsg('There was an issue submitting your application. Please try again.');
+        setErrorMsg(isSpanish ? 'Hubo un problema al enviar su solicitud. Por favor intente de nuevo.' : 'There was an issue submitting your application. Please try again.');
       }
     } catch {
       setFormState('error');
-      setErrorMsg('Submission failed. Please check your connection and try again.');
+      setErrorMsg(isSpanish ? 'El envío falló. Por favor verifique su conexión e intente de nuevo.' : 'Submission failed. Please check your connection and try again.');
     }
   };
 
@@ -100,9 +118,13 @@ export function DealerApplicationForm() {
           </svg>
         </div>
         <div>
-          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">Application Received!</h3>
+          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+            {isSpanish ? '¡Solicitud Recibida!' : 'Application Received!'}
+          </h3>
           <p className="text-[#5F6F75] font-sans text-base leading-relaxed max-w-md">
-            Our partner development team will be in touch within 2 business days to discuss next steps.
+            {isSpanish
+              ? 'Nuestro equipo de desarrollo de socios se pondrá en contacto en un plazo de 2 días hábiles para coordinar los siguientes pasos.'
+              : 'Our partner development team will be in touch within 2 business days to discuss next steps.'}
           </p>
         </div>
       </div>
@@ -112,9 +134,17 @@ export function DealerApplicationForm() {
   return (
     <div id="dealer-form" className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm">
       <div className="mb-8">
-        <span className="text-[#ff5722] text-[10px] font-black uppercase bg-[#ff572220]/30 px-3 py-1 rounded-full">Partner Application</span>
-        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mt-3 mb-2">Apply to Become a Partner</h2>
-        <p className="text-[#5F6F75] text-sm font-sans">Complete the form below. Fields marked * are required.</p>
+        <span className="text-[#ff5722] text-[10px] font-black uppercase bg-[#ff572220]/30 px-3 py-1 rounded-full">
+          {isSpanish ? 'Solicitud de Socios' : 'Partner Application'}
+        </span>
+        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mt-3 mb-2">
+          {isSpanish ? 'Postularse para Ser Socio' : 'Apply to Become a Partner'}
+        </h2>
+        <p className="text-[#5F6F75] text-sm font-sans">
+          {isSpanish
+            ? 'Complete el formulario a continuación. Los campos marcados con * son requeridos.'
+            : 'Complete the form below. Fields marked * are required.'}
+        </p>
       </div>
 
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
@@ -123,42 +153,58 @@ export function DealerApplicationForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className={wrap + ' sm:col-span-2'}>
-            <label htmlFor="businessName" className={lbl}>Business / Company Name *</label>
-            <input id="businessName" name="businessName" type="text" placeholder="Sunshine Solar LLC" required className={field} />
+            <label htmlFor="businessName" className={lbl}>
+              {isSpanish ? 'Nombre de la Empresa / Compañía *' : 'Business / Company Name *'}
+            </label>
+            <input id="businessName" name="businessName" type="text" placeholder={isSpanish ? 'Sunshine Solar SRL' : 'Sunshine Solar LLC'} required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="contactName" className={lbl}>Primary Contact Name *</label>
-            <input id="contactName" name="contactName" type="text" placeholder="Alex Ramirez" required className={field} />
+            <label htmlFor="contactName" className={lbl}>
+              {isSpanish ? 'Nombre del Contacto Principal *' : 'Primary Contact Name *'}
+            </label>
+            <input id="contactName" name="contactName" type="text" placeholder={isSpanish ? 'Alejandro Ramírez' : 'Alex Ramirez'} required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="email" className={lbl}>Business Email *</label>
+            <label htmlFor="email" className={lbl}>
+              {isSpanish ? 'Correo Electrónico Comercial *' : 'Business Email *'}
+            </label>
             <input id="email" name="email" type="email" placeholder="alex@company.com" required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="phone" className={lbl}>Phone Number *</label>
+            <label htmlFor="phone" className={lbl}>
+              {isSpanish ? 'Número de Teléfono *' : 'Phone Number *'}
+            </label>
             <input id="phone" name="phone" type="tel" placeholder="(555) 000-0000" required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="licenseNumber" className={lbl}>License Number (if applicable)</label>
+            <label htmlFor="licenseNumber" className={lbl}>
+              {isSpanish ? 'Número de Licencia (si aplica)' : 'License Number (if applicable)'}
+            </label>
             <input id="licenseNumber" name="licenseNumber" type="text" placeholder="CVC-12345" className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="stateTerritory" className={lbl}>Primary State / Territory *</label>
+            <label htmlFor="stateTerritory" className={lbl}>
+              {isSpanish ? 'Estado / Territorio Principal *' : 'Primary State / Territory *'}
+            </label>
             <select id="stateTerritory" name="stateTerritory" required className={field}>
-              <option value="">Select state...</option>
+              <option value="">{isSpanish ? 'Seleccione estado...' : 'Select state...'}</option>
               {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
             </select>
           </div>
           <div className={wrap}>
-            <label htmlFor="annualSalesVolume" className={lbl}>Annual Sales Volume *</label>
+            <label htmlFor="annualSalesVolume" className={lbl}>
+              {isSpanish ? 'Volumen de Ventas Anual *' : 'Annual Sales Volume *'}
+            </label>
             <select id="annualSalesVolume" name="annualSalesVolume" required className={field}>
-              <option value="">Select range...</option>
-              {VOLUME_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
+              <option value="">{isSpanish ? 'Seleccione rango...' : 'Select range...'}</option>
+              {volumeOptions.map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
           </div>
           <div className={wrap + ' sm:col-span-2'}>
-            <label htmlFor="currentPartners" className={lbl}>Current Solar Partners / Installers (if any)</label>
-            <input id="currentPartners" name="currentPartners" type="text" placeholder="e.g. SunPower, Tesla Energy, local EPC..." className={field} />
+            <label htmlFor="currentPartners" className={lbl}>
+              {isSpanish ? 'Socios / Instaladores Solares Actuales (si aplica)' : 'Current Solar Partners / Installers (if any)'}
+            </label>
+            <input id="currentPartners" name="currentPartners" type="text" placeholder={isSpanish ? 'ej. SunPower, Tesla Energy, EPC local...' : 'e.g. SunPower, Tesla Energy, local EPC...'} className={field} />
           </div>
         </div>
 
@@ -167,13 +213,18 @@ export function DealerApplicationForm() {
         )}
 
         <button type="submit" disabled={formState === 'submitting'}
-          className="w-full bg-newera-dark-blue text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-newera-dark-blue/20 hover:bg-newera-dark-blue/90 hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed">
-          {formState === 'submitting' ? 'Submitting Application...' : 'Submit Partner Application →'}
+          className="w-full bg-newera-dark-blue text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-newera-dark-blue/20 hover:bg-newera-dark-blue/90 hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+          {formState === 'submitting' 
+            ? (isSpanish ? 'Enviando Solicitud...' : 'Submitting Application...') 
+            : (isSpanish ? 'Enviar Solicitud de Socio →' : 'Submit Partner Application →')}
         </button>
         <p className="text-xs text-[#5F6F75] font-sans text-center">
-          Our partner development team reviews applications and typically responds within 2 business days.
+          {isSpanish 
+            ? 'Nuestro equipo de desarrollo de socios revisa las solicitudes y responde dentro de 2 días hábiles.'
+            : 'Our partner development team reviews applications and typically responds within 2 business days.'}
         </p>
       </form>
     </div>
   );
 }
+

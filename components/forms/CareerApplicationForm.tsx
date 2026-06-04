@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   submitLead,
   getUTMParams,
@@ -11,7 +12,7 @@ import {
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
-const ROLES = [
+const ROLES_EN = [
   'Solar Sales Consultant',
   'Roofing / Home Upgrade Advisor',
   'Appointment Setter',
@@ -19,13 +20,30 @@ const ROLES = [
   'Dealer Partner / Territory Partner',
 ];
 
-const MARKETS     = ['FL', 'MA', 'CT', 'Other'];
-const AVAIL_OPTS  = ['Full-time', 'Part-time', 'Contract'];
+const ROLES_ES = [
+  'Consultor de Ventas Solares',
+  'Asesor de Techo / Mejoras para el Hogar',
+  'Coordinador de Citas (Setter)',
+  'Especialista en Éxito del Cliente',
+  'Socio Distribuidor / Socio de Territorio',
+];
+
+const MARKETS_EN = ['FL', 'MA', 'CT', 'Other'];
+const MARKETS_ES = ['FL', 'MA', 'CT', 'Otro'];
+
+const AVAIL_OPTS_EN = ['Full-time', 'Part-time', 'Contract'];
+const AVAIL_OPTS_ES = ['Tiempo completo', 'Medio tiempo', 'Contratista / Por contrato'];
 
 export function CareerApplicationForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [formState, setFormState] = useState<FormState>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+
+  const roles = isSpanish ? ROLES_ES : ROLES_EN;
+  const markets = isSpanish ? MARKETS_ES : MARKETS_EN;
+  const availOpts = isSpanish ? AVAIL_OPTS_ES : AVAIL_OPTS_EN;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,8 +77,10 @@ export function CareerApplicationForm() {
       availability,
       experienceSummary,
       applicantNotes:     notes,
-      advisorSummary:     `Career applicant ${fullName} applied for ${desiredRole}. Market: ${marketState}. Availability: ${availability}.`,
-      tags:               getStagingAwareTags(['newera_career_applicant']),
+      advisorSummary:     isSpanish
+        ? `Candidato de empleo ${fullName} aplicó para ${desiredRole}. Mercado: ${marketState}. Disponibilidad: ${availability}.`
+        : `Career applicant ${fullName} applied for ${desiredRole}. Market: ${marketState}. Availability: ${availability}.`,
+      tags:               getStagingAwareTags(['newera_career_applicant', isSpanish ? 'newera_career_applicant_es' : 'newera_career_applicant_en']),
       pageUrl:            utms.pageUrl,
       utmSource:          utms.utmSource,
       utmMedium:          utms.utmMedium,
@@ -69,6 +89,8 @@ export function CareerApplicationForm() {
       utmTerm:            utms.utmTerm,
       eventId,
       timestamp:          new Date().toISOString(),
+      language:           isSpanish ? 'es' : 'en',
+      sourcePage:         pathname
     };
 
     try {
@@ -79,11 +101,11 @@ export function CareerApplicationForm() {
         formRef.current?.reset();
       } else {
         setFormState('error');
-        setErrorMsg('There was an issue submitting your application. Please try again.');
+        setErrorMsg(isSpanish ? 'Hubo un problema al enviar su solicitud. Por favor intente de nuevo.' : 'There was an issue submitting your application. Please try again.');
       }
     } catch {
       setFormState('error');
-      setErrorMsg('Submission failed. Please check your connection and try again.');
+      setErrorMsg(isSpanish ? 'El envío falló. Por favor verifique su conexión e intente de nuevo.' : 'Submission failed. Please check your connection and try again.');
     }
   };
 
@@ -100,10 +122,13 @@ export function CareerApplicationForm() {
           </svg>
         </div>
         <div>
-          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">Application Received!</h3>
+          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+            {isSpanish ? '¡Solicitud Recibida!' : 'Application Received!'}
+          </h3>
           <p className="text-[#5F6F75] font-sans text-base leading-relaxed max-w-md">
-            Our hiring team reviews applications weekly and will reach out if there is a fit.
-            Thank you for your interest in joining New Era Solar Energy.
+            {isSpanish
+              ? 'Nuestro equipo de selección de personal revisa las solicitudes semanalmente y se pondrá en contacto si hay una vacante compatible. ¡Gracias por su interés en unirse a New Era Solar Energy!'
+              : 'Our hiring team reviews applications weekly and will reach out if there is a fit. Thank you for your interest in joining New Era Solar Energy.'}
           </p>
         </div>
       </div>
@@ -118,52 +143,72 @@ export function CareerApplicationForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className={wrap + ' sm:col-span-2'}>
-            <label htmlFor="fullName" className={lbl}>Full Name *</label>
-            <input id="fullName" name="fullName" type="text" placeholder="Alex Ramirez" required className={field} />
+            <label htmlFor="fullName" className={lbl}>
+              {isSpanish ? 'Nombre Completo *' : 'Full Name *'}
+            </label>
+            <input id="fullName" name="fullName" type="text" placeholder={isSpanish ? 'Alejandro Ramírez' : 'Alex Ramirez'} required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="email" className={lbl}>Email Address *</label>
+            <label htmlFor="email" className={lbl}>
+              {isSpanish ? 'Correo Electrónico *' : 'Email Address *'}
+            </label>
             <input id="email" name="email" type="email" placeholder="alex@email.com" required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="phone" className={lbl}>Phone Number *</label>
+            <label htmlFor="phone" className={lbl}>
+              {isSpanish ? 'Número de Teléfono *' : 'Phone Number *'}
+            </label>
             <input id="phone" name="phone" type="tel" placeholder="(555) 000-0000" required className={field} />
           </div>
           <div className={wrap}>
-            <label htmlFor="desiredRole" className={lbl}>Desired Role *</label>
+            <label htmlFor="desiredRole" className={lbl}>
+              {isSpanish ? 'Puesto Deseado *' : 'Desired Role *'}
+            </label>
             <select id="desiredRole" name="desiredRole" required className={field}>
-              <option value="">Select role...</option>
-              {ROLES.map((r) => <option key={r} value={r}>{r}</option>)}
+              <option value="">{isSpanish ? 'Seleccione puesto...' : 'Select role...'}</option>
+              {roles.map((r) => <option key={r} value={r}>{r}</option>)}
             </select>
           </div>
           <div className={wrap}>
-            <label htmlFor="marketState" className={lbl}>Market / State *</label>
+            <label htmlFor="marketState" className={lbl}>
+              {isSpanish ? 'Mercado / Estado *' : 'Market / State *'}
+            </label>
             <select id="marketState" name="marketState" required className={field}>
-              <option value="">Select...</option>
-              {MARKETS.map((m) => <option key={m} value={m}>{m}</option>)}
+              <option value="">{isSpanish ? 'Seleccione...' : 'Select...'}</option>
+              {markets.map((m) => <option key={m} value={m}>{m}</option>)}
             </select>
           </div>
           <div className={wrap + ' sm:col-span-2'}>
-            <label htmlFor="availability" className={lbl}>Availability *</label>
+            <label htmlFor="availability" className={lbl}>
+              {isSpanish ? 'Disponibilidad *' : 'Availability *'}
+            </label>
             <select id="availability" name="availability" required className={field}>
-              <option value="">Select...</option>
-              {AVAIL_OPTS.map((a) => <option key={a} value={a}>{a}</option>)}
+              <option value="">{isSpanish ? 'Seleccione...' : 'Select...'}</option>
+              {availOpts.map((a) => <option key={a} value={a}>{a}</option>)}
             </select>
           </div>
         </div>
 
         <div className={wrap}>
-          <label htmlFor="experienceSummary" className={lbl}>Experience Summary * (in place of resume)</label>
+          <label htmlFor="experienceSummary" className={lbl}>
+            {isSpanish ? 'Resumen de Experiencia * (en lugar de currículum)' : 'Experience Summary * (in place of resume)'}
+          </label>
           <textarea id="experienceSummary" name="experienceSummary" rows={4}
-            placeholder="Describe your relevant experience, skills, and why you want to join New Era Solar Energy..."
+            placeholder={isSpanish 
+              ? 'Describa su experiencia relevante, habilidades y por qué desea unirse a New Era Solar Energy...' 
+              : 'Describe your relevant experience, skills, and why you want to join New Era Solar Energy...'}
             required
             className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans resize-none" />
         </div>
 
         <div className={wrap}>
-          <label htmlFor="notes" className={lbl}>Additional Notes (optional)</label>
+          <label htmlFor="notes" className={lbl}>
+            {isSpanish ? 'Notas Adicionales (opcional)' : 'Additional Notes (optional)'}
+          </label>
           <textarea id="notes" name="notes" rows={2}
-            placeholder="Anything else you'd like us to know..."
+            placeholder={isSpanish 
+              ? 'Cualquier otra cosa que desee que sepamos...' 
+              : 'Anything else you\'d like us to know...'}
             className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans resize-none" />
         </div>
 
@@ -172,10 +217,13 @@ export function CareerApplicationForm() {
         )}
 
         <button type="submit" disabled={formState === 'submitting'}
-          className="w-full bg-[#ff5722] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed">
-          {formState === 'submitting' ? 'Submitting...' : 'Submit Application →'}
+          className="w-full bg-[#ff5722] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+          {formState === 'submitting' 
+            ? (isSpanish ? 'Enviando...' : 'Submitting...') 
+            : (isSpanish ? 'Enviar Solicitud →' : 'Submit Application →')}
         </button>
       </form>
     </div>
   );
 }
+

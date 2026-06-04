@@ -1,9 +1,13 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 export function ProcessTimeline() {
-  const steps = [
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+
+  const stepsEn = [
     {
       num: "01",
       title: "Free Assessment",
@@ -36,13 +40,54 @@ export function ProcessTimeline() {
     }
   ];
 
+  const stepsEs = [
+    {
+      num: "01",
+      title: "Evaluación Gratis",
+      desc: "Evaluamos el potencial solar de su hogar y sus necesidades de energía con cero presión.",
+      icon: "📋"
+    },
+    {
+      num: "02",
+      title: "Diseño Personalizado",
+      desc: "Nuestros ingenieros crean un plan solar adaptado y optimizado para su techo y consumo.",
+      icon: "📐"
+    },
+    {
+      num: "03",
+      title: "Permisos y Trámites",
+      desc: "Nos encargamos de las regulaciones locales, aprobaciones de HOA y todo el papeleo.",
+      icon: "📄"
+    },
+    {
+      num: "04",
+      title: "Instalación",
+      desc: "Profesionales certificados instalan su sistema, por lo general en solo 1 a 3 días.",
+      icon: "🛠️"
+    },
+    {
+      num: "05",
+      title: "Activación",
+      desc: "Una vez inspeccionado y aprobado, encendemos el sistema para que disfrute de energía limpia.",
+      icon: "⚡"
+    }
+  ];
+
+  const steps = isSpanish ? stepsEs : stepsEn;
+
   return (
     <section className="mt-8 mb-4 py-12 px-6">
       <div className="text-center mb-16">
-        <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-1 block">Simple & Transparent</span>
-        <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">Our Process</h2>
+        <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-1 block">
+          {isSpanish ? "Simple y Transparente" : "Simple & Transparent"}
+        </span>
+        <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
+          {isSpanish ? "Nuestro Proceso" : "Our Process"}
+        </h2>
         <p className="text-[#5F6F75] text-sm md:text-base mt-2 max-w-xl mx-auto font-sans">
-          From your first question to your first day of solar power, we guide you every step of the way.
+          {isSpanish 
+            ? "Desde su primera pregunta hasta su primer día con energía solar, le guiamos en cada paso del camino."
+            : "From your first question to your first day of solar power, we guide you every step of the way."}
         </p>
       </div>
 
@@ -78,7 +123,15 @@ export function ProcessTimeline() {
         {/* Timeline Reassurance & CTA Section */}
         <div className="mt-16 text-center max-w-2xl mx-auto flex flex-col items-center gap-6 animate-in fade-in duration-300">
           <p className="text-sm text-[#5F6F75] font-sans leading-relaxed">
-            Most homeowners complete the full solar process in about <strong>4–8 weeks</strong>, depending on permitting, utility approval, and inspection timelines.
+            {isSpanish ? (
+              <>
+                La mayoría de los propietarios completan el proceso solar completo en aproximadamente <strong>4 a 8 semanas</strong>, dependiendo de los permisos, la aprobación de la empresa eléctrica y los plazos de inspección.
+              </>
+            ) : (
+              <>
+                Most homeowners complete the full solar process in about <strong>4–8 weeks</strong>, depending on permitting, utility approval, and inspection timelines.
+              </>
+            )}
           </p>
           <button
             onClick={() => {
@@ -87,9 +140,9 @@ export function ProcessTimeline() {
                 leadForm.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] hover:scale-105 transition-all"
+            className="bg-[#ff5722] text-white px-8 py-4 rounded-xl font-bold text-sm shadow-lg shadow-[#ff5722]/20 hover:bg-[#e04a1b] hover:scale-105 transition-all cursor-pointer font-sans"
           >
-            Start My Free Assessment
+            {isSpanish ? "Iniciar Mi Evaluación Gratis" : "Start My Free Assessment"}
           </button>
         </div>
       </div>

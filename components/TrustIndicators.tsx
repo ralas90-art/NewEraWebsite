@@ -1,17 +1,25 @@
+'use client';
+
 import React from 'react';
+import { usePathname } from 'next/navigation';
+import { trustTranslations } from '@/lib/i18n/content';
 
 export function TrustIndicators() {
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+  const t = isSpanish ? trustTranslations.es : trustTranslations.en;
+
   const indicators = [
-    { name: "Free Assessment", abbr: "FREE", desc: "Know Your Savings Before You Commit" },
-    { name: "Zero Sales Pressure", abbr: "ZERO", desc: "We Educate, You Decide" },
-    { name: "Hablamos Español", abbr: "ES/EN", desc: "Atención en tu idioma" },
-    { name: "Same-Day Response", abbr: "LOCAL", desc: "Local Support Team" }
+    { name: t.assessmentTitle, abbr: isSpanish ? "GRATIS" : "FREE", desc: t.assessmentDesc },
+    { name: t.pressureTitle, abbr: isSpanish ? "CERO" : "ZERO", desc: t.pressureDesc },
+    { name: t.bilingualTitle, abbr: "ES/EN", desc: t.bilingualDesc },
+    { name: t.supportTitle, abbr: isSpanish ? "LOCAL" : "LOCAL", desc: t.supportDesc }
   ];
 
   return (
     <section className="w-full py-8 flex flex-col items-center justify-center gap-6">
       <span className="text-[10px] font-bold uppercase text-[#5F6F75] tracking-widest text-center">
-        Providing Transparent Guidance & Support
+        {isSpanish ? "Ofrecemos orientación y soporte transparentes" : "Providing Transparent Guidance & Support"}
       </span>
       <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 w-full">
         {indicators.map((indicator, idx) => (
