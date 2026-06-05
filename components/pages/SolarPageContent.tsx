@@ -1,4 +1,5 @@
-﻿import React from 'react';
+﻿"use client";
+import React from 'react';
 import Link from 'next/link';
 import { solarPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
@@ -74,6 +75,17 @@ export default function SolarPageContent({ locale }: SolarPageContentProps) {
   const posterUrl =
     'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop';
 
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(err => {
+        console.warn('Solar video play failed or was prevented:', err);
+      });
+    }
+  }, []);
+
   return (
     <div className="bg-[#FEFCF9] min-h-screen">
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col gap-16">
@@ -99,6 +111,7 @@ export default function SolarPageContent({ locale }: SolarPageContentProps) {
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-[#14324b]/85 to-[#14324b]/60 z-10 pointer-events-none" />
             <video
+              ref={videoRef}
               className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover motion-reduce:hidden"
               autoPlay
               muted
@@ -386,3 +399,5 @@ export default function SolarPageContent({ locale }: SolarPageContentProps) {
     </div>
   );
 }
+
+
