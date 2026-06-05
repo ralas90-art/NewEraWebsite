@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { ReviewTabs } from '@/components/ReviewTabs';
 import { ExternalLink, ArrowRight } from 'lucide-react';
@@ -45,18 +45,18 @@ export default function ReviewsPageContent({ locale }: ReviewsPageContentProps) 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="min-h-screen bg-[#F5F7FA]">
+      <main className="min-h-screen bg-[#F9FAFB]">
         {/* Hero */}
-        <section className="bg-newera-dark-blue text-white py-20 px-6">
+        <section className="bg-[#14324b] text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <nav className="text-xs text-newera-orange mb-4 font-sans font-semibold">
+            <nav className="text-xs text-[#ff5722] mb-4 font-sans font-semibold">
               <Link href={isSpanish ? '/es' : '/'} className="hover:underline">
                 {t.breadcrumbs[0]}
               </Link>
               <span className="mx-2 opacity-60">/</span>
               <span className="opacity-80">{t.breadcrumbs[1]}</span>
             </nav>
-            <span className="text-[10px] font-bold uppercase text-newera-orange tracking-widest mb-3 block">
+            <span className="text-[10px] font-bold uppercase text-[#ff5722] tracking-widest mb-3 block">
               {t.tag}
             </span>
             <h1 className="font-poppins font-bold text-3xl md:text-5xl leading-tight mb-5">
@@ -77,16 +77,16 @@ export default function ReviewsPageContent({ locale }: ReviewsPageContentProps) 
         <section className="max-w-6xl mx-auto px-6 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Share your experience */}
-            <div className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm flex flex-col gap-4">
-              <h2 className="font-poppins font-bold text-xl text-newera-dark-gray">{t.shareTitle}</h2>
-              <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-sm flex flex-col gap-4">
+              <h2 className="font-poppins font-bold text-xl text-[#14324b]">{t.shareTitle}</h2>
+              <p className="text-[#4e5257] font-sans text-sm leading-relaxed">
                 {t.shareDesc}
               </p>
               <a
                 href="https://share.google/l98mSvN0KB1nYSs0J"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-newera-orange text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-orange/90 transition-all inline-flex items-center gap-2 self-start font-sans"
+                className="bg-[#ff5722] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#ff5722]/90 transition-all inline-flex items-center gap-2 self-start font-sans"
               >
                 {t.btnShare}
                 <ExternalLink className="w-4 h-4" />
@@ -94,14 +94,14 @@ export default function ReviewsPageContent({ locale }: ReviewsPageContentProps) 
             </div>
 
             {/* Start your journey */}
-            <div className="bg-newera-dark-blue rounded-3xl p-8 flex flex-col gap-4">
+            <div className="bg-[#14324b] rounded-2xl p-8 flex flex-col gap-4">
               <h2 className="font-poppins font-bold text-xl text-white">{t.startTitle}</h2>
               <p className="text-white/80 font-sans text-sm leading-relaxed">
                 {t.startDesc}
               </p>
               <Link
                 href={isSpanish ? '/es/contact' : '/contact'}
-                className="bg-newera-orange text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-orange/90 transition-all inline-flex items-center gap-2 self-start font-sans"
+                className="bg-[#ff5722] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#ff5722]/90 transition-all inline-flex items-center gap-2 self-start font-sans"
               >
                 {t.btnStart}
                 <ArrowRight className="w-4 h-4" />
@@ -113,3 +113,5 @@ export default function ReviewsPageContent({ locale }: ReviewsPageContentProps) 
     </>
   );
 }
+
+

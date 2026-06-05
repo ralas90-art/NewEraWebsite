@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { processPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
@@ -106,9 +106,9 @@ export default function ProcessPageContent({ locale }: ProcessPageContentProps) 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="min-h-screen bg-[#F5F7FA]">
+      <main className="min-h-screen bg-[#F9FAFB]">
         {/* Hero */}
-        <section className="bg-newera-dark-blue text-white py-20 px-6">
+        <section className="bg-[#14324b] text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href={isSpanish ? '/es' : '/'} className="hover:underline">
@@ -135,26 +135,26 @@ export default function ProcessPageContent({ locale }: ProcessPageContentProps) 
             {t.steps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row gap-6 md:gap-8"
+                className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow flex flex-col md:flex-row gap-6 md:gap-8"
               >
                 {/* Step Number + Icon */}
                 <div className="flex md:flex-col items-center md:items-center gap-4 md:gap-3 md:w-24 shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F5F7FA] border border-[#e5e5e5] flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] border border-[#E2E8F0] flex items-center justify-center">
                     {getStepIcon(step.num)}
                   </div>
                   <span className="font-poppins font-black text-3xl text-[#e5e5e5] md:text-4xl">{step.num}</span>
                 </div>
                 {/* Content */}
                 <div className="flex-1">
-                  <h2 className="font-poppins font-bold text-xl md:text-2xl text-newera-dark-gray mb-3">
+                  <h2 className="font-poppins font-bold text-xl md:text-2xl text-[#14324b] mb-3">
                     {step.title}
                   </h2>
-                  <p className="text-[#5F6F75] font-sans text-sm md:text-base leading-relaxed mb-4">
+                  <p className="text-[#4e5257] font-sans text-sm md:text-base leading-relaxed mb-4">
                     {step.description}
                   </p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {step.details.map((d, di) => (
-                      <li key={di} className="flex items-center gap-2 text-sm text-[#5F6F75] font-sans">
+                      <li key={di} className="flex items-center gap-2 text-sm text-[#4e5257] font-sans">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#ff5722] shrink-0" />
                         {d}
                       </li>
@@ -166,25 +166,25 @@ export default function ProcessPageContent({ locale }: ProcessPageContentProps) 
           </div>
 
           {/* Timeline progress bar */}
-          <div className="mt-12 bg-white border border-[#e5e5e5] rounded-3xl p-6 shadow-sm">
-            <h3 className="font-poppins font-bold text-newera-dark-gray text-lg mb-4 text-center">
+          <div className="mt-12 bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
+            <h3 className="font-poppins font-bold text-[#14324b] text-lg mb-4 text-center">
               {t.timelineTitle}
             </h3>
             <div className="flex flex-col sm:flex-row items-stretch gap-2">
               {t.timelineSteps.map((label, i) => (
-                <div key={i} className="flex-1 bg-[#F5F7FA] rounded-xl px-4 py-3 text-center">
-                  <span className="text-xs font-bold text-newera-dark-gray font-poppins block">{label}</span>
+                <div key={i} className="flex-1 bg-[#F9FAFB] rounded-xl px-4 py-3 text-center">
+                  <span className="text-xs font-bold text-[#14324b] font-poppins block">{label}</span>
                 </div>
               ))}
             </div>
-            <p className="text-[11px] text-[#5F6F75] font-sans text-center mt-3 italic">
+            <p className="text-[11px] text-[#4e5257] font-sans text-center mt-3 italic">
               {t.timelineDisclaimer}
             </p>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="bg-white py-4 border-t border-[#e5e5e5]">
+        <section className="bg-white py-4 border-t border-[#E2E8F0]">
           <div className="max-w-4xl mx-auto px-6">
             <FAQAccordion
               items={faqs}
@@ -195,7 +195,7 @@ export default function ProcessPageContent({ locale }: ProcessPageContentProps) 
         </section>
 
         {/* CTA */}
-        <section className="bg-newera-dark-blue py-16 px-6 text-center">
+        <section className="bg-[#14324b] py-16 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-poppins font-bold text-2xl md:text-3xl text-white mb-4">
               {t.ctaTitle}
@@ -215,3 +215,4 @@ export default function ProcessPageContent({ locale }: ProcessPageContentProps) 
     </>
   );
 }
+

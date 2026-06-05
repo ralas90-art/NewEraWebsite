@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { careersPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
 import { CareerApplicationForm } from '@/components/forms/CareerApplicationForm';
+import { MapPin, Globe, Briefcase } from 'lucide-react';
 
 interface CareersPageContentProps {
   locale: Locale;
@@ -143,17 +144,17 @@ export default function CareersPageContent({ locale }: CareersPageContentProps) 
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray">
+    <div className="min-h-screen bg-[#F9FAFB] text-[#14324b]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
-      <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#5F6F75] font-sans flex items-center gap-2">
+      <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#4e5257] font-sans flex items-center gap-2">
         <Link href={isSpanish ? '/es' : '/'} className="hover:text-[#ff5722] transition-colors">
           {isSpanish ? 'Inicio' : 'Home'}
         </Link>
         <span>/</span>
-        <span className="text-newera-dark-gray font-semibold">
+        <span className="text-[#14324b] font-semibold">
           {isSpanish ? 'Empleo' : 'Careers'}
         </span>
       </nav>
@@ -163,45 +164,48 @@ export default function CareersPageContent({ locale }: CareersPageContentProps) 
         <span className="inline-block bg-[#082fa3]/15 text-[#082fa3] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
           {t.heroTag}
         </span>
-        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-newera-dark-gray leading-[1.1] mb-6">
+        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-[#14324b] leading-[1.1] mb-6">
           {isSpanish ? (
             <>Desarrolle su Carrera<br />en <span className="text-[#ff5722]">Energía Limpia</span></>
           ) : (
             <>Build Your Career<br />in <span className="text-[#ff5722]">Clean Energy</span></>
           )}
         </h1>
-        <p className="text-[#5F6F75] text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto">
+        <p className="text-[#4e5257] text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto">
           {t.heroDesc}
         </p>
       </section>
 
       {/* Open Positions */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray mb-10">
+        <h2 className="font-poppins font-bold text-3xl text-[#14324b] mb-10">
           {t.positionsTitle}
         </h2>
         <div className="space-y-5">
           {jobs.map((job) => (
-            <div key={job.title} className="bg-white border border-[#e5e5e5] rounded-3xl p-7 shadow-sm hover:shadow-md transition-shadow">
+            <div key={job.title} className="bg-white border border-[#E2E8F0] rounded-2xl p-7 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                 <div className="flex-1">
-                  <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-2">{job.title}</h3>
+                  <h3 className="font-poppins font-bold text-xl text-[#14324b] mb-2">{job.title}</h3>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="bg-[#F5F7FA] border border-[#e5e5e5] text-[#5F6F75] text-xs font-semibold px-3 py-1 rounded-full">
-                      📍 {job.location}
+                    <span className="bg-[#F9FAFB] border border-[#E2E8F0] text-[#4e5257] text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#ff5722]" />
+                      {job.location}
                     </span>
-                    <span className="bg-[#F5F7FA] border border-[#e5e5e5] text-[#5F6F75] text-xs font-semibold px-3 py-1 rounded-full">
-                      🌎 {job.market}
+                    <span className="bg-[#F9FAFB] border border-[#E2E8F0] text-[#4e5257] text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+                      <Globe className="w-3.5 h-3.5 text-[#ff5722]" />
+                      {job.market}
                     </span>
-                    <span className="bg-[#ff572220]/40 text-[#ff5722] text-xs font-semibold px-3 py-1 rounded-full">
-                      💼 {job.compensation}
+                    <span className="bg-[#ff572220]/40 text-[#ff5722] text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+                      <Briefcase className="w-3.5 h-3.5 text-[#ff5722]" />
+                      {job.compensation}
                     </span>
                   </div>
-                  <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{job.description}</p>
+                  <p className="text-[#4e5257] text-sm font-sans leading-relaxed">{job.description}</p>
                 </div>
                 <a
                   href="#career-form"
-                  className="shrink-0 bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors text-center self-start font-sans"
+                  className="shrink-0 bg-[#14324b] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#14324b]/90 transition-colors text-center self-start font-sans"
                 >
                   {t.btnApply}
                 </a>
@@ -213,17 +217,18 @@ export default function CareersPageContent({ locale }: CareersPageContentProps) 
 
       {/* Application Form */}
       <section className="max-w-3xl mx-auto px-6 pb-4">
-        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray mb-6 text-center">
+        <h2 className="font-poppins font-bold text-3xl text-[#14324b] mb-6 text-center">
           {t.formHeading}
         </h2>
         <CareerApplicationForm />
       </section>
 
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <div className="bg-[#082fa3]/10 border border-[#082fa3]/30 rounded-2xl p-5 text-sm text-newera-dark-gray font-sans leading-relaxed">
+        <div className="bg-[#082fa3]/10 border border-[#082fa3]/30 rounded-2xl p-5 text-sm text-[#14324b] font-sans leading-relaxed">
           <strong>{t.noteTitle}</strong> {t.noteDesc}
         </div>
       </section>
     </div>
   );
 }
+

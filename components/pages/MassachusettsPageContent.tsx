@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { Sun, Shield, DollarSign, Wind, MapPin, ArrowRight } from 'lucide-react';
@@ -112,9 +112,9 @@ export default function MassachusettsPageContent({ locale }: MassachusettsPageCo
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="min-h-screen bg-[#F5F7FA]">
+      <main className="min-h-screen bg-[#F9FAFB]">
         {/* Hero */}
-        <section className="bg-newera-dark-blue text-white py-20 px-6">
+        <section className="bg-[#14324b] text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href={isSpanish ? '/es' : '/'} className="hover:underline">
@@ -160,42 +160,42 @@ export default function MassachusettsPageContent({ locale }: MassachusettsPageCo
             <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-2 block">
               {t.varsTag}
             </span>
-            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
+            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#14324b]">
               {t.varsTitle}
             </h2>
-            <p className="text-[#5F6F75] font-sans text-sm mt-3 max-w-2xl mx-auto">
+            <p className="text-[#4e5257] font-sans text-sm mt-3 max-w-2xl mx-auto">
               {t.varsDesc}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((b, i) => (
-              <div key={i} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div key={i} className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow">
                 <div className="w-12 h-12 rounded-2xl bg-[#ff5722]/10 flex items-center justify-center mb-4">
                   {b.icon}
                 </div>
-                <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">{b.title}</h3>
-                <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{b.desc}</p>
+                <h3 className="font-poppins font-bold text-lg text-[#14324b] mb-3">{b.title}</h3>
+                <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Cities */}
-        <section className="bg-white border-t border-[#e5e5e5] py-12 px-6">
+        <section className="bg-white border-t border-[#E2E8F0] py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6 flex items-center gap-2">
+            <h2 className="font-poppins font-bold text-xl text-[#14324b] mb-6 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-[#ff5722]" />
               {t.citiesTitle}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {cities.map((city) => (
-                <div key={city} className="bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl px-4 py-3 text-sm font-bold text-newera-dark-gray font-poppins text-center">
+                <div key={city} className="bg-[#F9FAFB] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-bold text-[#14324b] font-poppins text-center">
                   {city}
                 </div>
               ))}
             </div>
-            <p className="text-xs text-[#5F6F75] font-sans mt-4 italic">
+            <p className="text-xs text-[#4e5257] font-sans mt-4 italic">
               {t.citiesSub} <Link href={isSpanish ? '/es/contact' : '/contact'} className="text-[#ff5722] hover:underline font-bold font-poppins">{t.citiesContact}</Link>{t.citiesSubEnd}
             </p>
           </div>
@@ -206,13 +206,13 @@ export default function MassachusettsPageContent({ locale }: MassachusettsPageCo
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 font-sans leading-relaxed mt-4">
             <strong>{t.taxTitle}</strong> {t.taxDesc}
           </div>
-          <p className="text-xs text-[#5F6F75] font-sans leading-relaxed mt-2 italic">
+          <p className="text-xs text-[#4e5257] font-sans leading-relaxed mt-2 italic">
             {t.disclaimer}
           </p>
         </section>
 
         {/* FAQ */}
-        <section className="bg-white border-t border-[#e5e5e5] py-4">
+        <section className="bg-white border-t border-[#E2E8F0] py-4">
           <div className="max-w-4xl mx-auto px-6">
             <FAQAccordion
               items={faqs}
@@ -223,7 +223,7 @@ export default function MassachusettsPageContent({ locale }: MassachusettsPageCo
         </section>
 
         {/* CTA */}
-        <section className="bg-newera-dark-blue py-16 px-6 text-center">
+        <section className="bg-[#14324b] py-16 px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="font-poppins font-bold text-2xl md:text-3xl text-white mb-4">
               {t.ctaTitle}
@@ -243,3 +243,4 @@ export default function MassachusettsPageContent({ locale }: MassachusettsPageCo
     </>
   );
 }
+

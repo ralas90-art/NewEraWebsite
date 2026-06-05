@@ -1,83 +1,73 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
+import { Sun, Home, Droplets, ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  buttonText?: string;
-  icon?: string;
+  category: string;
   isPrimary?: boolean;
-  category?: string;
+  icon?: string;
   onClick?: () => void;
   index?: number;
 }
 
-export function ServiceCard({
-  title,
-  description,
-  buttonText,
-  icon,
-  isPrimary = false,
-  category = "Support Service",
-  onClick,
-  index = 0
-}: ServiceCardProps) {
-  const motionProps = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-50px" },
-    transition: { duration: 0.6, delay: index * 0.15 }
-  };
+const ICON_MAP: Record<string, React.ElementType> = {
+  solar: Sun,
+  roofing: Home,
+  water: Droplets,
+};
 
-  if (isPrimary) {
-    return (
-      <motion.div 
-        {...motionProps}
-        onClick={onClick}
-        className="bg-newera-dark-blue text-white rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between border-b-4 border-[#ff5722] hover:translate-y-[-2px] transition-transform cursor-pointer gap-4 min-h-[140px] h-full"
-      >
-        <div className="flex flex-col">
-          <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-1">{category}</span>
-          <h4 className="font-poppins font-bold text-xl md:text-2xl">{title}</h4>
-          <span className="text-xs opacity-80 mt-2 font-sans">{description}</span>
-          {buttonText && (
-            <button className="mt-4 bg-[#ff5722] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider w-fit hover:bg-[#e04a1b] transition-colors">
-              {buttonText}
-            </button>
-          )}
-        </div>
-        {icon && (
-          <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center text-2xl md:text-3xl shrink-0">
-            {icon}
-          </div>
-        )}
-      </motion.div>
-    );
-  }
+function getIconComponent(icon?: string): React.ElementType {
+  if (!icon) return Sun;
+  const lower = icon.toLowerCase();
+  if (lower.includes('roof') || lower.includes('house') || lower === '\uD83C\uDFE0') return Home;
+  if (lower.includes('water') || lower.includes('drop') || lower === '\uD83D\uDCA7') return Droplets;
+  return Sun;
+}
+
+export function ServiceCard({ title, description, category, isPrimary = false, icon, onClick, index = 0 }: ServiceCardProps) {
+  const Icon = getIconComponent(icon);
 
   return (
-    <motion.div 
-      {...motionProps}
+    <button
       onClick={onClick}
-      className="bg-white border border-[#e5e5e5] rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between hover:border-[#082fa3] hover:shadow-md transition-all cursor-pointer group gap-4 min-h-[140px] h-full"
+      className={`group relative bg-white rounded-2xl border text-left p-6 transition-all duration-300 cursor-pointer w-full hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] ${
+        isPrimary
+          ? 'border-l-4 border-l-[#ff5722] border-t border-r border-b border-t-[#E2E8F0] border-r-[#E2E8F0] border-b-[#E2E8F0] shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]'
+          : 'border-[#E2E8F0] shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)]'
+      }`}
     >
-      <div className="flex flex-col">
-        <span className="text-[10px] font-bold uppercase text-[#5F6F75] tracking-widest mb-1 group-hover:text-[#082fa3] transition-colors">{category}</span>
-        <h4 className="font-poppins font-bold text-xl md:text-2xl text-newera-dark-gray">{title}</h4>
-        <span className="text-xs text-[#5F6F75] mt-2 font-sans">{description}</span>
-        {buttonText && (
-          <button className="mt-4 bg-[#F5F7FA] text-newera-dark-gray border border-[#e5e5e5] px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider w-fit group-hover:border-[#082fa3] transition-colors">
-            {buttonText}
-          </button>
-        )}
+      {/* Category Badge */}
+      <span className={`inline-block text-[10px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full ${
+        isPrimary
+          ? 'bg-[#ff5722]/10 text-[#ff5722]'
+          : 'bg-[#F5F7FA] text-[#6B7280]'
+      }`}>
+        {category}
+      </span>
+
+      {/* Icon */}
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+        isPrimary ? 'bg-[#ff5722]/10' : 'bg-[#F5F7FA]'
+      }`}>
+        <Icon className={`w-6 h-6 ${isPrimary ? 'text-[#ff5722]' : 'text-[#14324b]'}`} />
       </div>
-      {icon && (
-        <div className="w-12 h-12 md:w-16 md:h-16 bg-[#F5F7FA] rounded-full flex items-center justify-center text-2xl md:text-3xl text-[#5F6F75] group-hover:bg-[#082fa3]/10 group-hover:text-[#082fa3] transition-colors shrink-0">
-          {icon}
-        </div>
-      )}
-    </motion.div>
+
+      {/* Content */}
+      <h3 className="font-poppins font-bold text-lg text-[#14324b] mb-2 group-hover:text-[#ff5722] transition-colors">
+        {title}
+      </h3>
+      <p className="text-sm text-[#4e5257] font-sans leading-relaxed mb-4">
+        {description}
+      </p>
+
+      {/* Arrow */}
+      <div className="flex items-center gap-1 text-[#ff5722] text-sm font-semibold font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span>Learn More</span>
+        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </div>
+    </button>
   );
 }

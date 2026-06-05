@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { Locale } from '@/lib/i18n/language';
 
@@ -10,10 +10,10 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
   const isSpanish = locale === 'es';
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray py-12 px-6">
-      <main className="max-w-3xl mx-auto bg-white border border-[#e5e5e5] rounded-3xl p-8 md:p-12 shadow-sm">
+    <div className="min-h-screen bg-[#F9FAFB] text-[#14324b] py-12 px-6">
+      <main className="max-w-3xl mx-auto bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
         {/* Breadcrumb */}
-        <nav className="text-xs text-[#5F6F75] font-sans flex items-center gap-2 mb-6">
+        <nav className="text-xs text-[#4e5257] font-sans flex items-center gap-2 mb-6">
           <Link href={isSpanish ? '/es' : '/'} className="hover:text-[#ff5722] transition-colors">
             {isSpanish ? 'Inicio' : 'Home'}
           </Link>
@@ -22,12 +22,12 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
             {isSpanish ? 'Programa de Referidos' : 'Referral Program'}
           </Link>
           <span>/</span>
-          <span className="text-newera-dark-gray font-semibold">
+          <span className="text-[#14324b] font-semibold">
             {isSpanish ? 'Términos y Condiciones' : 'Terms & Conditions'}
           </span>
         </nav>
 
-        <h1 className="font-poppins font-bold text-3xl text-newera-dark-gray mb-6">
+        <h1 className="font-poppins font-bold text-3xl text-[#14324b] mb-6">
           {isSpanish ? 'Términos y Condiciones del Programa de Referidos' : 'Referral Program Terms & Conditions'}
         </h1>
 
@@ -38,7 +38,7 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
         </p>
 
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-sm text-amber-800 font-sans leading-relaxed mb-8 flex gap-3 items-start">
-          <span className="text-xl shrink-0">⚠️</span>
+          <span className="text-xl shrink-0">⚠ï¸</span>
           {isSpanish ? (
             <div>
               <strong className="block mb-1 font-bold text-amber-900">Requiere Revisión del Cliente — Copia Preliminar</strong>
@@ -53,16 +53,16 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
         </div>
 
         {isSpanish ? (
-          <div className="space-y-6 text-sm text-[#5F6F75] font-sans leading-relaxed">
+          <div className="space-y-6 text-sm text-[#4e5257] font-sans leading-relaxed">
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">1. Resumen del Programa</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">1. Resumen del Programa</h2>
               <p>
                 New Era Solar Energy (la &quot;Compañía&quot;) ofrece un Programa de Recompensas de Referidos (el &quot;Programa&quot;) para incentivar a los participantes a recomendar a propietarios de viviendas elegibles para cambiarse a energía solar residencial. Al enviar un referido, usted acepta estos Términos y Condiciones del Programa.
               </p>
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">2. Elegibilidad del Referido</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">2. Elegibilidad del Referido</h2>
               <p>
                 Para ser elegible para una recompensa de referido bajo este Programa:
               </p>
@@ -75,7 +75,7 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">3. Estructura de Recompensas y Pago</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">3. Estructura de Recompensas y Pago</h2>
               <p>
                 Por cada referido que califique, el referente es elegible para recibir una recompensa de referido de <strong>$1,000</strong>.
               </p>
@@ -87,30 +87,30 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">4. Consideraciones Fiscales y Legales</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">4. Consideraciones Fiscales y Legales</h2>
               <p>
                 El referente es el único responsable de cualquier obligación fiscal derivada de los pagos de recompensas recibidos. Los pagos del programa no representan contribuciones benéficas deducibles de impuestos. Si los pagos de referidos exceden los límites federales, la Compañía puede requerir un Formulario W-9 completo antes de procesar las recompensas y emitirá un Formulario 1099-NEC según lo requiera el Servicio de Impuestos Internos (IRS).
               </p>
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">5. Modificación y Terminación</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">5. Modificación y Terminación</h2>
               <p>
                 La Compañía se reserva el derecho de modificar, suspender o rescindir el Programa, o cambiar la estructura de recompensas en cualquier momento con o sin previo aviso. Los referidos enviados antes de la terminación del programa serán honrados sujetos a las pautas de elegibilidad.
               </p>
             </section>
           </div>
         ) : (
-          <div className="space-y-6 text-sm text-[#5F6F75] font-sans leading-relaxed">
+          <div className="space-y-6 text-sm text-[#4e5257] font-sans leading-relaxed">
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">1. Program Overview</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">1. Program Overview</h2>
               <p>
                 New Era Solar Energy (the &quot;Company&quot;) offers a Referral Rewards Program (the &quot;Program&quot;) to encourage participants to refer qualified homeowners to switch to residential solar. By submitting a referral, you agree to these Program Terms and Conditions.
               </p>
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">2. Referral Eligibility</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">2. Referral Eligibility</h2>
               <p>
                 To be eligible for a referral reward under this Program:
               </p>
@@ -123,7 +123,7 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">3. Reward Structure & Payment</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">3. Reward Structure & Payment</h2>
               <p>
                 For each qualified referral, the referrer is eligible to receive a referral reward of <strong>$1,000</strong>.
               </p>
@@ -135,14 +135,14 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">4. Tax & Legal Considerations</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">4. Tax & Legal Considerations</h2>
               <p>
                 Referrer is solely responsible for any tax liabilities arising from referral payments received. Program payments are not tax-deductible contributions. If referral payouts exceed federal limits, the Company may require a completed Form W-9 before processing rewards, and will issue a Form 1099-NEC as required by the Internal Revenue Service (IRS).
               </p>
             </section>
 
             <section>
-              <h2 className="font-poppins font-bold text-lg text-newera-dark-gray mb-3">5. Modification & Termination</h2>
+              <h2 className="font-poppins font-bold text-lg text-[#14324b] mb-3">5. Modification & Termination</h2>
               <p>
                 The Company reserves the right to modify, suspend, or terminate the Program, or change reward structures at any time with or without prior notice. Any referrals submitted prior to termination will be honored subject to eligibility guidelines.
               </p>
@@ -150,16 +150,16 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
           </div>
         )}
 
-        <div className="border-t border-[#e5e5e5] mt-12 pt-8 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-[#E2E8F0] mt-12 pt-8 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href={isSpanish ? '/es/referral' : '/referral'}
             className="bg-[#ff5722] text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#e04a1b] transition-colors font-sans"
           >
-            {isSpanish ? '← Volver al Formulario' : '← Return to Referral Form'}
+            {isSpanish ? '← Volver al Formulario' : '← Return to Referral Form'}
           </Link>
           <a
             href="tel:+13213813192"
-            className="text-newera-dark-gray hover:text-[#ff5722] text-xs font-bold transition-colors font-sans"
+            className="text-[#14324b] hover:text-[#ff5722] text-xs font-bold transition-colors font-sans"
           >
             {isSpanish ? '¿Preguntas? Llame al (321) 381-3192' : 'Questions? Call (321) 381-3192'}
           </a>
@@ -168,3 +168,4 @@ export default function ReferralTermsPageContent({ locale }: ReferralTermsPageCo
     </div>
   );
 }
+

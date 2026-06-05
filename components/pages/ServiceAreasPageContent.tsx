@@ -17,7 +17,7 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
         {
           name: 'Florida',
           slug: 'florida',
-          flag: '☀️',
+          flag: '☀️ï¸',
           tagline: 'Sol todo el año y excelente rentabilidad solar',
           description:
             'El sol abundante todo el año, tarifas eléctricas elevadas y políticas de medición neta hacen de Florida uno de los mejores estados para la energía solar residencial. Desde Miami hasta Jacksonville, atendemos a propietarios en todo el Estado del Sol.',
@@ -49,7 +49,7 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
         {
           name: 'Florida',
           slug: 'florida',
-          flag: '☀️',
+          flag: '☀️ï¸',
           tagline: 'Year-round sunshine & strong solar economics',
           description:
             'Year-round sunshine, high utility rates, and strong net metering rules make Florida one of the best states for residential solar. From Miami to Jacksonville, New Era Solar Energy serves homeowners across the Sunshine State.',
@@ -105,9 +105,9 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="min-h-screen bg-[#F5F7FA]">
+      <main className="min-h-screen bg-[#F9FAFB]">
         {/* Hero */}
-        <section className="bg-newera-dark-blue text-white py-20 px-6">
+        <section className="bg-[#14324b] text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <nav className="text-xs text-[#082fa3] mb-4 font-sans">
               <Link href={isSpanish ? '/es' : '/'} className="hover:underline">
@@ -134,7 +134,7 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
             {states.map((state) => (
               <div
                 key={state.slug}
-                className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow flex flex-col"
               >
                 <div className="text-4xl mb-4">{state.flag}</div>
                 <div className="inline-flex mb-3">
@@ -142,15 +142,15 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
                     {state.highlight}
                   </span>
                 </div>
-                <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+                <h2 className="font-poppins font-bold text-2xl text-[#14324b] mb-2">
                   {t.highlightLabel}{state.name}
                 </h2>
-                <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-6 flex-grow">
+                <p className="text-[#4e5257] font-sans text-sm leading-relaxed mb-6 flex-grow">
                   {state.description}
                 </p>
                 <Link
                   href={isSpanish ? `/es/service-areas/${state.slug}` : `/service-areas/${state.slug}`}
-                  className="bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors inline-flex items-center gap-2 justify-center font-sans"
+                  className="bg-[#14324b] text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#14324b]/90 transition-colors inline-flex items-center gap-2 justify-center font-sans"
                 >
                   {t.btnExplore}{state.name}{t.btnExploreEnd}
                   <ArrowRight className="w-4 h-4" />
@@ -161,16 +161,16 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
         </section>
 
         {/* Cities Section */}
-        <section className="bg-white border-t border-[#e5e5e5] py-16 px-6">
+        <section className="bg-white border-t border-[#E2E8F0] py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <span className="text-[10px] font-bold uppercase text-[#082fa3] tracking-widest mb-2 block">
                 {t.coverageTag}
               </span>
-              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray">
+              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#14324b]">
                 {t.coverageTitle}
               </h2>
-              <p className="text-[#5F6F75] font-sans text-sm mt-3 max-w-xl mx-auto">
+              <p className="text-[#4e5257] font-sans text-sm mt-3 max-w-xl mx-auto">
                 {t.coverageDesc}
               </p>
             </div>
@@ -178,13 +178,13 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {states.map((state) => (
                 <div key={state.slug}>
-                  <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mb-4 flex items-center gap-2">
+                  <h3 className="font-poppins font-bold text-lg text-[#14324b] mb-4 flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-[#ff5722]" />
                     {state.name}
                   </h3>
                   <ul className="space-y-2">
                     {state.cities.map((city) => (
-                      <li key={city} className="flex items-center gap-2 text-sm text-[#5F6F75] font-sans">
+                      <li key={city} className="flex items-center gap-2 text-sm text-[#4e5257] font-sans">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#082fa3] shrink-0" />
                         {city}
                       </li>
@@ -195,7 +195,7 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
             </div>
 
             <div className="mt-12 text-center">
-              <p className="text-[#5F6F75] font-sans text-sm mb-4">
+              <p className="text-[#4e5257] font-sans text-sm mb-4">
                 {t.notListed}
               </p>
               <Link
@@ -212,3 +212,4 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
     </>
   );
 }
+

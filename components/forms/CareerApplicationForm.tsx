@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
@@ -109,23 +109,23 @@ export function CareerApplicationForm() {
     }
   };
 
-  const wrap  = 'px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
-  const lbl   = 'block text-[10px] font-bold text-[#5F6F75] uppercase mb-1 font-sans';
-  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans';
+  const wrap  = 'px-5 py-3 border border-[#E2E8F0] rounded-2xl bg-[#F9FAFB] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
+  const lbl   = 'block text-[10px] font-bold text-[#4e5257] uppercase mb-1 font-sans';
+  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-[#14324b] placeholder:text-[#4e5257]/40 outline-none font-sans';
 
   if (formState === 'success') {
     return (
-      <div className="bg-white border border-[#e5e5e5] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
+      <div className="bg-white border border-[#E2E8F0] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
         <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
           <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <div>
-          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+          <h3 className="font-poppins font-bold text-2xl text-[#14324b] mb-2">
             {isSpanish ? '¡Solicitud Recibida!' : 'Application Received!'}
           </h3>
-          <p className="text-[#5F6F75] font-sans text-base leading-relaxed max-w-md">
+          <p className="text-[#4e5257] font-sans text-base leading-relaxed max-w-md">
             {isSpanish
               ? 'Nuestro equipo de selección de personal revisa las solicitudes semanalmente y se pondrá en contacto si hay una vacante compatible. ¡Gracias por su interés en unirse a New Era Solar Energy!'
               : 'Our hiring team reviews applications weekly and will reach out if there is a fit. Thank you for your interest in joining New Era Solar Energy.'}
@@ -136,7 +136,7 @@ export function CareerApplicationForm() {
   }
 
   return (
-    <div id="career-form" className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm">
+    <div id="career-form" className="bg-white border border-[#E2E8F0] rounded-3xl p-8 shadow-sm">
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
         <input name="website" type="text" className="absolute opacity-0 pointer-events-none h-0 w-0"
           tabIndex={-1} autoComplete="off" aria-hidden="true" />
@@ -198,7 +198,7 @@ export function CareerApplicationForm() {
               ? 'Describa su experiencia relevante, habilidades y por qué desea unirse a New Era Solar Energy...' 
               : 'Describe your relevant experience, skills, and why you want to join New Era Solar Energy...'}
             required
-            className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans resize-none" />
+            className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-[#14324b] placeholder:text-[#4e5257]/40 outline-none font-sans resize-none" />
         </div>
 
         <div className={wrap}>
@@ -209,7 +209,7 @@ export function CareerApplicationForm() {
             placeholder={isSpanish 
               ? 'Cualquier otra cosa que desee que sepamos...' 
               : 'Anything else you\'d like us to know...'}
-            className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans resize-none" />
+            className="w-full bg-transparent border-none focus:ring-0 text-sm p-0 text-[#14324b] placeholder:text-[#4e5257]/40 outline-none font-sans resize-none" />
         </div>
 
         {formState === 'error' && (
@@ -226,4 +226,5 @@ export function CareerApplicationForm() {
     </div>
   );
 }
+
 

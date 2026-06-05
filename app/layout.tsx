@@ -1,4 +1,4 @@
-import Analytics from '../components/Analytics';
+﻿import Analytics from '../components/Analytics';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
@@ -80,7 +80,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-[#F5F7FA] text-newera-dark-gray flex flex-col min-h-screen" suppressHydrationWarning>
+      <body className="font-sans antialiased bg-[#F5F7FA] text-[#14324b] flex flex-col min-h-screen" suppressHydrationWarning>
         <Analytics />
         <Header />
         <main className="flex-grow">
@@ -91,3 +91,4 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     </html>
   );
 }
+

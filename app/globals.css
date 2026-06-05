@@ -1,13 +1,54 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "tw-animate-css";
 
 @theme {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  
+
+  /* === EXISTING NEW ERA TOKENS (source of truth) === */
   --color-newera-orange: #ff5722;
   --color-newera-dark-gray: #4e5257;
   --color-newera-light-gray: #e5e5e5;
   --color-newera-blue: #082fa3;
   --color-newera-dark-blue: #14324b;
+
+  /* === NEW DESIGN SYSTEM TOKENS (Florida colorway) === */
+  --color-newera-cream: #FFF8F0;
+  --color-newera-gold: #F59E0B;
+  --color-newera-sky: #E0F2FE;
+  --color-newera-navy: #1E3A5F;
+  --color-newera-muted: #6B7280;
+  --color-newera-border: #E2E8F0;
+  --color-newera-card-bg: #F9FAFB;
+
+  /* === SPACING & RADIUS === */
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
+  --radius-input: 0.75rem;
+
+  /* === SHADOWS === */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 10px 25px rgba(0,0,0,0.08);
+  --shadow-cta: 0 8px 30px rgba(255,87,34,0.25);
 }
+
+@layer base {
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+}
+

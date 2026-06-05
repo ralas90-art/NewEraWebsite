@@ -1,4 +1,4 @@
-export const ROUTES_MAPPING: Record<string, string> = {
+﻿export const ROUTES_MAPPING: Record<string, string> = {
   '/': '/es',
   '/solar': '/es/solar',
   '/roofing': '/es/roofing',
@@ -15,6 +15,7 @@ export const ROUTES_MAPPING: Record<string, string> = {
   '/cost-savings': '/es/cost-savings',
   '/reviews': '/es/reviews',
   '/careers': '/es/careers',
+  '/calculate-savings': '/es/calculate-savings',
 };
 
 // Create a reverse mapping for Spanish back to English

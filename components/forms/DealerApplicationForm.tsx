@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
@@ -105,23 +105,23 @@ export function DealerApplicationForm() {
     }
   };
 
-  const wrap  = 'px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
-  const lbl   = 'block text-[10px] font-bold text-[#5F6F75] uppercase mb-1 font-sans';
-  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans';
+  const wrap  = 'px-5 py-3 border border-[#E2E8F0] rounded-2xl bg-[#F9FAFB] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
+  const lbl   = 'block text-[10px] font-bold text-[#4e5257] uppercase mb-1 font-sans';
+  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-[#14324b] placeholder:text-[#4e5257]/40 outline-none font-sans';
 
   if (formState === 'success') {
     return (
-      <div className="bg-white border border-[#e5e5e5] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
+      <div className="bg-white border border-[#E2E8F0] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
         <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
           <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <div>
-          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+          <h3 className="font-poppins font-bold text-2xl text-[#14324b] mb-2">
             {isSpanish ? '¡Solicitud Recibida!' : 'Application Received!'}
           </h3>
-          <p className="text-[#5F6F75] font-sans text-base leading-relaxed max-w-md">
+          <p className="text-[#4e5257] font-sans text-base leading-relaxed max-w-md">
             {isSpanish
               ? 'Nuestro equipo de desarrollo de socios se pondrá en contacto en un plazo de 2 días hábiles para coordinar los siguientes pasos.'
               : 'Our partner development team will be in touch within 2 business days to discuss next steps.'}
@@ -132,15 +132,15 @@ export function DealerApplicationForm() {
   }
 
   return (
-    <div id="dealer-form" className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm">
+    <div id="dealer-form" className="bg-white border border-[#E2E8F0] rounded-3xl p-8 shadow-sm">
       <div className="mb-8">
         <span className="text-[#ff5722] text-[10px] font-black uppercase bg-[#ff572220]/30 px-3 py-1 rounded-full">
           {isSpanish ? 'Solicitud de Socios' : 'Partner Application'}
         </span>
-        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mt-3 mb-2">
+        <h2 className="font-poppins font-bold text-2xl text-[#14324b] mt-3 mb-2">
           {isSpanish ? 'Postularse para Ser Socio' : 'Apply to Become a Partner'}
         </h2>
-        <p className="text-[#5F6F75] text-sm font-sans">
+        <p className="text-[#4e5257] text-sm font-sans">
           {isSpanish
             ? 'Complete el formulario a continuación. Los campos marcados con * son requeridos.'
             : 'Complete the form below. Fields marked * are required.'}
@@ -213,12 +213,12 @@ export function DealerApplicationForm() {
         )}
 
         <button type="submit" disabled={formState === 'submitting'}
-          className="w-full bg-newera-dark-blue text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-newera-dark-blue/20 hover:bg-newera-dark-blue/90 hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
+          className="w-full bg-[#14324b] text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-newera-dark-blue/20 hover:bg-[#14324b]/90 hover:translate-y-[-1px] transition-all font-sans active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
           {formState === 'submitting' 
             ? (isSpanish ? 'Enviando Solicitud...' : 'Submitting Application...') 
             : (isSpanish ? 'Enviar Solicitud de Socio →' : 'Submit Partner Application →')}
         </button>
-        <p className="text-xs text-[#5F6F75] font-sans text-center">
+        <p className="text-xs text-[#4e5257] font-sans text-center">
           {isSpanish 
             ? 'Nuestro equipo de desarrollo de socios revisa las solicitudes y responde dentro de 2 días hábiles.'
             : 'Our partner development team reviews applications and typically responds within 2 business days.'}
@@ -227,4 +227,6 @@ export function DealerApplicationForm() {
     </div>
   );
 }
+
+
 

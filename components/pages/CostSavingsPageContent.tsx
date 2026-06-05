@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { costSavingsPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
@@ -90,20 +90,20 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#F5F7FA] text-newera-dark-gray">
+    <div className="min-h-screen w-full bg-[#F9FAFB] text-[#14324b]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-6 pt-6 pb-2">
-        <ol className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
+        <ol className="flex items-center gap-2 text-xs text-[#4e5257] font-sans">
           <li>
             <Link href={isSpanish ? '/es' : '/'} className="hover:text-[#ff5722] transition-colors">
               {isSpanish ? 'Inicio' : 'Home'}
             </Link>
           </li>
           <li className="text-[#e5e5e5]">/</li>
-          <li className="text-newera-dark-gray font-semibold">
+          <li className="text-[#14324b] font-semibold">
             {isSpanish ? 'Costos y Ahorros' : 'Cost & Savings'}
           </li>
         </ol>
@@ -111,7 +111,7 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
 
       <main className="max-w-6xl mx-auto px-6 pb-20 flex flex-col gap-16">
         {/* Hero Section */}
-        <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
+        <section className="relative rounded-2xl overflow-hidden bg-[#14324b] px-8 md:px-14 py-16 md:py-24 mt-4">
           <div className="absolute inset-0 bg-gradient-to-br from-[#123B5D] via-[#1a4a75] to-[#0a2a42] opacity-95 pointer-events-none" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff5722]/5 rounded-full -translate-y-1/3 translate-x-1/4 pointer-events-none" />
           <div className="relative z-10 max-w-3xl">
@@ -143,27 +143,27 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
             <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">
               {isSpanish ? 'Cómo pagan los propietarios' : 'How Homeowners Pay'}
             </span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#14324b]">
               {t.optionsTitle}
             </h2>
-            <p className="text-[#5F6F75] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+            <p className="text-[#4e5257] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
               {t.optionsDesc}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {t.optionsList.map((option) => (
-              <div key={option.title} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+              <div key={option.title} className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow flex flex-col gap-4">
                 <div className="flex items-start justify-between gap-3">
                   <span className="text-4xl">{option.icon}</span>
                   <span className="bg-[#ff5722]/10 border border-[#ff5722]/20 text-[#ff5722] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
                     {option.tag}
                   </span>
                 </div>
-                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray">{option.title}</h3>
-                <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{option.desc}</p>
+                <h3 className="font-poppins font-bold text-xl text-[#14324b]">{option.title}</h3>
+                <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{option.desc}</p>
                 <ul className="flex flex-col gap-2">
                   {option.pros.map((pro) => (
-                    <li key={pro} className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
+                    <li key={pro} className="flex items-center gap-2 text-xs text-[#4e5257] font-sans">
                       <svg className="w-3.5 h-3.5 text-[#082fa3] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
@@ -171,7 +171,7 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-[#5F6F75] font-sans italic border-t border-[#e5e5e5] pt-3 mt-2">{option.note}</p>
+                <p className="text-[10px] text-[#4e5257] font-sans italic border-t border-[#E2E8F0] pt-3 mt-2">{option.note}</p>
               </div>
             ))}
           </div>
@@ -183,39 +183,39 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
         </div>
 
         {/* Savings Disclaimer */}
-        <p className="text-xs text-[#5F6F75] font-sans leading-relaxed mt-2 italic">
+        <p className="text-xs text-[#4e5257] font-sans leading-relaxed mt-2 italic">
           {t.savingsDisclaimer}
         </p>
 
         {/* What Affects Savings */}
-        <section className="bg-white border border-[#e5e5e5] rounded-3xl p-8 md:p-12 shadow-sm">
+        <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             <div>
               <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-3">
                 {t.varsTag}
               </span>
-              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray mb-4">
+              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#14324b] mb-4">
                 {t.varsTitle}
               </h2>
-              <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-6">
+              <p className="text-[#4e5257] font-sans text-sm leading-relaxed mb-6">
                 {t.varsDesc}
               </p>
               <ul className="flex flex-col gap-3">
                 {t.variables.map((item) => (
-                  <li key={item.label} className="flex items-start gap-3 bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl p-4">
+                  <li key={item.label} className="flex items-start gap-3 bg-[#F9FAFB] border border-[#E2E8F0] rounded-xl p-4">
                     <svg className="w-4 h-4 text-[#ff5722] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     <div>
-                      <p className="font-poppins font-bold text-sm text-newera-dark-gray">{item.label}</p>
-                      <p className="text-[#5F6F75] font-sans text-xs mt-0.5 leading-relaxed">{item.detail}</p>
+                      <p className="font-poppins font-bold text-sm text-[#14324b]">{item.label}</p>
+                      <p className="text-[#4e5257] font-sans text-xs mt-0.5 leading-relaxed">{item.detail}</p>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="bg-newera-dark-blue rounded-2xl p-6 text-white">
+              <div className="bg-[#14324b] rounded-2xl p-6 text-white">
                 <h3 className="font-poppins font-bold text-lg mb-3">
                   {isSpanish ? 'Por qué es importante un análisis real' : 'Why a Real Assessment Matters'}
                 </h3>
@@ -223,13 +223,13 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
                   {t.expectDesc}
                 </p>
               </div>
-              <div className="bg-[#F5F7FA] border border-[#e5e5e5] rounded-2xl p-6">
-                <h3 className="font-poppins font-bold text-base text-newera-dark-gray mb-2">
+              <div className="bg-[#F9FAFB] border border-[#E2E8F0] rounded-2xl p-6">
+                <h3 className="font-poppins font-bold text-base text-[#14324b] mb-2">
                   {t.expectListTitle}
                 </h3>
                 <ul className="flex flex-col gap-2 mt-3">
                   {t.expectList.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
+                    <li key={item} className="flex items-center gap-2 text-xs text-[#4e5257] font-sans">
                       <svg className="w-3.5 h-3.5 text-[#082fa3] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
@@ -248,23 +248,23 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
             <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">
               {isSpanish ? 'Preguntas comunes' : 'Common Questions'}
             </span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#14324b]">
               {t.faqTitle}
             </h2>
           </div>
           <div className="flex flex-col gap-4 max-w-3xl mx-auto">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="bg-white border border-[#e5e5e5] rounded-2xl shadow-sm group">
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-newera-dark-gray text-sm md:text-base list-none select-none hover:text-[#ff5722] transition-colors">
+              <details key={idx} className="bg-white border border-[#E2E8F0] rounded-2xl shadow-sm group">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-[#14324b] text-sm md:text-base list-none select-none hover:text-[#ff5722] transition-colors">
                   <span>{faq.question}</span>
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F5F7FA] border border-[#e5e5e5] flex items-center justify-center text-[#082fa3] group-open:rotate-45 transition-transform">
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F9FAFB] border border-[#E2E8F0] flex items-center justify-center text-[#082fa3] group-open:rotate-45 transition-transform">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16M4 12h16" />
                     </svg>
                   </span>
                 </summary>
                 <div className="px-6 pb-5 pt-1">
-                  <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               </details>
             ))}
@@ -272,7 +272,7 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
         </section>
 
         {/* CTA Section */}
-        <section className="bg-newera-dark-blue rounded-3xl px-8 md:px-16 py-14 text-center">
+        <section className="bg-[#14324b] rounded-2xl px-8 md:px-16 py-14 text-center">
           <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-4">
             {t.ctaBoxTag}
           </span>
@@ -293,3 +293,4 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
     </div>
   );
 }
+

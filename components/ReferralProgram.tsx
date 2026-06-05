@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -122,10 +122,10 @@ export function ReferralProgram() {
   const steps = isSpanish ? stepsEs : stepsEn;
 
   return (
-    <section id="referral-program" className="mt-8 mb-8 border border-[#e5e5e5] rounded-[32px] overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+    <section id="referral-program" className="mt-8 mb-8 border border-[#E2E8F0] rounded-[32px] overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
       <div className="grid grid-cols-1 lg:grid-cols-12">
         {/* Left Info Column */}
-        <div className="lg:col-span-5 bg-newera-dark-blue p-8 md:p-12 flex flex-col justify-between text-white relative overflow-hidden">
+        <div className="lg:col-span-5 bg-[#14324b] p-8 md:p-12 flex flex-col justify-between text-white relative overflow-hidden">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#ff5722]/10 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#082fa3]/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -189,10 +189,10 @@ export function ReferralProgram() {
           {isSubmitted ? (
             <div className="text-center py-12 flex flex-col items-center justify-center animate-in fade-in duration-300">
               <CheckCircle className="w-16 h-16 text-[#082fa3] mb-4" />
-              <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+              <h3 className="font-poppins font-bold text-2xl text-[#14324b] mb-2">
                 {isSpanish ? '¡Referido Enviado!' : 'Referral Submitted!'}
               </h3>
-              <p className="text-sm text-[#5F6F75] font-sans max-w-sm mb-6">
+              <p className="text-sm text-[#4e5257] font-sans max-w-sm mb-6">
                 {isSpanish 
                   ? 'Gracias por compartir la visión de New Era. Nos pondremos en contacto con su amigo pronto y le mantendremos informado sobre el estado de su recompensa.'
                   : 'Thank you for sharing the New Era vision. We will reach out to your friend shortly, and keep you updated on the reward status.'}
@@ -211,7 +211,7 @@ export function ReferralProgram() {
                     honeypot: '',
                   });
                 }}
-                className="bg-newera-dark-blue text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-newera-dark-blue/90 transition-colors cursor-pointer"
+                className="bg-[#14324b] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#14324b]/90 transition-colors cursor-pointer"
               >
                 {isSpanish ? 'Enviar Otro Referido' : 'Submit Another Referral'}
               </button>
@@ -219,10 +219,10 @@ export function ReferralProgram() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div>
-                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray mb-1">
+                <h3 className="font-poppins font-bold text-xl text-[#14324b] mb-1">
                   {isSpanish ? 'Formulario de Referidos' : 'Referral Form'}
                 </h3>
-                <p className="text-xs text-[#5F6F75] font-sans">
+                <p className="text-xs text-[#4e5257] font-sans">
                   {isSpanish ? 'Envíe los detalles a continuación. Nosotros nos encargamos del resto.' : 'Submit details below. We handle the rest.'}
                 </p>
               </div>
@@ -240,7 +240,7 @@ export function ReferralProgram() {
                     required 
                     value={formData.referrerName}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                   <input 
                     type="tel" 
@@ -249,7 +249,7 @@ export function ReferralProgram() {
                     required 
                     value={formData.referrerPhone}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                   <input 
                     type="email" 
@@ -258,7 +258,7 @@ export function ReferralProgram() {
                     required 
                     value={formData.referrerEmail}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                 </div>
               </div>
@@ -276,7 +276,7 @@ export function ReferralProgram() {
                     required 
                     value={formData.refereeName}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                   <input 
                     type="text" 
@@ -287,7 +287,7 @@ export function ReferralProgram() {
                     required 
                     value={formData.refereeZip}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -298,7 +298,7 @@ export function ReferralProgram() {
                     required 
                     value={formData.refereePhone}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                   <input 
                     type="email" 
@@ -306,7 +306,7 @@ export function ReferralProgram() {
                     placeholder={isSpanish ? 'Email del Amigo (Opcional)' : "Friend's Email (Optional)"} 
                     value={formData.refereeEmail}
                     onChange={handleInput}
-                    className="p-3.5 bg-white rounded-xl border border-[#e5e5e5] focus:outline-none focus:border-[#082fa3] text-sm text-newera-dark-gray font-sans" 
+                    className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#082fa3] text-sm text-[#14324b] font-sans" 
                   />
                 </div>
               </div>
@@ -337,3 +337,4 @@ export function ReferralProgram() {
     </section>
   );
 }
+

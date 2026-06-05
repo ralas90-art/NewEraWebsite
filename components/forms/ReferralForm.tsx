@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
@@ -89,29 +89,29 @@ export function ReferralForm() {
     }
   };
 
-  const wrap  = 'px-5 py-3 border border-[#e5e5e5] rounded-2xl bg-[#F5F7FA] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
-  const lbl   = 'block text-[10px] font-bold text-[#5F6F75] uppercase mb-1 font-sans';
-  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-newera-dark-gray placeholder:text-[#5F6F75]/40 outline-none font-sans';
+  const wrap  = 'px-5 py-3 border border-[#E2E8F0] rounded-2xl bg-[#F9FAFB] transition-colors focus-within:border-[#082fa3] focus-within:bg-white focus-within:shadow-sm';
+  const lbl   = 'block text-[10px] font-bold text-[#4e5257] uppercase mb-1 font-sans';
+  const field = 'w-full bg-transparent border-none focus:ring-0 text-sm font-medium p-0 text-[#14324b] placeholder:text-[#4e5257]/40 outline-none font-sans';
 
   if (formState === 'success') {
     return (
-      <div className="bg-white border border-[#e5e5e5] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
+      <div className="bg-white border border-[#E2E8F0] rounded-3xl p-10 shadow-sm flex flex-col items-center text-center gap-6">
         <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
           <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <div>
-          <h3 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-2">
+          <h3 className="font-poppins font-bold text-2xl text-[#14324b] mb-2">
             {isSpanish ? '¡Referido Enviado!' : 'Referral Submitted!'}
           </h3>
-          <p className="text-[#5F6F75] font-sans text-base leading-relaxed max-w-sm">
+          <p className="text-[#4e5257] font-sans text-base leading-relaxed max-w-sm">
             {isSpanish 
               ? 'Nos pondremos en contacto con su amigo pronto para programar su evaluación solar gratuita. ¡Gracias por recomendarnos!'
               : 'We will contact your friend shortly to schedule their free solar assessment. Thank you for spreading the word!'}
           </p>
         </div>
-        <p className="text-[10px] text-[#5F6F75] font-sans leading-relaxed">
+        <p className="text-[10px] text-[#4e5257] font-sans leading-relaxed">
           {isSpanish
             ? '* Las recompensas están sujetas a elegibilidad, finalización de la instalación y términos del programa. Se pagan dentro de los 30 días posteriores a la instalación completa y activación del sistema de su referido.'
             : '* Referral rewards are subject to eligibility, installation completion, and program terms. Referral reward paid within 30 days after referred homeowner\'s solar system is fully installed and utility-activated.'}
@@ -121,15 +121,15 @@ export function ReferralForm() {
   }
 
   return (
-    <div id="referral-form" className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm">
+    <div id="referral-form" className="bg-white border border-[#E2E8F0] rounded-3xl p-8 shadow-sm">
       <div className="mb-8">
         <span className="text-[#ff5722] text-[10px] font-black uppercase bg-[#ff572220]/30 px-3 py-1 rounded-full">
           {isSpanish ? 'Enviar un Referido' : 'Submit a Referral'}
         </span>
-        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mt-3 mb-2">
+        <h2 className="font-poppins font-bold text-2xl text-[#14324b] mt-3 mb-2">
           {isSpanish ? 'Recomiende a un Dueño de Casa' : 'Refer a Homeowner'}
         </h2>
-        <p className="text-[#5F6F75] text-sm font-sans">
+        <p className="text-[#4e5257] text-sm font-sans">
           {isSpanish 
             ? 'Complete ambas secciones a continuación y nosotros nos encargaremos del resto.'
             : 'Fill out both sections below and we\'ll take it from there.'}
@@ -143,7 +143,7 @@ export function ReferralForm() {
 
         {/* Section 1 */}
         <div>
-          <p className="font-poppins font-semibold text-newera-dark-gray text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+          <p className="font-poppins font-semibold text-[#14324b] text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
             <span className="w-6 h-6 rounded-full bg-[#ff5722] text-white text-xs font-bold flex items-center justify-center">1</span>
             {isSpanish ? 'Su Información' : 'Your Information'}
           </p>
@@ -163,11 +163,11 @@ export function ReferralForm() {
           </div>
         </div>
 
-        <div className="border-t border-[#e5e5e5]" />
+        <div className="border-t border-[#E2E8F0]" />
 
         {/* Section 2 */}
         <div>
-          <p className="font-poppins font-semibold text-newera-dark-gray text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+          <p className="font-poppins font-semibold text-[#14324b] text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
             <span className="w-6 h-6 rounded-full bg-[#082fa3] text-white text-xs font-bold flex items-center justify-center">2</span>
             {isSpanish ? 'Información de su Recomendado *' : 'Your Friend\'s Information *'}
           </p>
@@ -202,7 +202,7 @@ export function ReferralForm() {
             : (isSpanish ? 'Enviar Referido →' : 'Submit Referral →')}
         </button>
 
-        <p className="text-[10px] text-[#5F6F75] font-sans leading-relaxed">
+        <p className="text-[10px] text-[#4e5257] font-sans leading-relaxed">
           {isSpanish ? (
             <>
               * Las recompensas de referidos están sujetas a elegibilidad, finalización de la instalación y términos del programa. Recompensa pagada dentro de los 30 días posteriores a la instalación completa y activación por parte de la empresa de servicios públicos del sistema solar del propietario referido.{' '}
@@ -223,3 +223,4 @@ export function ReferralForm() {
     </div>
   );
 }
+

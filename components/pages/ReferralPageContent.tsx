@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { referralPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
@@ -73,18 +73,18 @@ export default function ReferralPageContent({ locale }: ReferralPageContentProps
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray">
+    <div className="min-h-screen bg-[#F9FAFB] text-[#14324b]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
-      <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#5F6F75] font-sans flex items-center gap-2">
+      <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#4e5257] font-sans flex items-center gap-2">
         <Link href={isSpanish ? '/es' : '/'} className="hover:text-[#ff5722] transition-colors">
           {isSpanish ? 'Inicio' : 'Home'}
         </Link>
         <span>/</span>
-        <span className="text-newera-dark-gray font-semibold">
+        <span className="text-[#14324b] font-semibold">
           {isSpanish ? 'Programa de Referidos' : 'Referral Program'}
         </span>
       </nav>
@@ -94,14 +94,14 @@ export default function ReferralPageContent({ locale }: ReferralPageContentProps
         <span className="inline-block bg-[#ff572220]/50 text-[#ff5722] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
           {t.heroTag}
         </span>
-        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-newera-dark-gray leading-[1.1] mb-6">
+        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl lg:text-6xl text-[#14324b] leading-[1.1] mb-6">
           {isSpanish ? (
             <>Obtenga un Pago de <span className="text-[#ff5722]">$1,000</span><br />por Cada Referido Solar</>
           ) : (
             <>Get Paid <span className="text-[#ff5722]">$1,000</span><br />for Every Solar Referral</>
           )}
         </h1>
-        <p className="text-[#5F6F75] text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-[#4e5257] text-lg md:text-xl font-sans leading-relaxed max-w-2xl mx-auto mb-10">
           {t.heroDesc}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -113,28 +113,28 @@ export default function ReferralPageContent({ locale }: ReferralPageContentProps
           </a>
           <Link
             href={isSpanish ? '/es/solar' : '/solar'}
-            className="bg-newera-dark-blue text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors font-sans"
+            className="bg-[#14324b] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#14324b]/90 transition-colors font-sans"
           >
             {t.btnLearn}
           </Link>
         </div>
-        <p className="text-[10px] text-[#5F6F75] font-sans mt-4 italic">
+        <p className="text-[10px] text-[#4e5257] font-sans mt-4 italic">
           {t.disclaimer}
         </p>
       </section>
 
       {/* How It Works */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="font-poppins font-bold text-3xl text-newera-dark-gray text-center mb-12">
+        <h2 className="font-poppins font-bold text-3xl text-[#14324b] text-center mb-12">
           {t.howTitle}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {t.steps.map((step) => (
-            <div key={step.num} className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center">
+            <div key={step.num} className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow text-center">
               <div className="text-4xl mb-4">{step.icon}</div>
               <span className="text-[#082fa3] text-xs font-black uppercase tracking-widest">{step.num}</span>
-              <h3 className="font-poppins font-bold text-lg text-newera-dark-gray mt-2 mb-3">{step.title}</h3>
-              <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{step.desc}</p>
+              <h3 className="font-poppins font-bold text-lg text-[#14324b] mt-2 mb-3">{step.title}</h3>
+              <p className="text-[#4e5257] text-sm font-sans leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -151,14 +151,14 @@ export default function ReferralPageContent({ locale }: ReferralPageContentProps
 
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-8 text-center">
+        <h2 className="font-poppins font-bold text-2xl text-[#14324b] mb-8 text-center">
           {t.faqTitle}
         </h2>
         <div className="space-y-4">
           {faqItems.map(({ q, a }) => (
-            <div key={q} className="bg-white border border-[#e5e5e5] rounded-2xl p-6 shadow-sm">
-              <h3 className="font-poppins font-semibold text-newera-dark-gray text-base mb-2">{q}</h3>
-              <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{a}</p>
+            <div key={q} className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
+              <h3 className="font-poppins font-semibold text-[#14324b] text-base mb-2">{q}</h3>
+              <p className="text-[#4e5257] text-sm font-sans leading-relaxed">{a}</p>
             </div>
           ))}
         </div>
@@ -166,3 +166,4 @@ export default function ReferralPageContent({ locale }: ReferralPageContentProps
     </div>
   );
 }
+

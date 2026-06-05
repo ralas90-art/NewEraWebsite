@@ -2,60 +2,37 @@ import React from 'react';
 import Link from 'next/link';
 import { roofingPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
+import {
+  Home,
+  Shield,
+  CloudRain,
+  FileText,
+  Wrench,
+  HardHat,
+  CheckCircle,
+  ClipboardCheck,
+  Hammer,
+  Eye,
+  Ruler,
+  AlertTriangle,
+  ArrowRight,
+  Search,
+  ShieldCheck,
+} from 'lucide-react';
 
 interface RoofingPageContentProps {
   locale: Locale;
 }
 
+const painPointIcons = [Home, AlertTriangle, CloudRain, FileText, Shield, Wrench];
+const needsIcons = [Ruler, HardHat, Eye, AlertTriangle, Wrench, CloudRain, Shield, FileText, CheckCircle, Ruler];
+const serviceIcons = [Search, Hammer, CloudRain, ShieldCheck];
+const processIcons = [ClipboardCheck, Eye, FileText, CheckCircle, Ruler, HardHat, Hammer, ShieldCheck];
+const checkIcons = [Ruler, Shield, Home, FileText];
+
 export default function RoofingPageContent({ locale }: RoofingPageContentProps) {
   const isSpanish = locale === 'es';
   const t = isSpanish ? roofingPageTranslations.es : roofingPageTranslations.en;
-
-  const faqs = isSpanish
-    ? [
-        {
-          question: '¿Cómo sé si necesito un techo nuevo antes de instalar paneles solares?',
-          answer:
-            'Nuestro equipo inspecciona la antigüedad del techo, el estado del material, la integridad de la cubierta y la vida útil restante estimada durante la evaluación gratuita. Le diremos con honestidad si su techo puede soportar una instalación solar o si necesita trabajo primero.',
-        },
-        {
-          question: '¿Cuánto tiempo toma el reemplazo de un techo?',
-          answer:
-            'La mayoría de los reemplazos de techos residenciales toman de 1 a 3 días, según el tamaño, la inclinación y los materiales seleccionados. Su coordinador de proyecto le dará un cronograma firme antes de comenzar el trabajo.',
-        },
-        {
-          question: '¿Qué tipo de material de techo es mejor para los paneles solares?',
-          answer:
-            'Las tejas de asfalto, los techos de metal y las membranas para techos planos son compatibles con las instalaciones solares. Cada uno tiene diferentes métodos de montaje y perfiles de costo. Evaluamos la mejor solución para su hogar específico durante la visita.',
-        },
-        {
-          question: '¿Cubrirá el seguro los daños de mi techo por tormentas?',
-          answer:
-            'Muchas pólizas de propietario cubren daños por viento y granizo. Ayudamos a documentar los daños minuciosamente para los reclamos de seguro. Consulte con su proveedor de seguros para obtener detalles de cobertura y procedimientos de reclamo.',
-        },
-      ]
-    : [
-        {
-          question: 'How do I know if I need a new roof before installing solar?',
-          answer:
-            'Our team inspects roof age, material condition, decking integrity, and estimated remaining lifespan during the free assessment. We will tell you honestly whether your roof can support a solar installation or needs work first.',
-        },
-        {
-          question: 'How long does a roof replacement take?',
-          answer:
-            'Most residential roof replacements take 1–3 days depending on roof size, pitch, and selected materials. Your project coordinator will give you a firm timeline before work begins.',
-        },
-        {
-          question: 'What type of roofing material is best for solar panels?',
-          answer:
-            'Asphalt shingles, metal roofing, and flat roof membranes are all compatible with solar installations. Each has different mounting methods and cost profiles. We evaluate the best solution for your specific home during the site visit.',
-        },
-        {
-          question: 'Will insurance cover storm damage to my roof?',
-          answer:
-            'Many homeowner policies cover wind and hail damage. We help document damage thoroughly for insurance claims. Please consult your insurance provider for coverage specifics and claim procedures.',
-        },
-      ];
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -81,7 +58,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
+    mainEntity: t.faqs.map((f) => ({
       '@type': 'Question',
       name: f.question,
       acceptedAnswer: {
@@ -100,45 +77,53 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
     ],
   };
 
+  const posterUrl = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop';
+
   return (
-    <div className="min-h-screen w-full bg-[#F5F7FA] text-newera-dark-gray">
+    <div className="min-h-screen w-full bg-[#F9FAFB] text-[#14324b]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="max-w-6xl mx-auto px-6 pt-6 pb-2">
-        <ol className="flex items-center gap-2 text-xs text-[#5F6F75] font-sans">
+        <ol className="flex items-center gap-2 text-xs text-[#4e5257] font-sans">
           <li>
             <Link href={isSpanish ? '/es' : '/'} className="hover:text-[#ff5722] transition-colors">
               {isSpanish ? 'Inicio' : 'Home'}
             </Link>
           </li>
           <li className="text-[#e5e5e5]">/</li>
-          <li className="text-newera-dark-gray font-semibold">
+          <li className="text-[#14324b] font-semibold">
             {isSpanish ? 'Techos' : 'Roofing'}
           </li>
         </ol>
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 pb-20 flex flex-col gap-16">
-        {/* Hero Section */}
-        <section className="relative rounded-3xl overflow-hidden bg-newera-dark-blue px-8 md:px-14 py-16 md:py-24 mt-4">
+        {/* ── Hero Section ── */}
+        <section className="relative rounded-2xl overflow-hidden bg-[#14324b] px-8 md:px-14 py-16 md:py-24 mt-4">
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-            <div className="absolute inset-0 bg-newera-dark-blue/70 z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#14324b]/85 to-[#14324b]/60 z-10 pointer-events-none" />
             <video
-              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover motion-reduce:hidden"
               autoPlay
               muted
               loop
               playsInline
-              poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+              poster={posterUrl}
             >
               <source src="/videos/roofing-hero.mp4" type="video/mp4" />
             </video>
+            <img
+              src={posterUrl}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover hidden motion-reduce:block"
+              aria-hidden="true"
+            />
           </div>
           <div className="relative z-10 max-w-3xl">
-            <span className="inline-block bg-[#082fa3]/20 border border-[#082fa3]/40 text-[#082fa3] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
+            <span className="inline-block bg-[#ff5722]/20 border border-[#ff5722]/40 text-[#ff5722] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
               {t.heroTag}
             </span>
             <h1 className="font-poppins font-extrabold text-3xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-6">
@@ -158,107 +143,220 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* Services Section */}
+        {/* ── Pain Points Section ── */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">
-              {t.offerTag}
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
+              {t.painTag}
             </span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">
-              {t.offerTitle}
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#14324b]">
+              {t.painTitle}
             </h2>
-            <p className="text-[#5F6F75] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-              {t.offerDesc}
+            <p className="text-[#4e5257] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              {t.painDesc}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {t.services.map((svc) => (
-              <div
-                key={svc.title}
-                className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <span className="text-4xl">{svc.icon}</span>
-                  <span className="bg-[#082fa3]/10 border border-[#082fa3]/20 text-[#082fa3] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
-                    {svc.tag}
-                  </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {t.painPoints.map((item, idx) => {
+              const Icon = painPointIcons[idx] || AlertTriangle;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow flex flex-col gap-3"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#ff5722]/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#ff5722]" />
+                  </div>
+                  <h3 className="font-poppins font-bold text-base text-[#14324b]">{item.title}</h3>
+                  <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-poppins font-bold text-xl text-newera-dark-gray">{svc.title}</h3>
-                <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{svc.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
-        {/* Roofing + Solar Connection */}
-        <section className="bg-white border border-[#e5e5e5] rounded-3xl p-8 md:p-12 shadow-sm">
+        {/* ── Needs Analysis Section ── */}
+        <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
+          <div className="text-center mb-10">
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
+              {t.needsTag}
+            </span>
+            <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#14324b]">
+              {t.needsTitle}
+            </h2>
+            <p className="text-[#4e5257] font-sans mt-4 max-w-2xl mx-auto text-sm leading-relaxed">
+              {t.needsDesc}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {t.needsItems.map((item, idx) => {
+              const Icon = needsIcons[idx % needsIcons.length];
+              return (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 bg-[#F9FAFB] border border-[#E2E8F0] rounded-xl p-4"
+                >
+                  <div className="shrink-0 w-8 h-8 rounded-lg bg-[#F59E0B]/10 flex items-center justify-center mt-0.5">
+                    <Icon className="w-4 h-4 text-[#F59E0B]" />
+                  </div>
+                  <span className="font-sans text-sm text-[#14324b] font-medium leading-snug">{item}</span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── Roofing Services Section ── */}
+        <section>
+          <div className="text-center mb-10">
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
+              {t.servicesTag}
+            </span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#14324b]">
+              {t.servicesTitle}
+            </h2>
+            <p className="text-[#4e5257] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              {t.servicesDesc}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {t.services.map((svc, idx) => {
+              const Icon = serviceIcons[idx] || Search;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow flex flex-col gap-4"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-[#ff5722]/10 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-[#ff5722]" />
+                    </div>
+                    <span className="bg-[#ff5722]/10 border border-[#ff5722]/20 text-[#ff5722] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
+                      {svc.tag}
+                    </span>
+                  </div>
+                  <h3 className="font-poppins font-bold text-xl text-[#14324b]">{svc.title}</h3>
+                  <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{svc.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── Process Section ── */}
+        <section>
+          <div className="text-center mb-10">
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
+              {t.processTag}
+            </span>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#14324b]">
+              {t.processTitle}
+            </h2>
+            <p className="text-[#4e5257] font-sans mt-4 max-w-2xl mx-auto text-base leading-relaxed">
+              {t.processDesc}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t.processSteps.map((step, idx) => {
+              const Icon = processIcons[idx] || CheckCircle;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow flex flex-col gap-3 relative"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest font-poppins">
+                      {isSpanish ? 'Paso' : 'Step'} {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#F59E0B]" />
+                  </div>
+                  <h3 className="font-poppins font-bold text-base text-[#14324b]">{step.title}</h3>
+                  <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{step.desc}</p>
+                  {idx < t.processSteps.length - 1 && (
+                    <ArrowRight className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#E2E8F0]" />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── Why It Matters Section ── */}
+        <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-3">
+              <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-3">
                 {t.mattersTag}
               </span>
-              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-newera-dark-gray mb-4">
+              <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#14324b] mb-4">
                 {t.mattersTitle}
               </h2>
-              <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-4">
+              <p className="text-[#4e5257] font-sans text-sm leading-relaxed mb-4">
                 {t.mattersDesc1}
               </p>
-              <p className="text-[#5F6F75] font-sans text-sm leading-relaxed mb-6">
+              <p className="text-[#4e5257] font-sans text-sm leading-relaxed mb-6">
                 {t.mattersDesc2}
               </p>
               <Link
                 href={isSpanish ? '/es/contact' : '/contact'}
-                className="inline-block bg-newera-dark-blue text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-newera-dark-blue/90 transition-colors font-sans"
+                className="inline-block bg-[#14324b] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#14324b]/90 transition-colors font-sans"
               >
                 {t.ctaCombined}
               </Link>
             </div>
             <div className="flex flex-col gap-4">
-              {t.checks.map((item) => (
-                <div key={item.label} className="flex items-center gap-4 bg-[#F5F7FA] border border-[#e5e5e5] rounded-xl p-4">
-                  <span className="text-2xl">{item.icon}</span>
-                  <div>
-                    <p className="font-poppins font-bold text-sm text-newera-dark-gray">{item.label}</p>
-                    <p className="text-[#5F6F75] font-sans text-xs mt-0.5">{item.value}</p>
+              {t.checks.map((item, idx) => {
+                const Icon = checkIcons[idx] || CheckCircle;
+                return (
+                  <div key={idx} className="flex items-center gap-4 bg-[#F9FAFB] border border-[#E2E8F0] rounded-xl p-4">
+                    <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/10 flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 text-[#F59E0B]" />
+                    </div>
+                    <div>
+                      <p className="font-poppins font-bold text-sm text-[#14324b]">{item.label}</p>
+                      <p className="text-[#4e5257] font-sans text-xs mt-0.5">{item.value}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* ── FAQ Section ── */}
         <section>
           <div className="text-center mb-10">
-            <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-2">
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
               {t.faqTag}
             </span>
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-newera-dark-gray">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl text-[#14324b]">
               {t.faqTitle}
             </h2>
           </div>
           <div className="flex flex-col gap-4 max-w-3xl mx-auto">
-            {faqs.map((faq, idx) => (
-              <details key={idx} className="bg-white border border-[#e5e5e5] rounded-2xl shadow-sm group">
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-newera-dark-gray text-sm md:text-base list-none select-none hover:text-[#ff5722] transition-colors">
+            {t.faqs.map((faq, idx) => (
+              <details key={idx} className="bg-white border border-[#E2E8F0] rounded-2xl shadow-sm group">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-poppins font-semibold text-[#14324b] text-sm md:text-base list-none select-none hover:text-[#ff5722] transition-colors">
                   <span>{faq.question}</span>
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F5F7FA] border border-[#e5e5e5] flex items-center justify-center text-[#082fa3] group-open:rotate-45 transition-transform">
+                  <span className="shrink-0 w-6 h-6 rounded-full bg-[#F9FAFB] border border-[#E2E8F0] flex items-center justify-center text-[#ff5722] group-open:rotate-45 transition-transform">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16M4 12h16" />
                     </svg>
                   </span>
                 </summary>
                 <div className="px-6 pb-5 pt-1">
-                  <p className="text-[#5F6F75] font-sans text-sm leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#4e5257] font-sans text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               </details>
             ))}
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-newera-dark-blue rounded-3xl px-8 md:px-16 py-14 text-center">
-          <span className="text-[11px] font-bold uppercase text-[#082fa3] tracking-widest block mb-4">
+        {/* ── Final CTA Section ── */}
+        <section className="bg-[#14324b] rounded-2xl px-8 md:px-16 py-14 text-center">
+          <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-4">
             {t.ctaBoxTag}
           </span>
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-white mb-4">

@@ -1,7 +1,8 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import { ShieldCheck, PhoneCall, Languages, Zap } from 'lucide-react';
 import { trustTranslations } from '@/lib/i18n/content';
 
 export function TrustIndicators() {
@@ -9,34 +10,27 @@ export function TrustIndicators() {
   const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
   const t = isSpanish ? trustTranslations.es : trustTranslations.en;
 
-  const indicators = [
-    { name: t.assessmentTitle, abbr: isSpanish ? "GRATIS" : "FREE", desc: t.assessmentDesc },
-    { name: t.pressureTitle, abbr: isSpanish ? "CERO" : "ZERO", desc: t.pressureDesc },
-    { name: t.bilingualTitle, abbr: "ES/EN", desc: t.bilingualDesc },
-    { name: t.supportTitle, abbr: isSpanish ? "LOCAL" : "LOCAL", desc: t.supportDesc }
+  const items = [
+    { icon: ShieldCheck, title: t.assessmentTitle, desc: t.assessmentDesc },
+    { icon: PhoneCall, title: t.pressureTitle, desc: t.pressureDesc },
+    { icon: Languages, title: t.bilingualTitle, desc: t.bilingualDesc },
+    { icon: Zap, title: t.supportTitle, desc: t.supportDesc },
   ];
 
   return (
-    <section className="w-full py-8 flex flex-col items-center justify-center gap-6">
-      <span className="text-[10px] font-bold uppercase text-[#5F6F75] tracking-widest text-center">
-        {isSpanish ? "Ofrecemos orientación y soporte transparentes" : "Providing Transparent Guidance & Support"}
-      </span>
-      <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 w-full">
-        {indicators.map((indicator, idx) => (
-          <div 
-            key={idx} 
-            className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity duration-300"
+    <section className="py-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {items.map(({ icon: Icon, title, desc }) => (
+          <div
+            key={title}
+            className="flex items-center gap-3 bg-white border border-[#E2E8F0] rounded-2xl px-4 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300"
           >
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-[#e5e5e5] rounded-full flex items-center justify-center text-newera-dark-gray font-black text-xs md:text-sm tracking-tighter">
-              {indicator.abbr}
+            <div className="w-10 h-10 rounded-xl bg-[#ff5722]/10 flex items-center justify-center flex-shrink-0">
+              <Icon className="w-[17px] h-[17px] text-[#ff5722]" />
             </div>
-            <div className="flex flex-col hidden sm:flex">
-              <span className="font-poppins font-bold text-xs text-newera-dark-gray uppercase leading-tight">
-                {indicator.name}
-              </span>
-              <span className="text-[9px] text-[#5F6F75] tracking-wider uppercase font-sans">
-                {indicator.desc}
-              </span>
+            <div>
+              <p className="text-[13px] font-semibold text-[#14324b] leading-tight font-poppins">{title}</p>
+              <p className="text-[11px] text-[#6B7280] font-sans">{desc}</p>
             </div>
           </div>
         ))}

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { contactPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
 import { LeadForm } from '@/components/LeadForm';
+import { MapPin, Phone, Mail, Clock, Map, Globe } from 'lucide-react';
 
 interface ContactPageContentProps {
   locale: Locale;
@@ -86,18 +87,18 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-newera-dark-gray">
+    <div className="min-h-screen bg-[#F9FAFB] text-[#14324b]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumb */}
-      <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#5F6F75] font-sans flex items-center gap-2">
+      <nav className="max-w-6xl mx-auto px-6 pt-6 text-xs text-[#4e5257] font-sans flex items-center gap-2">
         <Link href={isSpanish ? '/es' : '/'} className="hover:text-[#ff5722] transition-colors">
           {isSpanish ? 'Inicio' : 'Home'}
         </Link>
         <span>/</span>
-        <span className="text-newera-dark-gray font-semibold">
+        <span className="text-[#14324b] font-semibold">
           {isSpanish ? 'Contacto' : 'Contact'}
         </span>
       </nav>
@@ -107,10 +108,10 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
         <span className="inline-block bg-[#082fa3]/15 text-[#082fa3] text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
           {t.heroTag}
         </span>
-        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl text-newera-dark-gray leading-[1.1] mb-4">
+        <h1 className="font-poppins font-extrabold text-4xl md:text-5xl text-[#14324b] leading-[1.1] mb-4">
           {t.heroTitle}
         </h1>
-        <p className="text-[#5F6F75] text-lg font-sans leading-relaxed max-w-xl mx-auto">
+        <p className="text-[#4e5257] text-lg font-sans leading-relaxed max-w-xl mx-auto">
           {t.heroDesc}
         </p>
       </section>
@@ -120,50 +121,50 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* LEFT — Contact Info */}
           <div className="space-y-6">
-            <div className="bg-white border border-[#e5e5e5] rounded-3xl p-8 shadow-sm">
-              <h2 className="font-poppins font-bold text-xl text-newera-dark-gray mb-6">{t.infoTitle}</h2>
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-sm">
+              <h2 className="font-poppins font-bold text-xl text-[#14324b] mb-6">{t.infoTitle}</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">📍</span>
+                  <MapPin className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
-                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">{t.officeLabel}</p>
-                    <p className="text-newera-dark-gray font-semibold font-sans">{t.officeVal}</p>
+                    <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.officeLabel}</p>
+                    <p className="text-[#14324b] font-semibold font-sans">{t.officeVal}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">📞</span>
+                  <Phone className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
-                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">{t.phoneLabel}</p>
-                    <a href="tel:+13213813192" className="text-newera-dark-gray font-semibold font-sans hover:text-[#ff5722] transition-colors">
+                    <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.phoneLabel}</p>
+                    <a href="tel:+13213813192" className="text-[#14324b] font-semibold font-sans hover:text-[#ff5722] transition-colors">
                       {t.phoneVal}
                     </a>
-                    <p className="text-xs text-[#5F6F75] font-sans">{t.phoneSub}</p>
+                    <p className="text-xs text-[#4e5257] font-sans">{t.phoneSub}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">✉️</span>
+                  <Mail className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
-                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">{t.emailLabel}</p>
-                    <a href="mailto:info@newerasolarenergy.com" className="text-newera-dark-gray font-semibold font-sans hover:text-[#ff5722] transition-colors">
+                    <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.emailLabel}</p>
+                    <a href="mailto:info@newerasolarenergy.com" className="text-[#14324b] font-semibold font-sans hover:text-[#ff5722] transition-colors">
                       {t.emailVal}
                     </a>
-                    <p className="text-xs text-[#5F6F75] font-sans">{t.emailSub}</p>
+                    <p className="text-xs text-[#4e5257] font-sans">{t.emailSub}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">🕐</span>
+                  <Clock className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
-                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">{t.hoursLabel}</p>
-                    <p className="text-newera-dark-gray font-semibold font-sans">{t.hoursVal}</p>
+                    <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.hoursLabel}</p>
+                    <p className="text-[#14324b] font-semibold font-sans">{t.hoursVal}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">📍</span>
+                  <MapPin className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
-                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">{t.areasLabel}</p>
+                    <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.areasLabel}</p>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {(isSpanish ? ['Florida', 'Massachusetts', 'Connecticut'] : ['Florida', 'Massachusetts', 'Connecticut']).map((state) => (
-                        <span key={state} className="bg-[#082fa3]/15 text-newera-dark-gray text-xs font-semibold px-3 py-1 rounded-full border border-[#082fa3]/30">
+                        <span key={state} className="bg-[#082fa3]/15 text-[#14324b] text-xs font-semibold px-3 py-1 rounded-full border border-[#082fa3]/30">
                           {state}
                         </span>
                       ))}
@@ -171,17 +172,17 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5">🌐</span>
+                  <Globe className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
-                    <p className="text-[10px] font-bold text-[#5F6F75] uppercase tracking-widest mb-0.5">{t.langLabel}</p>
-                    <p className="text-newera-dark-gray font-semibold font-sans">{t.langVal}</p>
+                    <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.langLabel}</p>
+                    <p className="text-[#14324b] font-semibold font-sans">{t.langVal}</p>
                   </div>
                 </li>
               </ul>
             </div>
 
             {/* Trust signals */}
-            <div className="bg-newera-dark-blue rounded-3xl p-8 text-white">
+            <div className="bg-[#14324b] rounded-2xl p-8 text-white">
               <h3 className="font-poppins font-bold text-lg mb-4">{t.expectTitle}</h3>
               <ul className="space-y-3">
                 {t.expectList.map((item) => (
@@ -196,7 +197,7 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
 
           {/* RIGHT — Lead Form */}
           <div>
-            <div className="bg-white border border-[#e5e5e5] rounded-3xl p-2 shadow-sm">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2 shadow-sm">
               <LeadForm />
             </div>
           </div>
@@ -205,14 +206,14 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
 
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-6 pb-20">
-        <h2 className="font-poppins font-bold text-2xl text-newera-dark-gray mb-8 text-center">
+        <h2 className="font-poppins font-bold text-2xl text-[#14324b] mb-8 text-center">
           {t.faqTitle}
         </h2>
         <div className="space-y-4">
           {faqItems.map(({ q, a }) => (
-            <div key={q} className="bg-white border border-[#e5e5e5] rounded-2xl p-6 shadow-sm">
-              <h3 className="font-poppins font-semibold text-newera-dark-gray text-base mb-2">{q}</h3>
-              <p className="text-[#5F6F75] text-sm font-sans leading-relaxed">{a}</p>
+            <div key={q} className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
+              <h3 className="font-poppins font-semibold text-[#14324b] text-base mb-2">{q}</h3>
+              <p className="text-[#4e5257] text-sm font-sans leading-relaxed">{a}</p>
             </div>
           ))}
         </div>
@@ -220,3 +221,4 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
     </div>
   );
 }
+
