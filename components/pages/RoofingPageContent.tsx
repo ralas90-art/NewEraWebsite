@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from 'react';
 import Link from 'next/link';
 import { roofingPageTranslations } from '@/lib/i18n/pagesContent';
@@ -51,7 +51,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
     },
     areaServed: { '@type': 'State', name: 'Florida' },
     description: isSpanish
-      ? 'Inspecciones de techo profesionales, reparaciones, reemplazos, evaluaciÃ³n de daÃ±os por tormentas y preparaciÃ³n de techos para paneles solares.'
+      ? 'Inspecciones de techo profesionales, reparaciones, reemplazos, evaluación de daños por tormentas y preparación de techos para paneles solares.'
       : 'Professional roof inspections, repair, replacement, storm damage assessment, and solar roof readiness evaluation for Florida homeowners.',
     url: isSpanish ? 'https://newerasolarenergy.com/es/roofing' : 'https://newerasolarenergy.com/roofing',
   };
@@ -113,27 +113,20 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 pb-20 flex flex-col gap-16">
-        {/* â”€â”€ Hero Section â”€â”€ */}
+        {/* ── Hero Section ── */}
         <section className="relative rounded-2xl overflow-hidden bg-[#14324b] px-8 md:px-14 py-16 md:py-24 mt-4">
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-[#14324b]/85 to-[#14324b]/60 z-10 pointer-events-none" />
             <video
               ref={videoRef}
-              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover motion-reduce:hidden"
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
               autoPlay
               muted
               loop
               playsInline
-              poster={posterUrl}
-            >
+                          >
               <source src="/videos/roofing-hero.mp4" type="video/mp4" />
             </video>
-            <img
-              src={posterUrl}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover hidden motion-reduce:block"
-              aria-hidden="true"
-            />
           </div>
           <div className="relative z-10 max-w-3xl">
             <span className="inline-block bg-[#ff5722]/20 border border-[#ff5722]/40 text-[#ff5722] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
@@ -156,7 +149,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ Pain Points Section â”€â”€ */}
+        {/* ── Pain Points Section ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -188,7 +181,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ Needs Analysis Section â”€â”€ */}
+        {/* ── Needs Analysis Section ── */}
         <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -219,7 +212,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ Roofing Services Section â”€â”€ */}
+        {/* ── Roofing Services Section ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -256,7 +249,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ Process Section â”€â”€ */}
+        {/* ── Process Section ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -296,7 +289,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ Why It Matters Section â”€â”€ */}
+        {/* ── Why It Matters Section ── */}
         <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
@@ -338,7 +331,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ FAQ Section â”€â”€ */}
+        {/* ── FAQ Section ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -367,7 +360,7 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
-        {/* â”€â”€ Final CTA Section â”€â”€ */}
+        {/* ── Final CTA Section ── */}
         <section className="bg-[#14324b] rounded-2xl px-8 md:px-16 py-14 text-center">
           <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-4">
             {t.ctaBoxTag}

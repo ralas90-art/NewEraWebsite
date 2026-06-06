@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from 'react';
 import Link from 'next/link';
 import { waterPageTranslations } from '@/lib/i18n/pagesContent';
@@ -28,7 +28,7 @@ interface WaterPageContentProps {
   locale: Locale;
 }
 
-/* â”€â”€â”€ icon maps â”€â”€â”€ */
+/* ─── icon maps ─── */
 const painPointIcons = [
   <GlassWater key="pp0" className="w-7 h-7 text-[#087EA4]" />,
   <Gauge key="pp1" className="w-7 h-7 text-[#087EA4]" />,
@@ -219,27 +219,20 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 pb-20 flex flex-col gap-16">
-        {/* â”€â”€ 1. HERO with Video â”€â”€ */}
+        {/* ── 1. HERO with Video ── */}
         <section className="relative rounded-2xl overflow-hidden bg-[#14324b] px-8 md:px-14 py-16 md:py-24 mt-4">
           <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-[#14324b]/85 to-[#14324b]/60 z-10 pointer-events-none" />
             <video
               ref={videoRef}
-              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover motion-reduce:hidden"
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
               autoPlay
               muted
               loop
               playsInline
-              poster={posterUrl}
-            >
+                          >
               <source src="/videos/water-hero.mp4" type="video/mp4" />
             </video>
-            <img
-              src={posterUrl}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover hidden motion-reduce:block"
-              aria-hidden="true"
-            />
           </div>
           <div className="relative z-10 max-w-3xl">
             <span className="inline-block bg-[#087EA4]/20 border border-[#087EA4]/40 text-[#087EA4] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-6">
@@ -263,7 +256,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 2. PAIN POINTS â”€â”€ */}
+        {/* ── 2. PAIN POINTS ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -292,7 +285,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 3. NEEDS ANALYSIS â”€â”€ */}
+        {/* ── 3. NEEDS ANALYSIS ── */}
         <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -323,7 +316,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 4. SOLUTIONS â”€â”€ */}
+        {/* ── 4. SOLUTIONS ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -365,7 +358,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 5. PROCESS â€” 8 Steps â”€â”€ */}
+        {/* ── 5. PROCESS — 8 Steps ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -397,7 +390,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 6. BENEFITS â”€â”€ */}
+        {/* ── 6. BENEFITS ── */}
         <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-12 shadow-sm">
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -420,7 +413,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 7. FAQs â”€â”€ */}
+        {/* ── 7. FAQs ── */}
         <section>
           <div className="text-center mb-10">
             <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-2">
@@ -449,7 +442,7 @@ export default function WaterPageContent({ locale }: WaterPageContentProps) {
           </div>
         </section>
 
-        {/* â”€â”€ 8. FINAL CTA â”€â”€ */}
+        {/* ── 8. FINAL CTA ── */}
         <section className="bg-[#14324b] rounded-2xl px-8 md:px-16 py-14 text-center">
           <span className="text-[11px] font-bold uppercase text-[#087EA4] tracking-widest block mb-4">
             {t.ctaBoxTag}

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from 'react';
 import Link from 'next/link';
 import { solarPageTranslations } from '@/lib/i18n/pagesContent';
@@ -112,21 +112,14 @@ export default function SolarPageContent({ locale }: SolarPageContentProps) {
             <div className="absolute inset-0 bg-gradient-to-r from-[#14324b]/85 to-[#14324b]/60 z-10 pointer-events-none" />
             <video
               ref={videoRef}
-              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover motion-reduce:hidden"
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
               autoPlay
               muted
               loop
               playsInline
-              poster={posterUrl}
-            >
+                          >
               <source src="/videos/solar-hero.mp4" type="video/mp4" />
             </video>
-            <img
-              src={posterUrl}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover hidden motion-reduce:block"
-              aria-hidden="true"
-            />
           </div>
 
           <div className="relative z-20 max-w-2xl flex flex-col gap-6">
