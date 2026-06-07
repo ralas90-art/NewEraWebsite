@@ -131,6 +131,8 @@ export const solarPageTranslations = {
     ctaBoxTitle: 'Ready to Start?',
     ctaBoxDesc: 'A free, no-pressure solar assessment is the best way to understand what solar can actually do for your home. Schedule yours today.',
     ctaBoxBtn: 'Get a Free Solar Assessment',
+    promiseTitle: 'Our Solar Promise',
+    promiseDesc: 'Built on integrity, clear communication, and quality workmanship, our solar process is designed to help you make an informed decision with confidence — not pressure.',
   },
   es: {
     heroTag: 'Solar Residencial — Florida',
@@ -232,7 +234,9 @@ export const solarPageTranslations = {
     ctaBoxTag: 'Dé el Primer Paso',
     ctaBoxTitle: '¿Listo para empezar?',
     ctaBoxDesc: 'Una evaluación solar gratuita y sin presión es la mejor manera de entender lo que la energía solar puede hacer por su hogar. Solicítela hoy.',
-    ctaBoxBtn: 'Solicitar Evaluación Gratis'
+    ctaBoxBtn: 'Solicitar Evaluación Gratis',
+    promiseTitle: 'Nuestro Compromiso Solar',
+    promiseDesc: 'Construido sobre la integridad, la comunicación clara y la mano de obra de calidad, nuestro proceso solar está diseñado para ayudarle a tomar una decisión informada con confianza, no con presión.'
   }
 };
 
@@ -389,6 +393,8 @@ export const roofingPageTranslations = {
     ctaBoxTitle: 'Know What Shape Your Roof Is In',
     ctaBoxDesc: 'Our free assessment gives you a complete picture of your roof\'s condition, estimated remaining lifespan, and solar readiness — with zero obligation.',
     ctaBoxBtn: 'Get a Free Roof Assessment',
+    promiseTitle: 'Our Roofing Promise',
+    promiseDesc: 'Your roof protects everything underneath it. Our team approaches every inspection, repair, and replacement with safety, transparency, and quality without compromise.',
   },
   es: {
     heroTag: 'Servicios de Techos — Florida',
@@ -542,6 +548,8 @@ export const roofingPageTranslations = {
     ctaBoxTitle: 'Conozca las Condiciones de su Techo',
     ctaBoxDesc: 'Nuestra evaluación gratuita le ofrece un panorama completo de las condiciones de su techo, su expectativa de vida útil y su preparación para la instalación de paneles solares, sin obligaciones.',
     ctaBoxBtn: 'Solicitar Evaluación de Techo Gratis',
+    promiseTitle: 'Nuestro Compromiso de Techado',
+    promiseDesc: 'Su techo protege todo lo que está debajo de él. Nuestro equipo aborda cada inspección, reparación y reemplazo con seguridad, transparencia y calidad sin concesiones.',
   }
 };
 
@@ -655,6 +663,8 @@ export const waterPageTranslations = {
     ctaBoxTitle: 'Know What Is in Your Water',
     ctaBoxDesc: 'Every water quality consultation starts with a test \u2014 not a sales pitch. We identify what is present, then recommend exactly what you need.',
     ctaBoxBtn: 'Get a Free Water Quality Consultation',
+    promiseTitle: 'Our Water Quality Promise',
+    promiseDesc: 'We start with testing, explain the results clearly, and recommend solutions based on your home\'s actual water needs — not guesswork.',
   },
   es: {
     heroTag: 'Purificaci\u00f3n de Agua \u2014 Florida',
@@ -764,6 +774,8 @@ export const waterPageTranslations = {
     ctaBoxTitle: 'Sepa Qu\u00e9 Contiene Su Agua',
     ctaBoxDesc: 'Toda consulta de calidad de agua comienza con una prueba real, no con un discurso de ventas. Identificamos lo que hay en ella y sugerimos la soluci\u00f3n exacta.',
     ctaBoxBtn: 'Solicitar Consulta de Calidad de Agua Gratis',
+    promiseTitle: 'Nuestro Compromiso de Calidad de Agua',
+    promiseDesc: 'Comenzamos con pruebas, explicamos los resultados claramente y recomendamos soluciones basadas en las necesidades reales de agua de su hogar, sin adivinanzas.',
   }
 };
 
@@ -953,6 +965,7 @@ export const referralPageTranslations = {
       }
     ],
     noticeTitle: 'Referral Reward Notice:',
+    referralTrust: 'When you refer someone to New Era, you are sharing a company built on integrity, family-owned values, and customer commitment. We treat every referral with the same care and respect we would give our own family.',
     noticeDesc: 'The $1,000 referral reward is paid within 30 days after the referred homeowner\'s solar system is fully installed and utility-activated. Reward subject to program terms. No limit on total referrals. Referral reward is not a tax-deductible charitable contribution. Consult a tax professional regarding potential income tax implications of referral payments received.',
     faqTitle: 'Frequently Asked Questions',
   },
@@ -985,6 +998,7 @@ export const referralPageTranslations = {
       }
     ],
     noticeTitle: 'Aviso sobre Recompensas de Referidos:',
+    referralTrust: 'Cuando refiere a alguien a New Era, está recomendando una empresa construida sobre la integridad, los valores familiares y el compromiso con el cliente. Tratamos cada recomendación con el mismo cuidado y respeto que le daríamos a nuestra propia familia.',
     noticeDesc: 'La recompensa de $1,000 se paga dentro de los 30 días posteriores a la instalación final y activación del sistema del propietario referido. La recompensa está sujeta a los términos del programa. No hay límite de referidos. La recompensa no representa una contribución de caridad deducible de impuestos. Consulte con su profesional de impuestos sobre las implicaciones de ingresos por referidos.',
     faqTitle: 'Preguntas Frecuentes',
   }
@@ -1038,6 +1052,16 @@ export const dealerPageTranslations = {
       }
     ],
     faqTitle: 'Frequently Asked Questions',
+    dealerTrustTitle: 'Partner With a Company Built for Long-Term Trust',
+    dealerTrustDesc: 'We build partnerships that last by maintaining clear standards, transparent billing, and operational excellence.',
+    dealerTrustBenefits: [
+      { title: 'Uncompromising Integrity', desc: 'We treat your deals and your customers with absolute honesty.' },
+      { title: 'Veteran-Led Operations', desc: 'Discipline, clear milestones, and timely project updates.' },
+      { title: 'Family Values', desc: 'You are not just a number. We collaborate to help you scale.' },
+      { title: 'Reliable Support', desc: 'A dedicated operations representative for your pipeline.' },
+      { title: 'Transparent Accounting', desc: 'Clear commission structures and prompt payouts.' },
+      { title: 'Quality Workmanship', desc: 'Our installation teams protect your reputation with clean installs.' }
+    ],
   },
   es: {
     heroTag: 'Programa de Socios',
@@ -1086,6 +1110,16 @@ export const dealerPageTranslations = {
       }
     ],
     faqTitle: 'Preguntas Frecuentes',
+    dealerTrustTitle: 'Asóciese con una Empresa Construida para la Confianza a Largo Plazo',
+    dealerTrustDesc: 'Construimos asociaciones duraderas mediante el mantenimiento de estándares claros, facturación transparente y excelencia operativa.',
+    dealerTrustBenefits: [
+      { title: 'Integridad sin Concesiones', desc: 'Tratamos sus contratos y a sus clientes con absoluta honestidad.' },
+      { title: 'Operaciones Lideradas por Veteranos', desc: 'Disciplina, hitos claros y actualizaciones oportunas del proyecto.' },
+      { title: 'Valores Familiares', desc: 'Usted no es solo un número. Colaboramos para ayudarle a crecer.' },
+      { title: 'Soporte Confiable', desc: 'Un representante de operaciones dedicado a sus proyectos.' },
+      { title: 'Contabilidad Transparente', desc: 'Claras estructuras de comisiones y pagos puntuales.' },
+      { title: 'Mano de Obra de Calidad', desc: 'Nuestros equipos de instalación protegen su reputación con instalaciones limpias.' }
+    ],
   }
 };
 
@@ -1099,6 +1133,17 @@ export const careersPageTranslations = {
     formHeading: 'Apply Now',
     noteTitle: 'Note:',
     noteDesc: 'We review applications weekly. No resume upload required in this phase — use the experience summary field to tell us about your background and what you bring to the team.',
+    cultureTag: 'Our Culture',
+    cultureTitle: 'Join a Team Built on Integrity, Discipline, and Family Values',
+    cultureDesc: 'We are building a culture of growth, accountability, and excellence. Here is what we expect from every team member and what you can expect from us.',
+    cultureValues: [
+      { title: 'Integrity First', desc: 'Honesty in every interaction with customers and team members.' },
+      { title: 'Discipline & Dedication', desc: 'Arrive prepared, perform at your best, and take ownership.' },
+      { title: 'Family Atmosphere', desc: 'We support one another and foster mutual respect.' },
+      { title: 'Professional Growth', desc: 'Ongoing training and paths to leadership roles.' },
+      { title: 'Community Focus', desc: 'Doing work that improves our local neighborhoods.' },
+      { title: 'Excellence in Execution', desc: 'Attention to detail in sales, operations, and installations.' }
+    ],
   },
   es: {
     heroTag: 'Únase al Equipo',
@@ -1109,6 +1154,17 @@ export const careersPageTranslations = {
     formHeading: 'Postularse Ahora',
     noteTitle: 'Nota:',
     noteDesc: 'Revisamos las solicitudes semanalmente. No se requiere adjuntar currículum en esta etapa: use el campo de resumen de experiencia para detallar su trayectoria laboral y aportes.',
+    cultureTag: 'Nuestra Cultura',
+    cultureTitle: 'Únase a un Equipo Construido sobre Integridad, Disciplina y Valores Familiares',
+    cultureDesc: 'Estamos construyendo una cultura de crecimiento, responsabilidad y excelencia. Esto es lo que esperamos de cada miembro del equipo y lo que usted puede esperar de nosotros.',
+    cultureValues: [
+      { title: 'La Integridad Primero', desc: 'Honestidad en cada interacción con los clientes y miembros del equipo.' },
+      { title: 'Disciplina y Dedicación', desc: 'Llegar preparado, dar lo mejor de sí y asumir la responsabilidad de su trabajo.' },
+      { title: 'Ambiente Familiar', desc: 'Nos apoyamos mutuamente y fomentamos el respeto mutuo.' },
+      { title: 'Crecimiento Profesional', desc: 'Capacitación continua y oportunidades para ascender a roles de liderazgo.' },
+      { title: 'Enfoque Comunitario', desc: 'Realizar un trabajo que mejore directamente nuestros vecindarios locales.' },
+      { title: 'Excelencia en la Ejecución', desc: 'Atención al detalle en ventas, operaciones e instalaciones.' }
+    ],
   }
 };
 
@@ -1624,5 +1680,72 @@ export const reviewsPageTranslations = {
     startTitle: '¿Listo para comenzar su propio camino solar?',
     startDesc: 'Únase a propietarios en Florida, Massachusetts y Connecticut que están tomando el control de sus costos de electricidad con energía solar residencial.',
     btnStart: 'Solicitar Evaluación Gratis',
+  }
+};
+
+export const aboutPageTranslations = {
+  en: {
+    breadcrumbs: ['Home', 'About Us'],
+    heroTag: 'Who We Are',
+    heroTitle: 'Powered by Integrity. Driven by Excellence.',
+    heroTitleHighlight: 'Built on Family Values.',
+    heroDesc: 'New Era Solar Energy helps homeowners and partners move into a cleaner energy future with honest guidance, quality workmanship, and a customer-first approach.',
+    btnAssessment: 'Schedule Free Assessment',
+    btnContact: 'Contact Our Team',
+    missionTitle: 'Our Mission',
+    missionDesc: 'To provide high-quality renewable energy solutions with integrity, professionalism, and exceptional customer service while creating long-term value for our customers, employees, and communities.',
+    visionTitle: 'Our Vision',
+    visionDesc: 'To become the most trusted solar and energy solutions provider by delivering outstanding customer experiences, superior workmanship, and sustainable energy independence for future generations.',
+    valuesTag: 'Core Values',
+    valuesTitle: 'The Standards We Live By',
+    valuesDesc: 'These eleven core values guide every decision we make, every system we install, and every interaction we have.',
+    values: [
+      { id: 'integrity', title: 'Integrity First', desc: 'We conduct business with honesty, transparency, and accountability.' },
+      { id: 'customer', title: 'Customer Commitment', desc: 'Our customers are our priority. We strive to exceed expectations.' },
+      { id: 'quality', title: 'Quality Without Compromise', desc: 'We use premium materials and maintain the highest standards.' },
+      { id: 'safety', title: 'Safety Above All', desc: 'We prioritize the safety of our team, customers, and properties.' },
+      { id: 'improvement', title: 'Continuous Improvement', desc: 'We constantly refine our processes and stay at the forefront of technology.' },
+      { id: 'teamwork', title: 'Teamwork & Respect', desc: 'We foster a culture of collaboration, mutual respect, and shared success.' },
+      { id: 'development', title: 'Professional Development', desc: 'We invest in the growth and training of our team members.' },
+      { id: 'community', title: 'Community Enrichment', desc: 'We give back and support the local communities we serve.' },
+      { id: 'family', title: 'Family Values', desc: 'As a family-owned business, we treat everyone like family.' },
+      { id: 'veteran', title: 'Veteran Leadership', desc: 'We operate with the discipline, dedication, and honor of veteran leadership.' },
+      { id: 'sustainability', title: 'Sustainability & Future-Focus', desc: 'We design systems built to last and protect the environment.' }
+    ],
+    foundationTitle: 'Our Foundation: Family-Owned & Veteran-Led',
+    foundationDesc1: 'At New Era Solar Energy, we bring the discipline and integrity of military service combined with the long-term care of a family-owned business to every project we undertake.',
+    foundationDesc2: 'We do not think in terms of quarterly earnings — we think in terms of decades and generations. That means we stand behind our workmanship, guide you honestly, and treat your home with the absolute respect it deserves.'
+  },
+  es: {
+    breadcrumbs: ['Inicio', 'Quiénes Somos'],
+    heroTag: 'Quiénes Somos',
+    heroTitle: 'Impulsados por la integridad. Guiados por la excelencia.',
+    heroTitleHighlight: 'Construidos sobre valores familiares.',
+    heroDesc: 'New Era Solar Energy ayuda a propietarios y socios a avanzar hacia un futuro de energía más limpia con asesoría honesta, mano de obra de calidad y un enfoque centrado en el cliente.',
+    btnAssessment: 'Programar Evaluación Gratis',
+    btnContact: 'Contactar al Equipo',
+    missionTitle: 'Nuestra Misión',
+    missionDesc: 'Proporcionar soluciones de energía renovable de alta calidad con integridad, profesionalismo y un servicio al cliente excepcional, creando al mismo tiempo valor a largo plazo para nuestros clientes, empleados y comunidades.',
+    visionTitle: 'Nuestra Visión',
+    visionDesc: 'Convertirnos en el proveedor de soluciones solares y de energía más confiable, ofreciendo experiencias excepcionales al cliente, mano de obra superior e independencia energética sostenible para las futuras generaciones.',
+    valuesTag: 'Valores Centrales',
+    valuesTitle: 'Los Estándares que Nos Guían',
+    valuesDesc: 'Estos once valores fundamentales guían cada decisión que tomamos, cada sistema que instalamos y cada interacción que realizamos.',
+    values: [
+      { id: 'integrity', title: 'Integridad Primero', desc: 'Hacemos negocios con honestidad, transparencia y responsabilidad.' },
+      { id: 'customer', title: 'Compromiso con el Cliente', desc: 'Nuestros clientes son nuestra prioridad. Nos esforzamos por superar las expectativas.' },
+      { id: 'quality', title: 'Calidad sin Concesiones', desc: 'Utilizamos materiales premium y mantenemos los más altos estándares.' },
+      { id: 'safety', title: 'La Seguridad Ante Todo', desc: 'Priorizamos la seguridad de nuestro equipo, clientes y propiedades.' },
+      { id: 'improvement', title: 'Mejora Continua', desc: 'Refinamos constantemente nuestros procesos y nos mantenemos a la vanguardia de la tecnología.' },
+      { id: 'teamwork', title: 'Trabajo en Equipo y Respeto', desc: 'Fomentamos una cultura de colaboración, respeto mutuo y éxito compartido.' },
+      { id: 'development', title: 'Desarrollo Profesional', desc: 'Invertimos en el crecimiento y la capacitación de los miembros de nuestro equipo.' },
+      { id: 'community', title: 'Enriquecimiento Comunitario', desc: 'Apoyamos y contribuimos al desarrollo de las comunidades locales a las que servimos.' },
+      { id: 'family', title: 'Valores Familiares', desc: 'Como empresa familiar, tratamos a todos como parte de nuestra familia.' },
+      { id: 'veteran', title: 'Liderazgo Veterano', desc: 'Operamos con la disciplina, dedicación y honor de un liderazgo veterano.' },
+      { id: 'sustainability', title: 'Sostenibilidad y Enfoque de Futuro', desc: 'Diseñamos sistemas construidos para durar y proteger el medio ambiente.' }
+    ],
+    foundationTitle: 'Nuestra Fundación: Familiar y Liderada por Veteranos',
+    foundationDesc1: 'En New Era Solar Energy, aportamos la disciplina e integridad del servicio militar combinadas con la atención a largo plazo de una empresa familiar a cada proyecto que emprendemos.',
+    foundationDesc2: 'No pensamos en términos de ganancias trimestrales, pensamos en términos de décadas y generaciones. Eso significa que respaldamos nuestro trabajo, lo guiamos honestamente y tratamos su hogar con el respeto absoluto que se merece.'
   }
 };

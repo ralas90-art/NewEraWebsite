@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { dealerPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
 import { DealerApplicationForm } from '@/components/forms/DealerApplicationForm';
+import { Shield, Flag, Home, Users, DollarSign, Award } from 'lucide-react';
 
 interface DealerPageContentProps {
   locale: Locale;
@@ -148,7 +149,49 @@ export default function DealerPageContent({ locale }: DealerPageContentProps) {
         </div>
       </section>
 
-      {/* Application Form */}
+            {/* Partner Trust Section */}
+      <section className="bg-white border-t border-b border-[#E2E8F0] py-16 px-6 mb-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest mb-2 block font-poppins">
+              {isSpanish ? 'Confianza Mutua' : 'Mutual Trust'}
+            </span>
+            <h2 className="font-poppins font-bold text-3xl text-[#14324b] tracking-tight">
+              {t.dealerTrustTitle}
+            </h2>
+            <p className="text-[#4e5257] text-sm md:text-base mt-3 font-sans leading-relaxed">
+              {t.dealerTrustDesc}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {t.dealerTrustBenefits && t.dealerTrustBenefits.map((val, idx) => {
+              const icons = [Shield, Flag, Home, Users, DollarSign, Award];
+              const Icon = icons[idx] || Shield;
+              return (
+                <div 
+                  key={idx} 
+                  className="bg-[#F9FAFB] p-6 rounded-2xl border border-[#E2E8F0] shadow-sm hover:shadow-md hover:border-[#ff5722]/30 transition-all flex flex-col gap-4"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#ff5722]/10 flex items-center justify-center text-[#ff5722] shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-poppins font-bold text-base text-[#14324b] mb-1.5">
+                      {val.title}
+                    </h3>
+                    <p className="text-[#4e5257] text-xs leading-relaxed font-sans">
+                      {val.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+{/* Application Form */}
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <DealerApplicationForm />
       </section>

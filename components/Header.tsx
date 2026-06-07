@@ -60,6 +60,7 @@ export function Header({ onSelectService }: HeaderProps) {
 
   const mobileLinks = [
     { label: isSpanish ? 'Inicio' : 'Home', href: isSpanish ? '/es' : '/' },
+    { label: t.about, href: isSpanish ? '/es/about' : '/about' },
     { label: t.solar, href: isSpanish ? '/es/solar' : '/solar', service: 'Solar' },
     { label: t.roofing, href: isSpanish ? '/es/roofing' : '/roofing', service: 'Roofing' },
     { label: t.water, href: isSpanish ? '/es/water-purification' : '/water-purification', service: 'Water Purification' },

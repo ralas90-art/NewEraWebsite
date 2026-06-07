@@ -42,6 +42,9 @@ export function Footer() {
             <p className="text-sm text-white/70 font-sans leading-relaxed mb-4 max-w-xs">
               {t.desc}
             </p>
+            <p className="text-xs italic text-[#ff5722] font-semibold leading-relaxed mb-4 max-w-xs">
+              &ldquo;{t.motto}&rdquo;
+            </p>
             <div className="flex flex-col gap-2.5 mb-4 text-xs font-sans text-white/70">
               <a href="tel:+13213813192" className="flex items-center gap-2 hover:text-[#ff5722] transition-colors w-fit">
                 <Phone className="w-3.5 h-3.5 text-[#ff5722]" />
@@ -84,6 +87,7 @@ export function Footer() {
             <h4 className="font-poppins font-bold text-xs uppercase tracking-widest text-[#ff5722]/80 mb-4">{t.companyTitle}</h4>
             <ul className="space-y-2.5">
               {[
+                [isSpanish ? 'Qui\u00e9nes Somos' : 'About', '/about'],
                 [isSpanish ? 'Rese\u00f1as' : 'Reviews', '/reviews'],
                 [isSpanish ? '\u00c1reas de Servicio' : 'Service Areas', '/service-areas'],
                 [isSpanish ? 'Programa de Referidos' : 'Referral Program', '/referral'],

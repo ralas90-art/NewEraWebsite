@@ -12,6 +12,7 @@ export const headerTranslations = {
     dealer: 'Become a Dealer',
     careers: 'Careers',
     freeAssessment: 'Free Assessment',
+    about: 'About',
     callUs: 'Call Us',
     langToggleLabel: 'ES',
     langToggleTitle: 'Ver en Español'
@@ -29,6 +30,7 @@ export const headerTranslations = {
     dealer: 'Hazte Distribuidor',
     careers: 'Empleo',
     freeAssessment: 'Evaluación Gratis',
+    about: 'Quiénes Somos',
     callUs: 'Llámanos',
     langToggleLabel: 'EN',
     langToggleTitle: 'View in English'
@@ -38,6 +40,7 @@ export const headerTranslations = {
 export const footerTranslations = {
   en: {
     desc: 'Premium residential solar, roofing, and water purification services across Florida, Massachusetts, and Connecticut.',
+    motto: 'Powered by Integrity. Driven by Excellence. Built on Family Values.',
     servicesTitle: 'Services',
     companyTitle: 'Company',
     areasTitle: 'Service Areas',
@@ -53,6 +56,7 @@ export const footerTranslations = {
   },
   es: {
     desc: 'Servicios premium de energía solar residencial, techado y purificación de agua en Florida, Massachusetts y Connecticut.',
+    motto: 'Impulsados por la integridad. Guiados por la excelencia. Construidos sobre valores familiares.',
     servicesTitle: 'Servicios',
     companyTitle: 'Compañía',
     areasTitle: 'Áreas de Servicio',

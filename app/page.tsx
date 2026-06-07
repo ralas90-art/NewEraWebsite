@@ -10,6 +10,7 @@ import { Reviews } from '../components/Reviews';
 import { FAQ } from '../components/FAQ';
 import { ProcessTimeline } from '../components/ProcessTimeline';
 import { TrustIndicators } from '../components/TrustIndicators';
+import { WhyNewEra } from '../components/WhyNewEra';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { HomeUpgradeAdvisor } from '../components/HomeUpgradeAdvisor';
 import { ReferralProgram } from '../components/ReferralProgram';
@@ -189,6 +190,9 @@ export default function Home() {
 
           {/* Trust Indicators Section */}
           <TrustIndicators />
+
+          {/* Why New Era (Core Values) Section */}
+          <WhyNewEra locale={isSpanish ? 'es' : 'en'} />
 
           {/* Home Upgrade Advisor Section */}
           <div id="upgrade-advisor" className="scroll-mt-20">

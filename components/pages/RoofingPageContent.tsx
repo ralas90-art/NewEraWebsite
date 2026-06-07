@@ -360,6 +360,21 @@ export default function RoofingPageContent({ locale }: RoofingPageContentProps) 
           </div>
         </section>
 
+        {/* Our Promise Section */}
+        <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 md:p-10 shadow-sm flex flex-col md:flex-row items-center gap-6 md:gap-8 my-10">
+          <div className="w-16 h-16 rounded-2xl bg-[#ff5722]/10 flex items-center justify-center text-[#ff5722] shrink-0">
+            <ShieldCheck className="w-8 h-8" />
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="font-poppins font-bold text-lg text-[#14324b] mb-2">
+              {t.promiseTitle}
+            </h3>
+            <p className="text-[#4e5257] font-sans text-sm md:text-base leading-relaxed">
+              {t.promiseDesc}
+            </p>
+          </div>
+        </section>
+
         {/* ── Final CTA Section ── */}
         <section className="bg-[#14324b] rounded-2xl px-8 md:px-16 py-14 text-center">
           <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest block mb-4">

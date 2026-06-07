@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { careersPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
 import { CareerApplicationForm } from '@/components/forms/CareerApplicationForm';
-import { MapPin, Globe, Briefcase } from 'lucide-react';
+import { MapPin, Globe, Briefcase, Shield, Flag, Home, TrendingUp, Award, Zap } from 'lucide-react';
 
 interface CareersPageContentProps {
   locale: Locale;
@@ -176,7 +176,49 @@ export default function CareersPageContent({ locale }: CareersPageContentProps) 
         </p>
       </section>
 
-      {/* Open Positions */}
+      {/* Culture Section */}
+      <section className="bg-white border-t border-b border-[#E2E8F0] py-16 px-6 mb-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-[11px] font-bold uppercase text-[#ff5722] tracking-widest mb-2 block font-poppins">
+              {t.cultureTag}
+            </span>
+            <h2 className="font-poppins font-bold text-3xl text-[#14324b] tracking-tight">
+              {t.cultureTitle}
+            </h2>
+            <p className="text-[#4e5257] text-sm md:text-base mt-3 font-sans leading-relaxed">
+              {t.cultureDesc}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {t.cultureValues && t.cultureValues.map((val, idx) => {
+              const icons = [Shield, Flag, Home, TrendingUp, Globe, Award];
+              const Icon = icons[idx] || Shield;
+              return (
+                <div 
+                  key={idx} 
+                  className="bg-[#F9FAFB] p-6 rounded-2xl border border-[#E2E8F0] shadow-sm hover:shadow-md hover:border-[#ff5722]/30 transition-all flex flex-col gap-4"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#ff5722]/10 flex items-center justify-center text-[#ff5722] shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-poppins font-bold text-base text-[#14324b] mb-1.5">
+                      {val.title}
+                    </h3>
+                    <p className="text-[#4e5257] text-xs leading-relaxed font-sans">
+                      {val.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Open Positions %}
       <section className="max-w-6xl mx-auto px-6 pb-16">
         <h2 className="font-poppins font-bold text-3xl text-[#14324b] mb-10">
           {t.positionsTitle}

@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/dealer',
     '/careers',
+    '/about',
     '/es',
     '/es/solar',
     '/es/roofing',
@@ -36,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/es/contact',
     '/es/dealer',
     '/es/careers',
+    '/es/about',
   ];
 
   return routes.map((route) => ({

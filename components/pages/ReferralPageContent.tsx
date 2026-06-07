@@ -144,7 +144,16 @@ export default function ReferralPageContent({ locale }: ReferralPageContentProps
         </div>
       </section>
 
-      {/* Referral Form */}
+            {/* Trust Statement Section */}
+      <section className="max-w-3xl mx-auto px-6 pb-12 text-center">
+        <div className="bg-[#ff5722]/5 border border-[#ff5722]/15 rounded-2xl p-6 md:p-8">
+          <p className="text-[#14324b] font-sans text-sm md:text-base leading-relaxed italic font-medium">
+            &ldquo;{t.referralTrust}&rdquo;
+          </p>
+        </div>
+      </section>
+
+{/* Referral Form */}
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <ReferralForm />
       </section>
