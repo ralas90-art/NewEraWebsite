@@ -153,7 +153,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating trust card - top left */}
-                <div className="absolute -left-6 top-8 bg-white rounded-2xl shadow-xl px-4 py-3.5 flex items-center gap-3 border border-[#E2E8F0]">
+                <div className="absolute -right-6 top-8 bg-white rounded-2xl shadow-xl px-4 py-3.5 flex items-center gap-3 border border-[#E2E8F0]">
                   <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
                     <ShieldCheck className="w-[18px] h-[18px] text-green-600" />
                   </div>
@@ -164,7 +164,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating savings card - bottom right */}
-                <div className="absolute -right-4 bottom-12 bg-white rounded-2xl shadow-xl px-4 py-3.5 border border-[#E2E8F0]">
+                <div className="absolute -left-4 bottom-12 bg-white rounded-2xl shadow-xl px-4 py-3.5 border border-[#E2E8F0]">
                   <p className="text-[11px] text-[#6B7280] font-medium uppercase tracking-wide mb-1">{isSpanish ? 'Ahorro Promedio Mensual' : 'Avg. Monthly Savings'}</p>
                   <div className="flex items-end gap-1">
                     <span className="text-[28px] font-bold text-[#14324b] leading-none">$180</span>
