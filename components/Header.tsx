@@ -91,17 +91,6 @@ export function Header({ onSelectService }: HeaderProps) {
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#4e5257]">
           {desktopLinks.map((link) => {
             const isActive = pathname === link.href;
-            if (link.service && isHomePage) {
-              return (
-                <button
-                  key={link.href}
-                  onClick={() => handleServiceClick(link.service!)}
-                  className={`pb-1 transition-colors font-sans ${isActive ? 'text-[#ff5722] border-b-2 border-[#ff5722]' : 'hover:text-[#ff5722] cursor-pointer'}`}
-                >
-                  {link.label}
-                </button>
-              );
-            }
             return (
               <Link
                 key={link.href}

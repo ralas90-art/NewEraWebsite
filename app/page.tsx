@@ -142,7 +142,7 @@ export default function Home() {
               <div className="relative hidden lg:block">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 aspect-[4/3]">
                   <Image
-                    src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop"
+                    src="/hero-home.jpeg"
                     alt="Solar panels on a bright Florida home"
                     fill
                     className="object-cover"
