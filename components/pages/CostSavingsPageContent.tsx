@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { costSavingsPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
@@ -26,7 +26,7 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
         {
           question: '¿Aún existen créditos fiscales para la energía solar en 2026?',
           answer:
-            'Los propietarios elegibles pueden calificar para el crédito fiscal federal para energía solar. El crédito actualmente cubre hasta el 30% de los costos elegibles del sistema, pero los beneficios fiscales dependen de su situación individual. Consulte con un profesional de impuestos. Consulte el aviso de crédito fiscal en esta página.',
+            'Los incentivos solares federales han cambiado. El Crédito de Energía Limpia Residencial se aplicó a los sistemas elegibles puestos en servicio hasta el 31 de diciembre de 2025. Para los propietarios actuales, los incentivos disponibles pueden depender del tipo de proyecto, la estructura de propiedad, el programa de la empresa de servicios públicos, los incentivos estatales o locales y la situación fiscal. Nuestro equipo puede ayudarle a revisar las opciones actuales, pero los clientes deben confirmar su elegibilidad con un profesional de impuestos calificado. Consulte el aviso de crédito fiscal en esta página.',
         },
         {
           question: '¿Cuánto tiempo pasa antes de que la energía solar se pague sola?',
@@ -53,7 +53,7 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
         {
           question: 'Are there still tax credits for solar in 2026?',
           answer:
-            'Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional. See our tax credit notice on this page.',
+            'Federal solar incentives have changed. The Residential Clean Energy Credit applied to qualifying systems placed in service through December 31, 2025. For current homeowners, available incentives may depend on the project type, ownership structure, utility program, state/local incentives, and tax situation. Our team can help you review current options, but customers should confirm eligibility with a qualified tax professional. See our tax credit notice on this page.',
         },
         {
           question: 'How long until solar pays for itself?',
@@ -179,7 +179,7 @@ export default function CostSavingsPageContent({ locale }: CostSavingsPageConten
 
         {/* IRS Tax Credit Disclaimer */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 font-sans leading-relaxed">
-          <strong>{isSpanish ? 'Aviso sobre el Crédito Fiscal Federal para Energía Solar:' : 'Federal Solar Tax Credit Notice:'}</strong> {isSpanish ? 'Los propietarios que califiquen podrían ser elegibles para el crédito fiscal federal. El crédito cubre actualmente hasta el 30% de los costos elegibles del sistema, pero los beneficios fiscales dependen de su situación tributaria individual. Por favor, consulte con un profesional de impuestos.' : 'Eligible homeowners may qualify for the federal solar tax credit. The credit is currently up to 30% of eligible system costs, but tax benefits depend on your individual situation. Please consult a tax professional.'}
+          <strong>{isSpanish ? 'Aviso sobre el Crédito Fiscal Federal para Energía Solar:' : 'Federal Solar Tax Credit Notice:'}</strong> {isSpanish ? 'Los incentivos solares federales han cambiado. El Crédito de Energía Limpia Residencial se aplicó a los sistemas elegibles puestos en servicio hasta el 31 de diciembre de 2025. Para los propietarios actuales, los incentivos disponibles pueden depender del tipo de proyecto, la estructura de propiedad, el programa de la empresa de servicios públicos, los incentivos estatales o locales y la situación fiscal. Nuestro equipo puede ayudarle a revisar las opciones actuales, pero los clientes deben confirmar su elegibilidad con un profesional de impuestos calificado.' : 'Federal solar incentives have changed. The Residential Clean Energy Credit applied to qualifying systems placed in service through December 31, 2025. For current homeowners, available incentives may depend on the project type, ownership structure, utility program, state/local incentives, and tax situation. Our team can help you review current options, but customers should confirm eligibility with a qualified tax professional.'}
         </div>
 
         {/* Savings Disclaimer */}

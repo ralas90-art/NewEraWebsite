@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Home from '../page';
+import HomePageContent from '@/components/pages/HomePageContent';
 
 export const metadata: Metadata = {
   title: 'New Era Solar Energy | Energía Solar para Dueños de Casa',
@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function SpanishHome() {
-  return <Home />;
+  return <HomePageContent locale="es" />;
 }

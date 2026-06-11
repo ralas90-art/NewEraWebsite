@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -50,9 +50,23 @@ export function Footer() {
                 <Phone className="w-3.5 h-3.5 text-[#ff5722]" />
                 (321) 381-3192
               </a>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#ff5722] mt-0.5 flex-shrink-0" />
-                <span>{t.addressPending}</span>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#ff5722] mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-white">{t.officeFLTitle}</span>
+                    <p className="text-white/60">{t.officeFLAddress1}</p>
+                    <p className="text-white/60">{t.officeFLAddress2}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2 border-t border-white/10 pt-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#ff5722] mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-white">{t.officeMATitle}</span>
+                    <p className="text-white/60">{t.officeMAAddress1}</p>
+                    <p className="text-white/60">{t.officeMAAddress2}</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex gap-3">

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { Sun, Shield, DollarSign, Wind, MapPin, ArrowRight } from 'lucide-react';
@@ -36,7 +36,10 @@ export default function ConnecticutPageContent({ locale }: ConnecticutPageConten
     },
   ];
 
-  const cities = ['Hartford', 'Bridgeport', 'New Haven', 'Stamford', 'Waterbury', 'Norwalk', 'Danbury', 'New Britain'];
+  const cities = [
+    'Hartford', 'New Haven', 'Bridgeport', 'Stamford', 'Norwalk',
+    'Danbury', 'Waterbury', 'Greenwich', 'New Britain', 'Meriden', 'Middletown'
+  ];
 
   const faqs = isSpanish
     ? [

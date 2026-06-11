@@ -32,9 +32,23 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify(body),
     });
 
-    const data = await upstreamResponse.json();
+    const contentType = upstreamResponse.headers.get('content-type') || '';
+    let responseData: unknown;
 
-    return NextResponse.json(data, { status: upstreamResponse.status });
+    if (contentType.includes('application/json')) {
+      try {
+        responseData = await upstreamResponse.json();
+      } catch (jsonErr) {
+        console.warn('[Lead Proxy] Upstream returned application/json but parsing failed:', jsonErr);
+        responseData = { status: 'success', message: 'Payload received.' };
+      }
+    } else {
+      const text = await upstreamResponse.text();
+      responseData = { status: 'success', message: 'Payload received.', responseText: text };
+    }
+
+    const status = upstreamResponse.ok ? upstreamResponse.status : 502;
+    return NextResponse.json(responseData, { status });
   } catch (err) {
     console.error('[Lead Proxy] Failed to forward lead payload upstream:', err);
     return NextResponse.json(

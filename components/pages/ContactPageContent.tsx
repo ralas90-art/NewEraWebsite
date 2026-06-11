@@ -197,9 +197,7 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
 
           {/* RIGHT — Lead Form */}
           <div>
-            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2 shadow-sm">
-              <LeadForm />
-            </div>
+            <LeadForm />
           </div>
         </div>
       </section>

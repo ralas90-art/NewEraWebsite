@@ -1,6 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { ReviewTabs } from '@/components/ReviewTabs';
+import { WorkGallery } from '@/components/WorkGallery';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { reviewsPageTranslations } from '@/lib/i18n/pagesContent';
 import { Locale } from '@/lib/i18n/language';
@@ -15,29 +16,10 @@ export default function ReviewsPageContent({ locale }: ReviewsPageContentProps) 
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: isSpanish ? 'Inicio' : 'Home', item: 'https://newerasolarenergy.com' },
-          { '@type': 'ListItem', position: 2, name: isSpanish ? 'Reseñas' : 'Reviews', item: isSpanish ? 'https://newerasolarenergy.com/es/reviews' : 'https://newerasolarenergy.com/reviews' },
-        ],
-      },
-      {
-        '@type': 'Organization',
-        name: 'New Era Solar Energy',
-        url: 'https://newerasolarenergy.com',
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5.0',
-          reviewCount: '3',
-          bestRating: '5',
-          worstRating: '1',
-          description: isSpanish 
-            ? 'Reseñas verificadas de clientes de Google Maps para New Era Solar Energy.' 
-            : 'Verified customer reviews from Google Maps for New Era Solar Energy.',
-        },
-      },
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', position: 1, name: isSpanish ? 'Inicio' : 'Home', item: 'https://newerasolarenergy.com' },
+      { '@type': 'ListItem', position: 2, name: isSpanish ? 'Reseñas' : 'Reviews', item: isSpanish ? 'https://newerasolarenergy.com/es/reviews' : 'https://newerasolarenergy.com/reviews' },
     ],
   };
 
@@ -68,13 +50,31 @@ export default function ReviewsPageContent({ locale }: ReviewsPageContentProps) 
           </div>
         </section>
 
+        {/* Gallery of Completed Work */}
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-[#E2E8F0]">
+          <WorkGallery locale={locale} />
+        </section>
+
         {/* Review Tabs Section */}
-        <section className="max-w-6xl mx-auto px-6 py-16">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center mb-12">
+            <span className="text-[10px] font-bold uppercase text-[#ff5722] tracking-widest mb-3 block">
+              {isSpanish ? 'Reseñas de Clientes' : 'Verified Reviews'}
+            </span>
+            <h2 className="font-poppins font-bold text-2xl md:text-4xl text-[#14324b] mb-4">
+              {isSpanish ? 'Lo que dicen los dueños de casa' : 'Homeowner Testimonials'}
+            </h2>
+            <p className="text-[#4e5257] font-sans text-xs md:text-sm max-w-2xl mx-auto leading-relaxed">
+              {isSpanish 
+                ? 'Comentarios reales publicados por clientes en el Perfil de Empresa de Google de New Era Solar Energy.'
+                : 'Real feedback published by customers on the New Era Solar Energy Google Business Profile.'}
+            </p>
+          </div>
           <ReviewTabs />
         </section>
 
         {/* CTA Row */}
-        <section className="max-w-6xl mx-auto px-6 pb-12">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Share your experience */}
             <div className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-sm flex flex-col gap-4">

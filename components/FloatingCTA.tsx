@@ -1,9 +1,12 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +43,7 @@ export function FloatingCTA() {
         onClick={scrollToLeadForm}
         className="w-full bg-[#ff5722] text-white py-4 rounded-full font-bold text-[13px] uppercase tracking-wider shadow-[0_8px_30px_rgb(255,138,61,0.3)] border border-[#e04a1b] hover:bg-[#e0752f] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
       >
-        <span>Get a Free Solar Assessment</span>
+        <span>{isSpanish ? 'Evaluación Solar Gratis' : 'Get a Free Solar Assessment'}</span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
           <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>

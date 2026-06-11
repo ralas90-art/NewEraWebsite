@@ -1,4 +1,4 @@
-﻿import Analytics from '../components/Analytics';
+import Analytics from '../components/Analytics';
 import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
@@ -24,6 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://newerasolarenergy.com'),
   title: "New Era Solar Energy | Florida's Solar Specialist",
   icons: {
     icon: '/logo-sun.png',

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -88,7 +88,7 @@ export function Header({ onSelectService }: HeaderProps) {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-[#4e5257]">
+        <nav className="hidden xl:flex items-center flex-nowrap whitespace-nowrap gap-4 xl:gap-6 text-sm font-medium text-[#4e5257] shrink-0">
           {desktopLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -104,7 +104,7 @@ export function Header({ onSelectService }: HeaderProps) {
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
           {/* Phone (Desktop) */}
           <a
             href="tel:+13213813192"
@@ -139,7 +139,7 @@ export function Header({ onSelectService }: HeaderProps) {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-[#14324b] cursor-pointer"
+            className="xl:hidden p-2 text-[#14324b] cursor-pointer"
             onClick={handleMenuToggle}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -151,7 +151,7 @@ export function Header({ onSelectService }: HeaderProps) {
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed top-[65px] left-0 right-0 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] z-40 shadow-xl p-4 flex flex-col gap-1 h-[calc(100vh-65px)] overflow-y-auto">
+        <div className="xl:hidden fixed top-[65px] left-0 right-0 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] z-40 shadow-xl p-4 flex flex-col gap-1 h-[calc(100vh-65px)] overflow-y-auto">
           {mobileLinks.map((link) => {
             const isActive = pathname === link.href;
             return (

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Star, CheckCircle } from 'lucide-react';
 
 interface ReviewsProps {
@@ -12,8 +12,8 @@ const VERIFIED_REVIEWS = {
       initials: 'CC',
       color: 'bg-[#ff5722]',
       rating: 5,
-      text: 'Highly Recommend New Era Solar! We had our 26 solar panels installed by New Era Solar this week at our home on Ashville Lane, and we couldn\u2019t be happier with the entire experience! From start to finish, the process was super fast, professional, and hassle-free. What impressed us the most was the unbeatable pricing\u2014they came in almost $20,000 cheaper than any other solar company we looked at! Plus, there was absolutely no pressure to buy.',
-      location: 'Florida Resident',
+      text: 'Highly Recommend New Era Solar! We had our 26 solar panels installed by New Era Solar this week at our home on Ashville Lane, and we couldn’t be happier with the entire experience! From start to finish, the process was super fast, professional, and hassle-free. What impressed us the most was the unbeatable pricing—they came in almost $20,000 cheaper than any other solar company we looked at! Plus, there was absolutely no pressure to buy.',
+      location: 'Orlando, FL',
       tag: 'Solar Installation',
     },
     {
@@ -22,8 +22,26 @@ const VERIFIED_REVIEWS = {
       color: 'bg-[#082fa3]',
       rating: 5,
       text: 'Rudy did a great job to explain where New Era was going to provide me with more power at less cost from their panels compared to a competitor. I have 30 panels on my roof installed previously in 2017. They will be incorporated to supply more solar power to my home. I felt no pressure to complete the deal with Rudy.',
-      location: 'Florida Resident',
+      location: 'Tampa, FL',
       tag: 'Solar Integration',
+    },
+    {
+      name: 'Sofia Romero',
+      initials: 'SR',
+      color: 'bg-green-600',
+      rating: 5,
+      text: 'All went as planned and all the team were punctual and worked with a high standard! Thank you! Highly recommended!!',
+      location: 'Boston, MA',
+      tag: 'Solar Installation',
+    },
+    {
+      name: 'Deborah Kent',
+      initials: 'DK',
+      color: 'bg-purple-600',
+      rating: 5,
+      text: 'They were very polite and answered any questions that we had. They cleaned up all of their mess. Those guys are very hard workers. Thanks again guys, you are awesome!',
+      location: 'Hartford, CT',
+      tag: 'Solar Installation',
     }
   ],
   es: [
@@ -32,18 +50,36 @@ const VERIFIED_REVIEWS = {
       initials: 'CC',
       color: 'bg-[#ff5722]',
       rating: 5,
-      text: '\u00a1Recomiendo ampliamente a New Era Solar! Instalaron nuestros 26 paneles solares esta semana en nuestra casa en Ashville Lane y no podr\u00edamos estar m\u00e1s felices con toda la experiencia. De principio a fin, el proceso fue s\u00faper r\u00e1pido, profesional y sin complicaciones. Lo que m\u00e1s nos impresion\u00f3 fue el precio inmejorable: \u00a1fueron casi $20,000 m\u00e1s baratos que cualquier otra empresa de energ\u00eda solar que vimos! Adem\u00e1s, no hubo absolutamente ninguna presi\u00f3n para comprar.',
-      location: 'Residente de Florida',
-      tag: 'Instalaci\u00f3n Solar',
+      text: '¡Recomiendo ampliamente a New Era Solar! Instalaron nuestros 26 paneles solares esta semana en nuestra casa en Ashville Lane y no podríamos estar más felices con toda la experiencia. De principio a fin, el proceso fue súper rápido, profesional y sin complicaciones. Lo que más nos impresionó fue el precio inmejorable: ¡fueron casi $20,000 más baratos que cualquier otra empresa de energía solar que vimos! Además, no hubo absolutamente ninguna presión para comprar.',
+      location: 'Orlando, FL',
+      tag: 'Instalación Solar',
     },
     {
       name: 'Jack Tunstill',
       initials: 'JT',
       color: 'bg-[#082fa3]',
       rating: 5,
-      text: 'Rudy hizo un gran trabajo explicando que New Era me proporcionar\u00eda m\u00e1s energ\u00eda a un menor costo con sus paneles en comparaci\u00f3n con un competidor. Tengo 30 paneles en mi techo instalados anteriormente en 2017. Se incorporar\u00e1n para suministrar m\u00e1s energ\u00eda solar a mi hogar. No sent\u00ed ninguna presi\u00f3n para completar el trato con Rudy.',
-      location: 'Residente de Florida',
-      tag: 'Integraci\u00f3n Solar',
+      text: 'Rudy hizo un gran trabajo explicando que New Era me proporcionaría más energía a un menor costo con sus paneles en comparación con un competidor. Tengo 30 paneles en mi techo instalados anteriormente en 2017. Se incorporarán para suministrar más energía solar a mi hogar. No sentí ninguna presión para completar el trato con Rudy.',
+      location: 'Tampa, FL',
+      tag: 'Integración Solar',
+    },
+    {
+      name: 'Sofia Romero',
+      initials: 'SR',
+      color: 'bg-green-600',
+      rating: 5,
+      text: '¡Todo salió según lo planeado y todo el equipo fue puntual y trabajó con un alto estándar! ¡Gracias! ¡Muy recomendado!',
+      location: 'Boston, MA',
+      tag: 'Instalación Solar',
+    },
+    {
+      name: 'Deborah Kent',
+      initials: 'DK',
+      color: 'bg-purple-600',
+      rating: 5,
+      text: 'Fueron muy amables y respondieron a todas nuestras preguntas. Limpiaron todo su desorden. Esos muchachos son muy trabajadores. ¡Gracias de nuevo, son increíbles!',
+      location: 'Hartford, CT',
+      tag: 'Instalación Solar',
     }
   ]
 };
@@ -62,8 +98,10 @@ export function Reviews({ locale = 'en' }: ReviewsProps) {
           <h2 className="font-poppins font-bold text-2xl md:text-3xl text-[#14324b]">
             {isSpanish ? "Lo Que Dicen los Propietarios" : "What Homeowners Say"}
           </h2>
-          <p className="text-[#4e5257] text-sm mt-2 font-sans">
-            {isSpanish ? "Experiencias reales de clientes en Google Reviews." : "Real customer experiences from Google Reviews."}
+          <p className="text-[#4e5257] text-xs mt-2 font-sans leading-relaxed">
+            {isSpanish 
+              ? "Comentarios reales publicados por clientes en el Perfil de Empresa de Google de New Era Solar Energy." 
+              : "Real feedback published by customers on the New Era Solar Energy Google Business Profile."}
           </p>
         </div>
         <div className="flex items-center gap-2 bg-[#ff5722]/5 border border-[#ff5722]/15 px-4 py-2 rounded-2xl">

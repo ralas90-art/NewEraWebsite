@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { Sun, Shield, DollarSign, Wind, MapPin, ArrowRight } from 'lucide-react';
@@ -36,7 +36,11 @@ export default function MassachusettsPageContent({ locale }: MassachusettsPageCo
     },
   ];
 
-  const cities = ['Boston', 'Worcester', 'Springfield', 'Cambridge', 'Lowell', 'New Bedford', 'Quincy', 'Brockton'];
+  const cities = [
+    'Boston', 'Cambridge', 'Quincy', 'Somerville', 'Brookline',
+    'Newton', 'Waltham', 'Medford', 'Revere', 'Chelsea',
+    'Everett', 'Lynn', 'Worcester', 'Springfield', 'Framingham'
+  ];
 
   const faqs = isSpanish
     ? [

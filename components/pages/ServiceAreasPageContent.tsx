@@ -31,7 +31,11 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
           tagline: 'Programa SMART y medición neta sólida',
           description:
             'El programa de incentivos SMART de Massachusetts y su medición neta de primer nivel lo convierten en un estado líder para la energía solar, incluso con el clima invernal. Los propietarios se benefician de incentivos estatales sustanciales.',
-          cities: ['Boston', 'Worcester', 'Springfield', 'Cambridge', 'Lowell', 'New Bedford'],
+          cities: [
+            'Boston', 'Cambridge', 'Quincy', 'Somerville', 'Brookline',
+            'Newton', 'Waltham', 'Medford', 'Revere', 'Chelsea',
+            'Everett', 'Lynn', 'Worcester', 'Springfield', 'Framingham'
+          ],
           highlight: 'Estado líder en incentivos',
         },
         {
@@ -41,7 +45,10 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
           tagline: 'Financiamiento del Green Bank y medición neta',
           description:
             'Los propietarios de viviendas en Connecticut se benefician de programas competitivos de medición neta y financiamiento a tasas muy bajas del Green Bank. Al tener tarifas eléctricas elevadas, los ahorros solares son de gran valor.',
-          cities: ['Hartford', 'Bridgeport', 'New Haven', 'Stamford', 'Waterbury', 'Norwalk'],
+          cities: [
+            'Hartford', 'New Haven', 'Bridgeport', 'Stamford', 'Norwalk',
+            'Danbury', 'Waterbury', 'Greenwich', 'New Britain', 'Meriden', 'Middletown'
+          ],
           highlight: 'Top 10 en tarifas eléctricas en EE.UU.',
         },
       ]
@@ -63,7 +70,11 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
           tagline: 'SMART program & robust net metering',
           description:
             'Massachusetts SMART incentive program and strong net metering make it a top solar state even with seasonal weather. MA homeowners benefit from state-level support that improves the economics of going solar.',
-          cities: ['Boston', 'Worcester', 'Springfield', 'Cambridge', 'Lowell', 'New Bedford'],
+          cities: [
+            'Boston', 'Cambridge', 'Quincy', 'Somerville', 'Brookline',
+            'Newton', 'Waltham', 'Medford', 'Revere', 'Chelsea',
+            'Everett', 'Lynn', 'Worcester', 'Springfield', 'Framingham'
+          ],
           highlight: '#1 Solar Policy State',
         },
         {
@@ -73,7 +84,10 @@ export default function ServiceAreasPageContent({ locale }: ServiceAreasPageCont
           tagline: 'Green Bank financing & net metering credits',
           description:
             'Connecticut homeowners benefit from competitive net metering tariffs and state incentive programs supporting clean energy. With some of the highest electricity rates in the country, solar savings in CT are significant.',
-          cities: ['Hartford', 'Bridgeport', 'New Haven', 'Stamford', 'Waterbury', 'Norwalk'],
+          cities: [
+            'Hartford', 'New Haven', 'Bridgeport', 'Stamford', 'Norwalk',
+            'Danbury', 'Waterbury', 'Greenwich', 'New Britain', 'Meriden', 'Middletown'
+          ],
           highlight: 'Top 10 electricity rates in US',
         },
       ];
