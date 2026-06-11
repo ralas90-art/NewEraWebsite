@@ -52,7 +52,7 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
       : 'Residential solar, roofing, and water purification services across FL, MA, and CT.',
     url: 'https://newerasolarenergy.com',
     telephone: '+1-321-381-3192',
-    email: 'info@newerasolarenergy.com',
+    email: 'solarinfo@newerasolarenergy.com',
     openingHours: 'Mo-Sa 08:00-19:00',
     areaServed: [
       { '@type': 'State', name: 'Florida' },
@@ -145,7 +145,7 @@ export default function ContactPageContent({ locale }: ContactPageContentProps) 
                   <Mail className="w-5 h-5 text-[#ff5722] mt-1 shrink-0" />
                   <div>
                     <p className="text-[10px] font-bold text-[#4e5257] uppercase tracking-widest mb-0.5">{t.emailLabel}</p>
-                    <a href="mailto:info@newerasolarenergy.com" className="text-[#14324b] font-semibold font-sans hover:text-[#ff5722] transition-colors">
+                    <a href="mailto:solarinfo@newerasolarenergy.com" className="text-[#14324b] font-semibold font-sans hover:text-[#ff5722] transition-colors">
                       {t.emailVal}
                     </a>
                     <p className="text-xs text-[#4e5257] font-sans">{t.emailSub}</p>
